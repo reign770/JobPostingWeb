@@ -197,6 +197,44 @@ public class Enterprise {
 	public void setEvaluations(List<Evaluation> evaluations) {
 		this.evaluations = evaluations;
 	}
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((businessLicenseId == null) ? 0 : businessLicenseId
+						.hashCode());
+		result = prime
+				* result
+				+ ((enterpriseAccount == null) ? 0 : enterpriseAccount
+						.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Enterprise other = (Enterprise) obj;
+		if (businessLicenseId == null) {
+			if (other.businessLicenseId != null)
+				return false;
+		} else if (!businessLicenseId.equals(other.businessLicenseId))
+			return false;
+		if (enterpriseAccount == null) {
+			if (other.enterpriseAccount != null)
+				return false;
+		} else if (!enterpriseAccount.equals(other.enterpriseAccount))
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
