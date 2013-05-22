@@ -19,14 +19,14 @@ public class JobApplication {
 	private Recruitment recruitment;
 	@Id
 	@GeneratedValue
-	public Date getApplyDate() {
-		return applyDate;
-	}
 	public long getApplyId() {
 		return applyId;
 	}
 	public void setApplyId(long applyId) {
 		this.applyId = applyId;
+	}
+	public Date getApplyDate() {
+		return applyDate;
 	}
 	public void setApplyDate(Date applyDate) {
 		this.applyDate = applyDate;
