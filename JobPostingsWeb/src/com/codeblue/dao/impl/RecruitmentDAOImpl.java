@@ -172,18 +172,18 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 				.add(Property.forName("r.state").eq(1))
 				.createCriteria("r.enterprise", "e")
 				.setProjection(Projections.rowCount());
-		if(queryWord != null|| !queryWord.equals(""))
+		if(queryWord != null && !queryWord.equals(""))
 			detachedCriteria
 			.add(Restrictions.or(
 					Restrictions.like("e.enterpriseName", queryWord,MatchMode.ANYWHERE), 
 					Restrictions.like("r.postingName", queryWord, MatchMode.ANYWHERE)))
 			;
 		
-		if(postingName !=null || !postingName.equals(""))
+		if(postingName !=null && !postingName.equals(""))
 			detachedCriteria
 			.add(Restrictions.eq("r.postingName", postingName));
 		
-		if(workingPlace != null || !workingPlace.equals(""))
+		if(workingPlace != null && !workingPlace.equals(""))
 			detachedCriteria
 			.add(Restrictions.eq("r.workingPlace", workingPlace));
 		

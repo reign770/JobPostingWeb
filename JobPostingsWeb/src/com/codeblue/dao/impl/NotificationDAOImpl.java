@@ -48,7 +48,6 @@ public class NotificationDAOImpl implements NotificationDAO{
 		Property stuId = Property.forName("studentId");
 		detachedCriteria.add(stuId.eq(studentId))
 						.add(Restrictions.in("state", states));
-		
 		return hibernateTemplate.findByCriteria(detachedCriteria,offset,pageSize);
 	}
 
