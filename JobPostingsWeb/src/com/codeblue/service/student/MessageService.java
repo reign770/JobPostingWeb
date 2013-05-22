@@ -17,10 +17,8 @@ public interface MessageService {
 	
 	public PageBean getReadedNotifications(String studentId,int pageNumber,int pageSize);
 	
-	public PageBean getUnreadedJobInvitations(String studentId,int pageNumber,int pageSize);
-	
 	public int deleteNotification(long notificationId);
 	
-	public Notification getNotification(long notificationId);
+	public Notification readNotification(long notificationId);
 	
 }

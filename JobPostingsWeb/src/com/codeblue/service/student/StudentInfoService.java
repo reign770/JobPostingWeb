@@ -13,11 +13,31 @@ import com.codeblue.util.PageBean;
  * @datetime 2013-5-20 下午10:42:08
  */
 public interface StudentInfoService {
-	
+	/**
+	 * 判断登录信息
+	 * @param studentId
+	 * @param password
+	 * @return
+	 *       1 身份正确  2用户名不存  3密码错误
+	 */
 	public int validLogin(String studentId,String password);
-	
+	/**
+	 * 修改简历
+	 * @param brief
+	 * @return
+	 */
 	public int modifyBrief(Brief brief);
-	
-	public Student getResume(String studentId);
+	/**
+	 * 获取学生信息
+	 * @param studentId
+	 * @return
+	 */
+	public Student getStudent(String studentId);
+	/**
+	 * 修改学生的就业意向
+	 * @param studentId
+	 * @param industryId
+	 */
+	public void modifyJobIntention(String studentId,int industryId);
 
 }
