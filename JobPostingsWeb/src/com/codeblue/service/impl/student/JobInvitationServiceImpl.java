@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import com.codeblue.dao.JobApplicationDAO;
 import com.codeblue.dao.JobInvitationDAO;
 import com.codeblue.model.JobApplication;
@@ -13,7 +15,7 @@ import com.codeblue.model.property.JobApplicationState;
 import com.codeblue.model.property.JobInvitationState;
 import com.codeblue.service.student.JobInvitationService;
 import com.codeblue.util.PageBean;
-
+@Service("jobInvitationService")
 public class JobInvitationServiceImpl implements JobInvitationService {
 	
 	private JobInvitationDAO jobInvitationDAO;
@@ -74,6 +76,7 @@ public class JobInvitationServiceImpl implements JobInvitationService {
 		jobInvitation.setState(JobInvitationState.ACCPET);
 		jobInvitationDAO.update(jobInvitation);
 		JobApplication jobApplication = new JobApplication();
+		jobApplication.setStudent(jobInvitation.getStudent());
 		jobApplication.setApplyDate(new Date());
 		jobApplication.setContent("我接受你们的邀请,应聘"+jobInvitation.getRecruitment().getDegree());
 		jobApplication.setRecruitment(jobInvitation.getRecruitment());

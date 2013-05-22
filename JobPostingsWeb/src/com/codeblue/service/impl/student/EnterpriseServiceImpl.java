@@ -72,7 +72,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		pageBean.setAllRow(allRow);
 		pageBean.setPageSize(pageSize);
 		pageBean.init();
-		return null;
+		return pageBean;
 	}
 
 	@Override
@@ -88,6 +88,16 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		evaluationDAO.insert(evaluation);
 	}
 
+
+	@Override
+	public Boolean isConcernEnterprise(String studentId, int enterpriseId) {
+		Student student = studentDAO.getByStudentId(studentId);
+		Enterprise enterprise = enterpriseDAO.getByEnterpriseId(enterpriseId);
+		if(student.getConcernEnterprises().contains(enterprise)) {
+			return true;
+		}
+		return false;
+	}
 
 	public EnterpriseDAO getEnterpriseDAO() {
 		return enterpriseDAO;

@@ -1,5 +1,6 @@
 package com.codeblue.service.impl.student;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,7 +15,7 @@ import com.codeblue.model.property.JobApplicationState;
 import com.codeblue.service.student.JobApplicationService;
 import com.codeblue.util.PageBean;
 
-@Service
+@Service("jobApplicationService")
 public class JobApplicationServiceImpl implements JobApplicationService{
 	
 	private JobApplicationDAO jobApplicationDAO;
@@ -44,6 +45,7 @@ public class JobApplicationServiceImpl implements JobApplicationService{
 		student.setStudentId(studentId);
 		Recruitment recruitment = new Recruitment();
 		recruitment.setRecruitmentId(recruitmentId);
+		jobApplication.setApplyDate(new Date());
 		jobApplication.setStudent(student);
 		jobApplication.setContent(content);
 		jobApplication.setRecruitment(recruitment);
