@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+a{
+	cursor:pointer;}
+.myLayout{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+    top: 0;
+	left: 0;
+	overflow:hidden;
+	background:#ECEFF1;
+    }
+.navs{
+	position: relative;
+	float: left;
+	width:20%;
+	height:100%;
+	/*overflow:auto;
+	background:url(img/bg.png);
+	background-size:cover;*/
+	
+	
+	}
+#intropanel{
+	position:relative;
+	width:auto;
+	height:auto;
+	overflow:hidden;}
+#intropanel #headicon{
+	position:relative;
+	float:left;
+	}
+#intropanel #username{
+	position:relative;
+	text-align: center;
+	float:left;
+	}
+.contents{
+	position: relative;
+	float: right;
+	width:80%;
+	height:100%;
+	/*box-shadow: 0 0 5px 0 silver;*/}
+.contents .tabs{
+	/*width:100%;
+	height: 40px;
+    position: fixed;
+	background:white;*/}
+.contents .tabs .tabslayer{
+	height:100%}
+.contents .tabs-panels{
+	/*border-left:1px solid #ddd;
+	width:100%;
+	height:100%;*/}
+#barPart{
+	position:absolute;
+	width:100%;
+	height:32px;
+	background:#1e1e1e;
+	}
+/*内容窗口*/
+.myIframe{
+    background:#ECEFF1;
+	padding-left:1%;
+	width:99%;
+	}
+/*头像&通知*/
+#barPart #headicon{
+	left: 10px;
+    max-width: 30px;
+    overflow: hidden;
+    position:absolute;
+    width: auto;
+	}
+#barPart #username{
+	color: white;
+    left: 40px;
+	width:auto;
+    max-width: 150px;
+    position:absolute;
+	}
+#barPart #notification{
+	left: 190px;
+    margin-top: -7px;
+    position: absolute;
+    top: 45%;
+	}
+

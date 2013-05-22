@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;}
+	
+#fileupload{
+	left: 50%;
+    margin-left: -200px;
+    position: absolute;
+    top: 300px;
+    width: 400px;
+	}
+

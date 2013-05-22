@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据统计</title>
+<link href="css/a_dataCalculatingAndOutput.css" rel="stylesheet" media="screen"/>
+<link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+<link href="js/jquery-easyui-1.3.3/themes/bootstrap/easyui.css" rel="stylesheet" media="screen"/>
+<link href="js/jquery-easyui-1.3.3/themes/icon.css" rel="stylesheet" media="screen"/>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="css/bootstrap/js/bootstrap.js"></script>
+<script src="js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/jquery-easyui-1.3.3/datagrid-detailview.js"></script>
+<script type="application/javascript">
+$(function () {
+	    $('#dg').datagrid({ 
+		view: detailview,  
+        detailFormatter:function(index,row){ 
+		    return '<div class="ddv">'+
+						'<div id="basicInfoContent" class="row">'+	
+       						'<dl class="dl-horizontal span8">'+
+    							'<dt>姓名：</dt>'+
+    							'<dd><input type="text" value="'+row.name+'"/></dd>'+
+            					'<dt>性别：</dt>'+
+    							'<dd><input type="text" value="'+row.sex+'"/></dd>'+
+    						'</dl>'+
+            				'<div id="basicInfoHeadIcon" >'+
+            					'<img src="img/12883156763984.jpg" width="200" height="200"  class="img-polaroid"/>'+
+            				'</div>'+
+        				'</div>	'+
+					'</div>';  
+        },  
+		toolbar: [{
+			iconCls: 'icon-edit',
+			handler: function(){alert('edit')}
+	    },'-',{
+			iconCls: 'icon-help',
+			handler: function(){alert('help')}
+		}],  
+        columns:[[ 
+			{field:'choose',title:'Choose',width:100,checkbox:true}, 
+            {field:'name',title:'姓名',width:100},  
+            {field:'sex',title:'性别',width:100},
+			{field:'birth',title:'出生年月',width:100},  
+            {field:'nation',title:'民族',width:100}, 
+			{field:'eduBackground',title:'学历',width:100},  
+            {field:'gpa',title:'GPA',width:100},
+			{field:'A',title:'A',width:100},  
+            {field:'B',title:'B',width:100}, 
+			{field:'C',title:'C',width:100},  
+            {field:'D',title:'D',width:100}
+			
+        ]],
+		pagination:true
+		
+    });  
+});
+</script>
+</head>
+
+<body style="background:#ECEFF1;">
+<div class="myLayout">
+	
+    
+   <div id="positionsContent">
+  
+ 	<div id="contents" class="easyui-panel" style="height:auto; overflow:hidden; background:transparent; border:none;" data-options="href:''"> 
+    	
+    	<table id="dg">
+        	<tbody>  
+        <tr>  
+            <td></td><td>SSSSS</td><td>男</td><td>2013-1-1</td><td>汉</td><td>大学本科</td><td>4.0</td><td>2013-1-1</td><td>汉</td><td>大学本科</td><td>4.0</td>       
+        </tr>  
+        <tr>  
+            <td></td><td>BBBB</td><td>男</td><td>2013-1-1</td><td>汉</td><td>大学本科</td><td>4.0</td><td>2013-1-1</td><td>汉</td><td>大学本科</td><td>4.0</td>   
+        </tr>  
+    </tbody>  
+        </table> 
+        
+    </div>  
+    </div>  
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>通知</title>
+<link href="css/s_findaJob.css" rel="stylesheet" media="screen"/>
+<link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="css/bootstrap/js/bootstrap.js"></script>
+<script src="css/bootstrap-typeahead/bootstrap-typeahead.js"></script>
+<script type="application/javascript">
+$(function () {
+	$('#searchingBar .label').toggle(function(){
+			$('#searchingBar .rows').css("display","block");
+			$(this).html('简单搜索<i class="icon-chevron-up"></i>');
+		},function(){
+			$('#searchingBar .rows').css("display","none");
+			$(this).html('高级搜索<i class="icon-chevron-down"></i>');
+		});
+});
+</script>
+</head>
+
+<body style="background:#ECEFF1;">
+<div class="myLayout">
+	<div class="navbar" id="searchingBar">
+      <form>
+    	<div  id="searchingBarContent">
+    		<input type="text" class="input-medium search-query" placeholder="请输入职位名称">
+        	<input type="text" class="input-medium search-query" placeholder="请输入城市名称">
+			<button type="submit" class="btn btn-info">搜索职位</button>
+  		</div>
+         <div class="rows">
+        	<span class="span4">
+        		<label class="pull-left">每月薪水:</label>
+       			<select class="pull-right">
+					<option>不限</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+       		</span>
+        	<span class="span4 offset1">
+        		<label class="pull-left">工作经验:</label>
+       			<select class="pull-right" >
+					<option>不限</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+       		</span>
+        </div>
+       <div class="rows">
+        	<span class="span4">
+        		<label class="pull-left">所属行业:</label>
+       			<select class="pull-right">
+					<option>不限</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+       		</span>
+        	<span class="span4 offset1">
+        		<label class="pull-left">职位类别:</label>
+       			<select class="pull-right" >
+					<option>不限</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+       		</span>
+        </div>
+        <div class="rows">
+        	<span class="span4">
+        		<label class="pull-left">学历要求：</label>
+       			<select class="pull-right">
+					<option>不限</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+       		</span>
+        	<span class="span4 offset1">
+        		<label class="pull-left">企业类型：</label>
+       			<select class="pull-right" >
+					<option>不限</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+       		</span>
+        </div>
+  </form>
+        <span class="label label-info">高级搜索<i class="icon-chevron-down"></i></span>
+    </div>
+    
+    <div id="industryPanel" class="well">
+    	    <button type="button" class="btn" data-toggle="collapse" data-target="#industry1">IT/互联网/通信/电子</button>
+            <div id="industry1" class="collapse in">
+                <div class="collapseContent">
+            		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+               		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                </div>
+            </div>
+            <button type="button" class="btn" data-toggle="collapse" data-target="#industry2">金融/投资/财会</button>
+            <div id="industry2" class="collapse">
+                <div class="collapseContent">
+            		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+               		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                </div>
+            </div>
+            <button type="button" class="btn" data-toggle="collapse" data-target="#industry3">广告/媒体/出版/艺术</button>
+            <div id="industry3" class="collapse">
+                <div class="collapseContent">
+            		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+               		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                </div>
+            </div>
+            <button type="button" class="btn" data-toggle="collapse" data-target="#industry4">市场/销售/客服</button>
+            <div id="industry4" class="collapse">
+                <div class="collapseContent">
+            		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                	<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+               		<a href="#" class="span2">软件工程师</a>
+                	<a href="#" class="span2">系统工程师</a>
+                </div>
+            </div>
+    </div>
+    
+	
+
+
+
+</div>
+</body>
+</html>

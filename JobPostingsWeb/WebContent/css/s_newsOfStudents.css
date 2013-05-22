@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	}
+	
+.myLayout{
+	height: auto;
+	min-height:100%;
+	width: 100%;
+	background:#ECEFF1;
+	overflow:hidden;
+    }
+
+#newsNav{
+	position:fixed;
+	width:100%;
+	z-index: 999;
+	box-shadow: 0 0 5px 0 silver;
+	}
+#newsNav #navContent{
+	background:#ECEFF1;
+	width:100%;
+	padding-left:40%;
+	z-index:1000;
+	padding-top:5px;
+	padding-bottom:5px;
+	}
+#newsNav #navContent .nav{
+	margin-bottom: 0px;}
+	
+#newsContent{
+	margin-top:50px;
+	margin-bottom:50px;}
+/*分页*/
+#newsContent #pagination{
+	position:fixed;
+	bottom: 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+	background:#ECEFF1;
+	box-shadow: 0 0 5px 0 silver;}
+/*内容*/
+#newsContent #contents .content{
+	width:80%;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:10%;
+	height:auto;
+	overflow:hidden;
+	background:white;}
+#newsContent #contents .content img{
+	overflow:hidden;
+	max-width:100px;
+	max-height:100px;}
+#newsContent #contents .content a:hover{
+	text-decoration:none;
+	color:#666;}
+

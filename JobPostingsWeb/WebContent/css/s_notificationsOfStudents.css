@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	}
+	
+.myLayout{
+	height: auto;
+	min-height:100%;
+	width: 100%;
+	background:#ECEFF1;
+	overflow:hidden;
+    }
+#myTab{
+	width:80%;
+	margin-left:10%;
+	margin-bottom: 0;
+	}
+.tab-content{
+	width:90%;
+	margin-left:5%;
+	height:auto;
+	overflow:hidden;
+	background:white;
+	border-top:1px solid #EBEBEB;
+	}
+.tab-content .content{
+	border-bottom:1px solid #EBEBEB;}
+.tab-content .content h6{
+	width: 70%; 
+	float: left;}
+.tab-content .content img{
+	overflow:hidden;
+	max-width:50px;
+	max-height:50px;}
+.tab-content .content a:hover{
+	text-decoration:none;
+	color:#666;}

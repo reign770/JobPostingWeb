@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+.navs>.layer1>li:not([class=nav-header]){
+	display:none;}
+.layer1{
+	padding:2%;
+	position: absolute;
+    width: 85%;
+	height:auto;
+	min-height:60%;
+	max-height:90%;
+	background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+	top:35px;
+	overflow:auto;
+	left:5px;
+	}
+.layer1>.active > a{
+  color: #ffffff;
+  background-color: #0088cc;
+}
+.layer2{
+	border: 1px solid #DDDDDD;
+	border-top:none;
+	display:none;}
+.directionIcon{
+	height: 100px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+	}
+.icon-chevron-right{
+	position: absolute;
+    right: 5%;
+	top:40%;
+	}
+.icon-chevron-down{
+	position: absolute;
+    right: 5%;
+	}
+.icon-chevron-up{
+	position: absolute;
+    right: 5%;
+	}

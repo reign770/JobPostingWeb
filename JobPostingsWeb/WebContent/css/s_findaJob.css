@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	}
+	
+.myLayout{
+	height:auto;
+	min-height:100%;
+	width: 100%;
+	overflow:hidden;
+    }
+#searchingBar{
+	position:relative;
+	width:100%;
+	height:auto;
+	z-index: 999;
+	box-shadow: 0 0 5px 0 silver;
+	padding-top:5px;
+	padding-bottom:5px;
+	}
+#searchingBar #searchingBarContent{
+	width:auto;
+	margin-left: -220px;
+    padding-left: 50%;
+	}
+#searchingBar .label{
+	margin-left: 46%;
+	cursor:pointer;}
+#searchingBar .rows{
+	height: auto;
+    margin-left: -370px;
+    overflow: hidden;
+    padding-left: 50%;
+    width: auto;
+	display:none;}
+#industryPanel{
+	width:80%;
+	margin-left:10%;}
+#industryPanel button{
+	width:100%;
+	text-align:center;}
+#industryPanel .collapse{
+	background:#FFF;}
+#industryPanel .collapse .collapseContent{
+	padding-top:10px;
+	padding-bottom:10px;}

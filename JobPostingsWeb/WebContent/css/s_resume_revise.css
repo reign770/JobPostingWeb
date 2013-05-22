@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;}
+.page-header{
+	color:#5A5A5A;
+	font-family: 微软雅黑;
+	font-weight: normal;}
+.additionalInfo textarea{
+	width:80%;
+	}
+#buttons{
+	padding-top:50px;
+	padding-bottom:50px;
+	text-align:center;}
+
+

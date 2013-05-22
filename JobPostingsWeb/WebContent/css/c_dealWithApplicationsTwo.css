@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	}
+	
+.myLayout{
+	height:auto;
+	min-height:100%;
+	width: 100%;
+	overflow:hidden;
+    }
+/*分页*/
+#positionsContent .pagination{
+	position:fixed;
+	bottom: 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+	background:#ECEFF1;
+	box-shadow: 0 0 5px 0 silver;}
+/*内容*/
+#positionsContent #contents{
+	padding-bottom:50px;}
+#positionsContent #contents .content{
+	width:80%;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:10%;
+	height:auto;
+	overflow:hidden;
+	background:white;}
+#positionsContent #contents .content img{
+	overflow:hidden;
+	max-width:100px;
+	max-height:100px;}
+#positionsContent #contents .content a{
+	width:auto;}
+#positionsContent #contents .content a:hover{
+	text-decoration:none;
+	color:#666;}
+
