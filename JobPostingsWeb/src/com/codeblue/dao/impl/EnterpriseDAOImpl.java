@@ -30,6 +30,7 @@ import com.codeblue.model.property.StudentAccount;
 
 @Repository("enterpriseDAO")
 public class EnterpriseDAOImpl implements EnterpriseDAO{
+	@Resource
 	private HibernateTemplate hibernateTemplate;
 	
 	@Override
