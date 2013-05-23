@@ -10,7 +10,13 @@
 	<constant name="struts.multipart.paeser" value="cos"/>
 	<!-- <constant name="struts.action.extension" value="action"></constant> -->
 	<package name="default" namespace="/" extends="struts-default">
-		<action name=""></action>
+		 <action name="c_login" class="com.codeblue.action.web.enterprise.LoginAction">
+		    <result name="login">/login.jsp</result>
+			<result name="success">/c_PersonalPage.jsp</result>
+		</action>
+		<action name="c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
+			<result name="success">/c_{1}.jsp</result>
+		</action>
 	</package>
 
 </struts>
