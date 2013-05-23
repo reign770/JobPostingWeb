@@ -1,10 +1,11 @@
 package com.codeblue.dao.impl;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.codeblue.dao.AdministratorDAO;
 import com.codeblue.model.Administrator;
-
+@Repository("administratorDAO")
 public class AdministratorDAOImpl implements AdministratorDAO {
 	
 	private HibernateTemplate hibernateTemplate;

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.codeblue.dao.NotificationDAO;
 import com.codeblue.model.Notification;
-@Repository
+@Repository("notificationDAO")
 public class NotificationDAOImpl implements NotificationDAO{
 	
 	private HibernateTemplate hibernateTemplate;
