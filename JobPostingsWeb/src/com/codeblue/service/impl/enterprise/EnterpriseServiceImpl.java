@@ -9,7 +9,7 @@ import com.codeblue.model.Enterprise;
 import com.codeblue.service.enterprise.EnterpriseService;
 @Service("ent_enterpriseService")
 public class EnterpriseServiceImpl implements EnterpriseService {
-	@Resource(name="ent_enterpriseDAO")
+	@Resource(name="enterpriseDAO")
 	private EnterpriseDAO enterpriseDAO;
 
 	@Override

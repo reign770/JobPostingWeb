@@ -13,7 +13,7 @@ import com.codeblue.service.enterprise.EvaluationService;
 import com.codeblue.util.PageBean;
 @Service("ent_evaluationService")
 public class EvaluationServiceImpl implements EvaluationService {
-	@Resource(name="ent_valuationDAO")
+	@Resource(name="valuationDAO")
 	private EvaluationDAO evaluationDAO;
 
 	@Override

@@ -52,7 +52,7 @@ $(function(){
     			<button class="btn">学校</button>
    				<button class="btn">企业</button>
    			</div>
-        	<form id="loginForm" action="c_login" method="post">
+        	<form id="loginForm" action="enterprise/c_login.action" method="post">
             	<input type="text" class="text" name="enterprise.enterpriseAccount" placeholder="用户名">
                 <input type="password" class="password" name="enterprise.password" placeholder="密码">
                     

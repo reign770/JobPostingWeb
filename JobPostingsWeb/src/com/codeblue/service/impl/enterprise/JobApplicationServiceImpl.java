@@ -13,7 +13,7 @@ import com.codeblue.service.enterprise.JobApplicationService;
 import com.codeblue.util.PageBean;
 @Service("ent_jobApplicationService")
 public class JobApplicationServiceImpl implements JobApplicationService {
-	@Resource(name="ent_jobApplicationDAO")
+	@Resource(name="jobApplicationDAO")
 	private JobApplicationDAO jobApplicationDAO;
 
 	@Override
