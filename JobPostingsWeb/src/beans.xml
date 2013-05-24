@@ -69,12 +69,12 @@
 		</property>
 	</bean>
 	
-	<bean id="hibernateInterceptor"
+	<!-- <bean id="hibernateInterceptor"
 		  class="org.springframework.orm.hibernate3.HibernateInterceptor">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
-	</bean>
+	</bean> -->
 	
 	
 	<bean id="hibernateTemplate" 
@@ -104,8 +104,11 @@
 	
  	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="exists" read-only="true" />
-			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="get*" read-only="false" propagation="NOT_SUPPORTED"/>
+   			<tx:method name="find*" read-only="false" propagation="NOT_SUPPORTED"/>
+   			<tx:method name="save*" propagation="REQUIRED"/> <!-- 如果不把save update delete都配置上，这些操作会无效 -->
+  			<tx:method name="update*" propagation="REQUIRED"/> 
+  			<tx:method name="delete*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice> 
 
