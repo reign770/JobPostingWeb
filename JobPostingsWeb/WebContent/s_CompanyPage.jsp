@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>公司主页</title>
-<link href="/JobPostingsWeb/css/c_companyPage.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/css/s_companyPage.css" rel="stylesheet" media="screen"/>
 <link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
 <script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
 <script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
@@ -80,7 +80,7 @@ $(function(){
     							<img class="media-object img-polaroid" src="${enterprise.logo}" style="" >
                				</a>
     						<div class="media-body">
-   								<a href="c_PositionDetail_load?recruitmentId=1"><h4 class="media-heading">${postingName}</h4></a>
+   								<a href="#"><h4 class="media-heading">${postingName}</h4></a>
                    				<a href="#"><h6 class="media-heading">${enterprise.enterpriseName} </h6></a>
     			  				工作城市：${workingPlace } 每月薪水：${salary } 行业类别：${industry.jobType }
      						</div>
@@ -89,22 +89,36 @@ $(function(){
 				</s:iterator>
 			</div>
 			<div id="forum">
-				<s:iterator value="evaluations">
-					<div class="commentRow">
-						<div class="row">	
-       						<div id="comments_user" class="span1">
-            					<a href="#">
-              						<img src="${student.headImage }" width="50" height="50"  class="img-polaroid"/>
-              						<p>${student.name }</p>
-             	 				</a>
-           				 	</div>
-           	 				<div id="comments_content" class="span5">
-              					<p>content<br /><fmt:formatDate value="${pubdate}" pattern="yyyy-MM-dd"/></p>
-            				</div>
-       		 			</div>
-        		 	</div>
-         	</s:iterator>
-         		
+				<div class="commentRow">
+					<div class="row">	
+       					<div id="comments_user" class="span1">
+            				<a href="#">
+              					<img src="img/12883156763984.jpg" width="50" height="50"  class="img-polaroid"/>
+              					<p>名字</p>
+             	 			</a>
+           				 </div>
+           	 			<div id="comments_content" class="span8">
+              				<p>dadadadadada<br />sasasasasasas</p>
+            			</div>
+       		 		</div>
+        		 </div>
+         
+         		<div class="addcommentRow">
+					<div class="row">	
+       					<div id="comments_user" class="span1">
+            				<a href="#">
+              					<img src="img/12883156763984.jpg" width="50" height="50"  class="img-polaroid"/>
+              					<p>名字</p>
+             	 			</a>
+           		 		</div>
+           	 			<div id="comments_addcontent" class="span9">
+              		 		<textarea rows="5" ></textarea>
+            			</div> 
+       		 		</div>
+             		<div class="buttons row">	
+                		<input type="button" class="btn btn-primary offset2" value="    提交评论   "/>
+            		 </div>
+         		</div>
 			</div>
    		</div>
    		<div id="right" class="span4">
