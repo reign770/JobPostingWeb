@@ -40,8 +40,8 @@
            <li class="nav-header"><i class="icon-chevron-down"></i>企业</li>
             <li><a href="#" onclick="addTab('dealWithApplicationsOne','/JobPostingsWeb/c_dealWithApplicationsOne.html')">处理职位申请——选职位</a></li>
            	<li><a href="#" onclick="addTab('dealWithApplicationsTwo','/JobPostingsWeb/c_dealWithApplicationsTwo.html')">处理职位申请</a></li>
-           	<li><a href="#" onclick="addTab('positionDetail_create','/JobPostingsWeb/c_positionDetail_create.html')">创建招聘信息</a></li>
-           	<li><a href="#" onclick="addTab('companypage','/JobPostingsWeb/enterprise/c_CompanyPage_load')">公司首页</a></li> 
+           	<li><a href="#" onclick="addTab('positionDetail_create','/JobPostingsWeb/enterprise/c_CreatePositionDetail_load.action')">创建招聘信息</a></li>
+           	<li><a href="#" onclick="addTab('companypage','/JobPostingsWeb/enterprise/c_CompanyPage_load.action')">公司首页</a></li> 
            	<li><a href="#" onclick="addTab('c_positionDetail','/JobPostingsWeb/c_positionDetail.html')">职位详情</a></li>
            <li class="nav-header"><i class="icon-chevron-down"></i>c</li>
            <li><a href="#">首页</a></li>

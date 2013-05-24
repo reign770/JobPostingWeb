@@ -30,6 +30,8 @@
     				<dd>${recruitment.salary}</dd>
             		<dt>工作经验：</dt>
     				<dd>${recruitment.workExperience}</dd>
+    				<dt>性别要求：</dt>
+    				<dd>${recruitment.sex}</dd>
     				<dt>年龄要求：</dt>
     				<dd>${recruitment.age}</dd>
     				<dt>外语要求：</dt>
