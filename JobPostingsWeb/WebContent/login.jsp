@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>登录</title>
-<link href="css/login.css" rel="stylesheet" media="screen"/>
-<link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="css/bootstrap/js/bootstrap.js"></script>
+<link href="/JobPostingsWeb/css/login.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+<script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
+<script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
 <script type="application/javascript">
 $(function(){
 	//轮播配合新闻导航置顶
@@ -52,7 +52,7 @@ $(function(){
     			<button class="btn">学校</button>
    				<button class="btn">企业</button>
    			</div>
-        	<form id="loginForm" action="enterprise/c_login.action" method="post">
+        	<form id="loginForm" action="/JobPostingsWeb/enterprise/c_login.action" method="post">
             	<input type="text" class="text" name="enterprise.enterpriseAccount" placeholder="用户名">
                 <input type="password" class="password" name="enterprise.password" placeholder="密码">
                     
@@ -84,10 +84,10 @@ $(function(){
     		<!-- Carousel items -->
    			 <div class="carousel-inner">
     			<div class="active item">
-                	<img alt="" src="img/footer.jpg">
+                	<img alt="" src="/JobPostingsWeb/img/footer.jpg">
                 </div>
-    			<div class="item"><img alt="" src="img/footer.jpg"></div>
-    			<div class="item"><img alt="" src="img/footer.jpg"></div>
+    			<div class="item"><img alt="" src="/JobPostingsWeb/img/footer.jpg"></div>
+    			<div class="item"><img alt="" src="/JobPostingsWeb/img/footer.jpg"></div>
     		</div>
    			 <!-- Carousel nav -->
    		 	 <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>

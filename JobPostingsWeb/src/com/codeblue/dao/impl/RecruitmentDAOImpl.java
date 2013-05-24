@@ -21,7 +21,7 @@ import com.codeblue.model.Recruitment;
 import com.codeblue.model.Student;
 import com.sun.org.apache.regexp.internal.recompile;
 
-@Repository
+@Repository("recruitmentDAO")
 public class RecruitmentDAOImpl implements RecruitmentDAO {
 	
 	private HibernateTemplate hibernateTemplate;
