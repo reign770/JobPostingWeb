@@ -18,6 +18,7 @@ import com.codeblue.util.PageBean;
 
 public class CompanyPageAction extends BaseAction {
 	private int pageSize=10;
+	private int pageNum=1;
 	
 	private Enterprise enterprise;
 	private PageBean pageBean;
@@ -35,9 +36,9 @@ public class CompanyPageAction extends BaseAction {
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
 		Integer[] states={RecruitmentState.POSTING};
 		enterprise=enterpriseService.queryEnterprise(enterpriseId);
-		pageBean=recruitmentService.queryRecruitmentsOfCompany(enterpriseId,states , 1, pageSize);
+		pageBean=recruitmentService.queryRecruitmentsOfCompany(enterpriseId,states , pageNum, pageSize);
 		recruitments=pageBean.getList();
-		pageBean=evaluationService.queryEvaluationsOfCompany(enterpriseId, 1, pageSize);
+		pageBean=evaluationService.queryEvaluationsOfCompany(enterpriseId,pageNum, pageSize);
 		evaluations=pageBean.getList();
 		return "success";
 	}
@@ -70,6 +71,14 @@ public class CompanyPageAction extends BaseAction {
 
 	public void setEvaluations(List<Evaluation> evaluations) {
 		this.evaluations = evaluations;
+	}
+
+	public int getPageNum() {
+		return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
 	}
 	
 
