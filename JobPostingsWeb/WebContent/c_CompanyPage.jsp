@@ -80,7 +80,7 @@ $(function(){
     							<img class="media-object img-polaroid" src="${enterprise.logo}" style="" >
                				</a>
     						<div class="media-body">
-   								<a href="c_PositionDetail_load?recruitmentId=1"><h4 class="media-heading">${postingName}</h4></a>
+   								<a href="c_PositionDetail_load?recruitmentId=${recruitmentId }"><h4 class="media-heading">${postingName}</h4></a>
                    				<a href="#"><h6 class="media-heading">${enterprise.enterpriseName} </h6></a>
     			  				工作城市：${workingPlace } 每月薪水：${salary } 行业类别：${industry.jobType }
      						</div>
