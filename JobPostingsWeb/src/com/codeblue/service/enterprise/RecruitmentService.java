@@ -5,6 +5,8 @@ import com.codeblue.util.PageBean;
 
 public interface RecruitmentService {
 	
+	public Recruitment queryRecruitment(int recruitmentId);
+	
 	public PageBean queryRecruitmentsOfCompany(int enterpriseId, Integer[] states,
 			int pageNum, int pageSize);
 	

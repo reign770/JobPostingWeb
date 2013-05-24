@@ -16,6 +16,11 @@ public class RecruitmentServiceImpl implements RecruitmentService {
 	@Resource(name="recruitmentDAO")
 	private RecruitmentDAO recruitmentDAO;
 
+	@Override
+	public Recruitment queryRecruitment(int recruitmentId) {
+		// TODO Auto-generated method stub
+		return recruitmentDAO.getByRecruitmentId(recruitmentId);
+	}
 
 	@Override
 	public PageBean queryRecruitmentsOfCompany(int enterpriseId,Integer[] states, int pageNum,
@@ -43,5 +48,7 @@ public class RecruitmentServiceImpl implements RecruitmentService {
 		// TODO Auto-generated method stub
 		recruitmentDAO.update(recruitment);
 	}
+
+	
 
 }
