@@ -97,13 +97,14 @@
 	
  	<aop:config>
 		<aop:pointcut id="bussinessService"
-			expression="execution(public * com.reign.service.*.*(..))" />
+			expression="execution(public * com.codeblue.service.*.*.*(..))" />
 		<aop:advisor pointcut-ref="bussinessService"
 			advice-ref="txAdvice" />
 	</aop:config> 
 	
  	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
+		    <tx:method name="modify*" propagation="REQUIRED"/>
 			<tx:method name="exists" read-only="true" />
 			<tx:method name="add*" propagation="REQUIRED"/>
 		</tx:attributes>
