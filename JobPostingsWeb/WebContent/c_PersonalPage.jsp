@@ -38,7 +38,7 @@
            	<li><a href="#" onclick="addTab('school_dataCalculatingAndOutput','/JobPostingsWeb/a_dataCalculatingAndOutput.html')">学校查看学生信息&数据统计&数据导出</a></li>
            
            <li class="nav-header"><i class="icon-chevron-down"></i>企业</li>
-            <li><a href="#" onclick="addTab('dealWithApplicationsOne','/JobPostingsWeb/c_dealWithApplicationsOne.html')">处理职位申请——选职位</a></li>
+            <li><a href="#" onclick="addTab('dealWithApplicationsOne','/JobPostingsWeb/enterprise/c_DealWithApplicationsOne_load.action')">处理职位申请——选职位</a></li>
            	<li><a href="#" onclick="addTab('dealWithApplicationsTwo','/JobPostingsWeb/c_dealWithApplicationsTwo.html')">处理职位申请</a></li>
            	<li><a href="#" onclick="addTab('positionDetail_create','/JobPostingsWeb/enterprise/c_CreatePositionDetail_load.action')">创建招聘信息</a></li>
            	<li><a href="#" onclick="addTab('companypage','/JobPostingsWeb/enterprise/c_CompanyPage_load.action')">公司首页</a></li> 
