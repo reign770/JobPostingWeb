@@ -58,4 +58,14 @@ public class DealWithApplicationsOneAction extends BaseAction{
 	public void setRecruitments(List<Recruitment> recruitments) {
 		this.recruitments = recruitments;
 	}
+
+
+	public PageBean getPageBean() {
+		return pageBean;
+	}
+
+
+	public void setPageBean(PageBean pageBean) {
+		this.pageBean = pageBean;
+	}
 }

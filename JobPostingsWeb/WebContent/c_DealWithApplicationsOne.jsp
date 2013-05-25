@@ -16,7 +16,9 @@
 <script src="/JobPostingsWeb/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script type="application/javascript">
 $(function () {
-	
+	$('#pagination').pagination({
+		pageList: [1,2,10,20,50,100]
+	});
 });
 </script>
 </head>
@@ -59,7 +61,7 @@ $(function () {
         
         
     </div>  
-    <div id="pagination" class="easyui-pagination" data-options="total:2000,pageSize:10,onSelectPage:function(pageNumber,pageSize){$('#contents').panel('refresh', 'show_content.php?page='+pageNumber);}">  
+    <div id="pagination" class="easyui-pagination" data-options="total:${pageBean.allRow},pageSize:${pageBean.pageSize},onSelectPage:function(pageNumber,pageSize){$('#contents').panel('refresh', 'c_DealWithApplicationsOne_load.action?pageSize='+pageSize+'&&pageNum='+pageNumber);}">  
     </div>  
 
 
