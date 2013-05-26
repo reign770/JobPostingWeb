@@ -15,7 +15,6 @@ public class DealWithApplicationsOneAction extends BaseAction{
 	private int pageNum=1;
 	
 	private PageBean pageBean;
-	private List<Recruitment> recruitments;
 	
 	@Resource(name="ent_recruitmentService")
 	private RecruitmentService recruitmentService;
@@ -25,7 +24,6 @@ public class DealWithApplicationsOneAction extends BaseAction{
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
 		Integer[] states={RecruitmentState.POSTING};
 		pageBean=recruitmentService.queryRecruitmentsOfCompany(enterpriseId,states , pageNum, pageSize);
-		recruitments=pageBean.getList();
 		return "success";
 	}
 
@@ -47,16 +45,6 @@ public class DealWithApplicationsOneAction extends BaseAction{
 
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
-	}
-
-
-	public List<Recruitment> getRecruitments() {
-		return recruitments;
-	}
-
-
-	public void setRecruitments(List<Recruitment> recruitments) {
-		this.recruitments = recruitments;
 	}
 
 

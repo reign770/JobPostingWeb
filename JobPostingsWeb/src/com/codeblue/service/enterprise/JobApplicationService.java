@@ -9,7 +9,7 @@ public interface JobApplicationService {
 	
 	public PageBean queryJobApplications(int recruitmentId, Integer[] state ,int pageNum,int pageSize);
 	
-	public void updateStudentState(JobApplication jobApplication);
+	public void updateStudentState(JobApplication jobApplication,int state);
 
 
 
