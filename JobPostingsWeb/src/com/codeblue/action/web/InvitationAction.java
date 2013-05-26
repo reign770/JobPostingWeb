@@ -18,7 +18,7 @@ import com.codeblue.util.PageBeanTest;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
-public class MessageAction extends ActionSupport implements SessionAware{
+public class InvitationAction extends ActionSupport implements SessionAware{
 	/**
 	 * 
 	 */
