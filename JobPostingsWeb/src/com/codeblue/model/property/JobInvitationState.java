@@ -6,14 +6,18 @@ package com.codeblue.model.property;
  */
 public class JobInvitationState {
 	/**
-	 * 未读
+	 * 未处理
 	 */
-	public static final int INGORE = 0;
+	public static final int UNPROCESS = 0;
 	/**
-	 * 已读
+	 * 忽略的
 	 */
-	public static final int ACCPET = 1;
+	public static final int INGORE = 1;
+	/**
+	 * 接受的
+	 */
+	public static final int ACCEPT = 2;
 	
-	public static final Integer[] ALL = {INGORE,ACCPET};
+	public static final Integer[] ALL = {UNPROCESS,INGORE,ACCEPT};
 	
 }
