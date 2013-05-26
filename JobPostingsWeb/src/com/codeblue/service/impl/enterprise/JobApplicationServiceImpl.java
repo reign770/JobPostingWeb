@@ -32,8 +32,9 @@ public class JobApplicationServiceImpl implements JobApplicationService {
 	}
 
 	@Override
-	public void updateStudentState(JobApplication jobApplication) {
+	public void updateStudentState(JobApplication jobApplication,int state) {
 		// TODO Auto-generated method stub
+		jobApplication.setState(state);
 		jobApplicationDAO.update(jobApplication);
 	}
 
