@@ -9,8 +9,36 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	<constant name="struts.multipart.paeser" value="cos"/>
 	<!-- <constant name="struts.action.extension" value="action"></constant> -->
-	<package name="default" namespace="/" extends="struts-default">
-		<action name=""></action>
+	<package name="enterprise" namespace="/enterprise" extends="struts-default">
+		<action name="c_login" class="com.codeblue.action.web.enterprise.LoginAction">
+		    <result name="login">/login.jsp</result>
+			<result name="success">/c_PersonalPage.jsp</result>
+		</action>
+		<action name="c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
+			<result name="success">/c_{1}.jsp</result>
+		</action>
+	</package>
+	
+	<package name="studentService" namespace="/student" extends="json-default">
+		<action name="login_*" 
+				class="com.codeblue.action.web.StudentLoginAction"
+				method="{1}">
+				<result name="validate" type="json"/>
+				<result name="success" >/s_PersonalPage.jsp</result>
+				<result name="login" type="redirect">/login.jsp</result>
+		</action>
+		<action name="studentInfo_*"
+		        class="com.codeblue.action.web.StudentInfoAction"
+		        method="{1}">
+		        <result name="modifypassword_success">/s_modifypassword_success.jsp</result>
+		        <result name="getinfo">/s_resume.jsp</result>
+		</action>
+		<action name="message_*" 
+		        class="com.codeblue.action.web.MessageAction"
+				method="{1}">
+				<result name="success">/s_notificationsOfStudents.jsp</result>
+				<result name="item">/s_notificationsOfStudents_item.jsp</result>
+		</action>
 	</package>
 
 </struts>
