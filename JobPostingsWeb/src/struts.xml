@@ -9,13 +9,26 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	<constant name="struts.multipart.paeser" value="cos"/>
 	<!-- <constant name="struts.action.extension" value="action"></constant> -->
-	<package name="enterprise" namespace="/enterprise" extends="struts-default">
+	<package name="enterprise" namespace="/enterprise" extends="json-default">
 		<action name="c_login" class="com.codeblue.action.web.enterprise.LoginAction">
-		    <result name="login">/login.jsp</result>
+		    <result name="login">/c_login.jsp</result>
 			<result name="success">/c_PersonalPage.jsp</result>
 		</action>
 		<action name="c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
 			<result name="success">/c_{1}.jsp</result>
+		</action>
+		<action name="json_c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+               <!-- 默认将会序列所有有返回值的getter方法的值，而无论该方法是否有对应属性 -->
+	                <param name="root">jsonMap</param>
+	                <!-- 指定是否序列化空的属性 -->
+	                <param name="excludeNullProperties">false</param>	                
+	              
+			</result>
+		</action>
+		<action name="bc_c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
+			<result name="success">/c_{1}_bc.jsp</result>
 		</action>
 	</package>
 
