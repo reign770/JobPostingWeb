@@ -10,11 +10,15 @@ public class JobApplicationState {
 	/**
 	 * 未处理
 	 */
-	public final static int UNPROCESS = 0; 
+	//public final static int UNPROCESS = 0; 
 	/**
-	 * 处理中
+	 * 学生看到：处理中  企业看到：未处理
 	 */
-	public final static int PROCESSING = 1; 
+	public final static int PROCESSING = 0; 
+	/**
+	 * 简历筛选通过
+	 */
+	public final static int RESUMEPASS = 1; 
 	/**
 	 * 笔试通过
 	 */
@@ -23,6 +27,11 @@ public class JobApplicationState {
 	 * 面试通过
 	 */
 	public final static int INTERVIEWPASS =3;
+	/**
+	 * 已签约
+	 */
+	public final static int SIGNED =4;
 	
-	public final static Integer[] ALL = {UNPROCESS,PROCESSING,WRITTEPASS,INTERVIEWPASS};
+	
+	public final static Integer[] ALL = {PROCESSING,RESUMEPASS,WRITTEPASS,INTERVIEWPASS,SIGNED};
 }
