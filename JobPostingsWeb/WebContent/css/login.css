@@ -20,7 +20,7 @@ body{
 	text-align:center;
 	margin-top:100px;}
 #seeNews{
-	background:url(img/splash_ui_more_tab.png) no-repeat;
+	background:url(../img/splash_ui_more_tab.png) no-repeat;
 	color: white;
     display: block;
     height: 40px;

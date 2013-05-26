@@ -1,0 +1,135 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:0;
+    }
+	
+.myLayout{
+	height: auto;
+	width: 100%;
+    top: 0;
+	left: 0;
+	background:#ECEFF1;
+	overflow:hidden;
+    }
+	
+#comBar{
+	background: none repeat scroll 0 0 #1E1E1E;
+    height: 200px;
+    top: 100px;
+	position:relative;
+	}
+#comBar #headicon{
+	max-width:200px;
+	left: 10%;
+    position: absolute;
+    top: -50px;
+	}
+#comBar #username{
+	left: 20%;
+    padding-left: 200px;
+    position: absolute;
+	font-family:"Microsoft Yahei",'微软雅黑';
+	color:#FFF;
+	}
+#comBar button{
+	position:absolute;
+	right:20%;
+	margin-top:20px;
+	}
+#comNav{
+	position:relative;
+	top:100px;
+	z-index: 999;
+	}
+#comNav #navContent{
+	background:#ECEFF1;
+	width:100%;
+	padding-left:20px;
+	z-index:1000;
+	box-shadow: 0 0 5px 0 silver;
+	}
+#comNav #navContent .nav{
+	margin-bottom: 0px;
+	}
+#comNav .affix{
+	top:0px;}
+
+#comContent{
+	background: none repeat scroll 0 0 #f5f5f5;
+    height: 1000px;
+    left: 2%;
+    position: relative;
+    top: 150px;
+    width: 90%;
+	}	
+#comContent #left{
+	}
+#comContent #right{
+	}
+	
+#comIntro{
+	/*height: 1000px;
+    position: absolute;
+    width: 100%;*/
+	background:white;
+    height: auto;
+	overflow:hidden;
+	margin-top:10px;
+	margin-bottom:10px;
+	min-height:100px;
+	border:1px solid #C2C5CA;}
+#friendLink{
+	background:white;
+    height: auto;
+	overflow:hidden;
+	margin-top:10px;
+	margin-bottom:10px;
+	min-height:100px;
+	border:1px solid #C2C5CA;}
+#wantedInfo{
+	background:white;
+    height: auto;
+	overflow:hidden;
+	margin-top:10px;
+	margin-bottom:10px;
+	min-height:100px;
+	border:1px solid #C2C5CA;}
+/*招聘信息小模块*/
+.wantedInfocontent{
+	width:90%;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:5%;
+	height:auto;
+	overflow:hidden;
+	background:white;}
+.wantedInfocontent img{
+	overflow:hidden;
+	max-width:100px;
+	max-height:100px;}
+.wantedInfocontent a:hover{
+	text-decoration:none;
+	color:#666;}
+#forum{
+	background:white;
+    height: auto;
+	overflow:hidden;
+	margin-top:10px;
+	margin-bottom:10px;
+	min-height:100px;
+	border:1px solid #C2C5CA;}
+#forum 。commentRow{
+	padding:10px;
+}
+#forum 。addcommentRow{
+	padding:10px;
+}	
+#forum  #comments_user{
+	text-align:center;
+	padding:10px;}
+#forum #comments_addcontent textarea{
+	width:100%;
+	}
+

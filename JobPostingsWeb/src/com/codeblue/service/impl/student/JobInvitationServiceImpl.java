@@ -41,9 +41,9 @@ public class JobInvitationServiceImpl implements JobInvitationService {
 	public PageBean getAcceptedJobInvitations(String studentId, int pageNumber,
 			int pageSize) {
 		List<JobInvitation> list = jobInvitationDAO.queryByStudentId(studentId, 
-				  new Integer[]{JobInvitationState.ACCPET}, (pageNumber-1)*pageSize, pageSize);
+				  new Integer[]{JobInvitationState.ACCEPT}, (pageNumber-1)*pageSize, pageSize);
 		long allRow = jobInvitationDAO.getCountByStudentId(studentId, 
-						  new Integer[]{JobInvitationState.ACCPET});
+						  new Integer[]{JobInvitationState.ACCEPT});
 		PageBean pageBean = new PageBean();
 		pageBean.setAllRow(allRow);
 		pageBean.setList(list);
@@ -68,19 +68,36 @@ public class JobInvitationServiceImpl implements JobInvitationService {
 		pageBean.init();		
 		return pageBean;		
 	}
+	
+	
+	@Override
+	public PageBean getUnProcessInvitations(String studentId, int pageNumber,
+			int pageSize) {
+		List<JobInvitation> list = jobInvitationDAO.queryByStudentId(studentId, 
+				  new Integer[]{JobInvitationState.UNPROCESS}, (pageNumber-1)*pageSize, pageSize);
+		long allRow = jobInvitationDAO.getCountByStudentId(studentId, 
+				new Integer[]{JobInvitationState.UNPROCESS});
+		PageBean pageBean = new PageBean();
+		pageBean.setAllRow(allRow);
+		pageBean.setList(list);
+		pageBean.setCurrentPage(pageNumber);
+		pageBean.setPageSize(pageSize);
+		pageBean.init();		
+		return pageBean;
+	}
 
 	@Override
 	public int acceptJobInvitation(long invitationId) {
 		JobInvitation jobInvitation = jobInvitationDAO
 				.getByInvitationId(invitationId);
-		jobInvitation.setState(JobInvitationState.ACCPET);
+		jobInvitation.setState(JobInvitationState.ACCEPT);
 		jobInvitationDAO.update(jobInvitation);
 		JobApplication jobApplication = new JobApplication();
 		jobApplication.setStudent(jobInvitation.getStudent());
 		jobApplication.setApplyDate(new Date());
 		jobApplication.setContent("我接受你们的邀请,应聘"+jobInvitation.getRecruitment().getDegree());
 		jobApplication.setRecruitment(jobInvitation.getRecruitment());
-		jobApplication.setState(JobApplicationState.UNPROCESS);
+		jobApplication.setState(JobApplicationState.PROCESSING);
 		jobApplicationDAO.insert(jobApplication);
 		return 0;
 	}
