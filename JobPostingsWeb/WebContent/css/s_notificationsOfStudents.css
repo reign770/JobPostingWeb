@@ -36,3 +36,12 @@ body{
 .tab-content .content a:hover{
 	text-decoration:none;
 	color:#666;}
+#pagination{
+	position:fixed;
+	bottom: 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+	background:#ECEFF1;
+	box-shadow: 0 0 5px 0 silver;}	
+
