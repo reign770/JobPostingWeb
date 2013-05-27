@@ -32,6 +32,11 @@ public class JobApplicationState {
 	 */
 	public final static int SIGNED =4;
 	
+	/**
+	 * 被拒的
+	 */
+	public final static int REJECTED=5;
+	
 	
 	public final static Integer[] ALL = {PROCESSING,RESUMEPASS,WRITTEPASS,INTERVIEWPASS,SIGNED};
 }
