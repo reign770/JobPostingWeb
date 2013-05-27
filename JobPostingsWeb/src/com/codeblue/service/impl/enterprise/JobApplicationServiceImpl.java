@@ -30,6 +30,12 @@ public class JobApplicationServiceImpl implements JobApplicationService {
 		pageBean.init();
 		return pageBean;
 	}
+	
+	@Override
+	public JobApplication queryApplication(Long applyId) {
+		// TODO Auto-generated method stub
+		return jobApplicationDAO.getByJobApplicationId(applyId);
+	}
 
 	@Override
 	public void updateStudentState(JobApplication jobApplication,int state) {
@@ -37,5 +43,7 @@ public class JobApplicationServiceImpl implements JobApplicationService {
 		jobApplication.setState(state);
 		jobApplicationDAO.update(jobApplication);
 	}
+
+	
 
 }

@@ -64,7 +64,7 @@ public class JobApplicationDAOImpl implements JobApplicationDAO{
 
 	@Override
 	public void update(JobApplication jobApplication) {
-		
+		System.out.println(jobApplication.getState()+"   "+jobApplication.getApplyId()+"fffff");
 		hibernateTemplate.update(jobApplication);
 	}
 
