@@ -16,7 +16,11 @@ import com.codeblue.model.*;
 import com.codeblue.model.Class;
 import com.sun.org.apache.regexp.internal.recompile;
 
-
+/**
+ * 
+ * @author 李佳奇
+ * @datetime 2013-5-23 下午7:53:57
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:beans.xml")
 public class ModelTest extends AbstractJUnit4SpringContextTests{

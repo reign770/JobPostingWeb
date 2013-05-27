@@ -49,7 +49,7 @@ public class JobApplicationServiceImpl implements JobApplicationService{
 		jobApplication.setStudent(student);
 		jobApplication.setContent(content);
 		jobApplication.setRecruitment(recruitment);
-		jobApplication.setState(JobApplicationState.UNPROCESS);
+		jobApplication.setState(JobApplicationState.PROCESSING);
 		jobApplicationDAO.insert(jobApplication);
 		return 0;
 	}

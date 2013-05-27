@@ -18,9 +18,15 @@ public interface StudentInfoService {
 	 * @param studentId
 	 * @param password
 	 * @return
-	 *       1 身份正确  2用户名不存  3密码错误
+	 *       1 身份正确  2用户名不存  3密码错误 4账号停用
 	 */
 	public int validLogin(String studentId,String password);
+	/**
+	 * 修改密码
+	 * @param studentId
+	 * @param password
+	 */
+	public void modifyPassword(String studentId,String newPassword);
 	/**
 	 * 修改简历
 	 * @param brief

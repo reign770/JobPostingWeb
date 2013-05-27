@@ -1,5 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE HTML>
+<html lang="zh">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>登录</title>
@@ -36,6 +41,38 @@ $(function(){
 	$('.carousel').carousel({
        interval: 2000
     });
+	$("#alert").hide();
+	$("#btnlogin").click(function(event){
+		if($("#account").val().trim() == ""){
+			$("#msg").text("账户不能为空!");
+			$("#alert").show();
+		}
+		else if($("#password").val().trim() == ""){
+			$("#msg").text("密码不能为空!");
+			$("#alert").show();
+		}else {
+			$.post("student/login_validateInfo.action",
+				{account:$("#account").val(), password:$("#password").val()},
+				function(dataObj){ 
+				if(dataObj.loginmessage == 'noaccount'){
+					 $("#msg").text("该用户名不存在!");
+					 $("#alert").show();
+				}
+				else if(dataObj.loginmessage =="wrongpassword"){
+					 $("#msg").text("密码错误!");
+					 $("#alert").show();					
+				}
+				else if(dataObj.loginmessage =="disable") {
+					$("#msg").text("该账号已经停用!")
+				}
+				else{
+					$("#msg").text("恭喜你登录成功!");
+					$("#alert").show();
+					$("#loginForm").submit();
+				}
+			});
+		}
+	});
 });
  
 </script>
@@ -46,17 +83,20 @@ $(function(){
 	<div id="main">
 		<div id="loginPanel">
         	<div class="btn-group roleChooser" data-toggle="buttons-radio">
-    			<button class="btn active">学生</button>
-    			<button class="btn">学校</button>
-   				<button class="btn">企业</button>
+    			<button id="student"class="btn active">学生</button>
+    			<button id="school" class="btn">学校</button>
+   				<button id="enterprise" class="btn">企业</button>
    			</div>
-        	<form id="loginForm">
-            	<input type="text" class="text" placeholder="用户名">
-                <input type="password" class="password" placeholder="密码">
-                    
-                 <div class="formAction">
-                <input type="submit"  value="    登录    " class="btn login">
-                <input type="button" value="    注册    " class="btn register">
+        	<form id="loginForm" action="student/login_execute.action" method="post">
+            	<input id="account" type="text" class="text"  name="account" placeholder="用户名"/>
+                <input id="password" type="password" class="password" name="password" placeholder="密码"/>
+                <div id="alert" class="alert alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>登录错误!</strong><div id="msg"></div>
+			    </div>
+                <div class="formAction">
+                <input type="button" id="btnlogin" value="    登录    " class="btn login"/>
+                <input type="button" value="    注册    " class="btn register"/>
                 </div>
             </form>
         </div>

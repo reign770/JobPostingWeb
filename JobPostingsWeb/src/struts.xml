@@ -31,6 +31,28 @@
 			<result name="success">/c_{1}_bc.jsp</result>
 		</action>
 	</package>
+	
+	<package name="studentService" namespace="/student" extends="json-default">
+		<action name="login_*" 
+				class="com.codeblue.action.web.StudentLoginAction"
+				method="{1}">
+				<result name="validate" type="json"/>
+				<result name="success" >/s_PersonalPage.jsp</result>
+				<result name="login" type="redirect">/login.jsp</result>
+		</action>
+		<action name="studentInfo_*"
+		        class="com.codeblue.action.web.StudentInfoAction"
+		        method="{1}">
+		        <result name="modifypassword_success">/s_modifypassword_success.jsp</result>
+		        <result name="getinfo">/s_resume.jsp</result>
+		</action>
+		<action name="message_*" 
+		        class="com.codeblue.action.web.MessageAction"
+				method="{1}">
+				<result name="success">/s_notificationsOfStudents.jsp</result>
+				<result name="item">/s_notificationsOfStudents_item.jsp</result>
+		</action>
+	</package>
 
 </struts>
 	
