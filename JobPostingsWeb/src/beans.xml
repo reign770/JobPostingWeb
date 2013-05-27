@@ -97,7 +97,7 @@
 	
  	<aop:config>
 		<aop:pointcut id="bussinessService"
-			expression="execution(public * com.reign.service.*.*(..))" />
+			expression="execution(public * com.codeblue.service.*.*.*(..))" />
 		<aop:advisor pointcut-ref="bussinessService"
 			advice-ref="txAdvice" />
 	</aop:config> 
