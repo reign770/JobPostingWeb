@@ -13,6 +13,7 @@ import org.apache.struts2.ServletActionContext;
 import com.codeblue.model.JobApplication;
 import com.codeblue.model.property.JobApplicationState;
 import com.codeblue.service.enterprise.JobApplicationService;
+import com.codeblue.service.enterprise.NotificationService;
 import com.codeblue.service.enterprise.PageBeanToJsonMapService;
 import com.codeblue.util.PageBean;
 
@@ -42,6 +43,9 @@ public class DealWithApplicationsTwoAction{
 	private JobApplicationService jobApplicationService;
 	@Resource(name="ent_PageBeanToJsonMapService")
 	private PageBeanToJsonMapService pageBeanToJsonMapService;
+	@Resource(name="ent_notificationService")
+	private NotificationService notificationService;
+	
 	
 	
 	/**
@@ -160,6 +164,12 @@ public class DealWithApplicationsTwoAction{
 		jsonMap.put("msg","更新成功!");
 		return "success";
 	}
+	public String changeToRejected(){
+		changeState(JobApplicationState.REJECTED);
+		jsonMap.clear();
+		jsonMap.put("msg","更新成功!");
+		return "success";
+	}
 	
 	
 	/**
@@ -178,7 +188,7 @@ public class DealWithApplicationsTwoAction{
 			Long applyId=Long.parseLong(selections[i]);
 			JobApplication jobApplication=jobApplicationService.queryApplication(applyId);
 			jobApplicationService.updateStudentState(jobApplication, state);
-			
+			notificationService.saveNotifications(entId, studentIds[i], state);
 			
 		}
 	}

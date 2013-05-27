@@ -27,12 +27,14 @@ $(function () {
 		    return "<iframe width='100%' height='500px'  class='myIframe' frameborder='0' scrolling='auto'  src='/JobPostingsWeb/s_resume.html'></iframe>";
 			 
         },  
-		toolbar:'#tb',  
+		toolbar:'#tb',
+		remoteSort:false,
+		rownumbers:true,
         columns:[[ 
-			{field:'rowindex',order:"asc"},
+			/*{field:'rowindex',order:'asc'},*/
 			{field:'choose',title:'Choose',width:100,checkbox:true},
 			{field:'applyId',title:"申请ID"},
-			{field:'applyDate',title:'申请时间',sortable:true,order:"desc"},
+			{field:'applyDate',title:'申请时间',sortable:'true',order:'desc'},
 			{field:'postingName',title:'申请职位'},
 			{field:'state',title:'申请状态'},
 			{field:'name',title:'姓名'},
@@ -44,7 +46,7 @@ $(function () {
 			{field:'birth',title:'出生年月'},  
 	        {field:'nation',title:'民族'}, 
 			{field:'eduBackground',title:'学历'},  
-	        {field:'gpa',title:'GPA',sortable:true,order:"desc",width:100}, 
+	        {field:'gpa',title:'GPA',sortable:'true',order:'desc',width:100}, 
 	        {field:'content',title:'content',width:200}
 			
         ]],
@@ -102,6 +104,33 @@ $(function () {
 	    	
 	    });
 	    /*更改状态*/
+	    $('#toRejected').click(function(){
+			var array=$("#dg").datagrid('getSelections');
+	    	var selections="";
+	    	var studentIds="";
+	    	var i=0
+	    	for(i;i<array.length;i++){
+	    		
+	    			selections=selections+array[i].applyId+":";
+	    			studentIds=studentIds+array[i].studentId+":";
+	    	
+	    	}
+			$.ajax({
+				   type: "POST",
+				   url: "json_c_DealWithApplicationsTwo_changeToRejected",
+				   dataType:'json',
+				   data: {
+					   selections:selections,
+					   studentIds:studentIds,
+					   enterpriseId:${user.enterpriseId}
+				   },
+				   success: function(data){
+				     alert( data.msg );
+				     $("#dg").datagrid('reload');
+				   }
+				});
+			
+	    });
 		$('#toResumepass').click(function(){
 			var array=$("#dg").datagrid('getSelections');
 	    	var selections="";
@@ -233,7 +262,8 @@ $(function () {
    					<td><span class="datagrid-btn-separator "></span></td>
    					<td><a id="btn-change" href="#" class="easyui-menubutton" data-options="menu:'#submenu',iconCls:'icon-edit'">接受/拒绝</a></td>  
        				<div id="submenu" style="width:150px;"> 
-       					<div id="torejected">拒绝</div>   
+       					<div id="toRejected">拒绝</div> 
+       					<div class="menu-sep"></div>  
         				<div id="toResumepass">简历筛选通过 </div>  
         				<div id="toWritepass">笔试通过</div>  
         				<div id="toInterviewpass">面试通过 </div>  

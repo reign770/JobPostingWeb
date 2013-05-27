@@ -73,8 +73,8 @@ public class PageBean {
    
    
    
-    public static int countTotalPage(final int pageSize,final int allRow){
-        int totalPage = allRow % pageSize == 0 ? allRow/pageSize : allRow/pageSize+1;
+    public static int countTotalPage(final int pageSize,final long allRow){
+        int totalPage = (int)(allRow % pageSize == 0 ? allRow/pageSize : allRow/pageSize+1);
         return totalPage;
     }
    
