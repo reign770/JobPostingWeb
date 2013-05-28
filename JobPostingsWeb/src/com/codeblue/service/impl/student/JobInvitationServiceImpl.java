@@ -11,10 +11,12 @@ import com.codeblue.dao.JobApplicationDAO;
 import com.codeblue.dao.JobInvitationDAO;
 import com.codeblue.model.JobApplication;
 import com.codeblue.model.JobInvitation;
+import com.codeblue.model.Recruitment;
 import com.codeblue.model.property.JobApplicationState;
 import com.codeblue.model.property.JobInvitationState;
 import com.codeblue.service.student.JobInvitationService;
 import com.codeblue.util.PageBean;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 @Service("jobInvitationService")
 public class JobInvitationServiceImpl implements JobInvitationService {
 	
@@ -87,19 +89,34 @@ public class JobInvitationServiceImpl implements JobInvitationService {
 	}
 
 	@Override
-	public int acceptJobInvitation(long invitationId) {
+	public int acceptJobInvitation(long invitationId,String content) {
 		JobInvitation jobInvitation = jobInvitationDAO
 				.getByInvitationId(invitationId);
+		//判断是否已经申请该职位
+		JobApplication j=jobApplicationDAO.getByJobApplicationFK(
+				jobInvitation.getStudent().getStudentId(), 
+				jobInvitation.getRecruitment().getRecruitmentId());
+		System.err.println(j);
+		if(j != null){
+			jobInvitation.setState(JobInvitationState.INGORE);
+			jobInvitationDAO.update(jobInvitation);
+			return 0;
+		}
 		jobInvitation.setState(JobInvitationState.ACCEPT);
 		jobInvitationDAO.update(jobInvitation);
 		JobApplication jobApplication = new JobApplication();
 		jobApplication.setStudent(jobInvitation.getStudent());
 		jobApplication.setApplyDate(new Date());
+		if(content==null||content.equals(""))
 		jobApplication.setContent("我接受你们的邀请,应聘"+jobInvitation.getRecruitment().getDegree());
+		else {
+			jobApplication.setContent(content);
+		}
 		jobApplication.setRecruitment(jobInvitation.getRecruitment());
 		jobApplication.setState(JobApplicationState.PROCESSING);
 		jobApplicationDAO.insert(jobApplication);
-		return 0;
+		System.err.println(1);
+		return 1;
 	}
 
 	@Override
