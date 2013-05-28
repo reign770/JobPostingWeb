@@ -6,6 +6,7 @@ public class QueryAddition {
 	private String workingPlace;
 	private Integer salary;
 	private String enterpriseProperty;
+	private int industryId;
 	public String getQueryWord() {
 		return queryWord;
 	}
@@ -35,6 +36,12 @@ public class QueryAddition {
 	}
 	public void setEnterpriseProperty(String enterpriseProperty) {
 		this.enterpriseProperty = enterpriseProperty;
+	}
+	public int getIndustryId() {
+		return industryId;
+	}
+	public void setIndustryId(int industryId) {
+		this.industryId = industryId;
 	}
 	
 }
