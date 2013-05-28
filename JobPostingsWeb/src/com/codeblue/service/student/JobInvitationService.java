@@ -12,7 +12,7 @@ public interface JobInvitationService {
 	
 	public PageBean getUnProcessInvitations(String studentId,int pageNumber,int pageSize);
 	
-	public int acceptJobInvitation(long invitationId);
+	public int acceptJobInvitation(long invitationId,String content);
 	
 	public int ingoreJobInvitation(long invitationId);	
 

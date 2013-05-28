@@ -1,11 +1,19 @@
 package com.codeblue.service.student;
 
+import java.util.List;
+
+import com.codeblue.model.Industry;
 import com.codeblue.model.Recruitment;
 import com.codeblue.util.PageBean;
 import com.codeblue.util.QueryAddition;
 
 
 public interface RecruitmentService {
+	/**
+	 * 获取所有的行业
+	 * @return
+	 */
+	public List<Industry> getAllIndustries();
 	/**
 	 * 根据条件查询招聘信息
 	 * @param queryAddition
