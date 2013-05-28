@@ -11,6 +11,54 @@
 <script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
 <script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
 <script type="application/javascript">
+	/*招聘信息分页参数（从第二页开始）*/
+	var pageSize1=1;
+	var	pageNum1=2;
+	var totalOfRecruitment=${pageBean1.allRow};
+	//加载招聘信息
+	function loadRecruitment(pS,pN){
+		$.ajax({
+			   type: "POST",
+			   url: "bc_c_CompanyPage_load_recruitment.action",
+			   dataType:'html',
+			   data: {
+				   pageSize:pS,
+				   pageNum:pN
+			   },
+			   success: function(data){
+				 $('#wantedInfo #more label').show();
+				 $('#wantedInfo #more img').hide();   
+			     $("#infos").append(data);
+			     pageNum1++;
+			   },
+			   error:function(data){
+				    $('#wantedInfo #more label').show();
+					$('#wantedInfo #more img').hide();  
+				   alert("加载失败，请重试！");
+			   }
+			});
+	}
+	//英才推荐滚动
+	var Top=0;//定义一个向上移动的距离，这个数值和你图片或DIV的高度相等
+	var Bottom=0;
+	var Time=500;//定义一个速度
+	
+	function move(h){
+		$("#movecontent").animate({"margin-top":Top,"margin-bottom":Bottom},Time);//animate方法，只能对数值型的值进行渐变
+		Top+=-10;
+		Bottom+=10;
+		if(Top<=-h)//判断当总高度大于你DIV或者图片总高度
+		{
+			Top=0;//把距离设置回0
+			Bottom=0;
+			Time=300;//加快移动速度
+		}
+		else
+		{
+			Time=400;//否则减慢速度
+		}
+	} 
+    
 $(function(){
 	$('#comNav li').click(function(event){
 		event.preventDefault();
@@ -18,6 +66,27 @@ $(function(){
 		var anh=$(hr).offset().top;
 		$("html,body").stop().animate({scrollTop:anh-50},500);
 	}); 
+	$('#wantedInfo #more').click(function(){
+		if(pageNum1<=totalOfRecruitment){
+			$('#wantedInfo #more label').hide();
+			$('#wantedInfo #more img').show();
+			loadRecruitment(pageSize1,pageNum1);
+		}else{
+			$('#wantedInfo #more label').html("已经到最后啦");
+		}
+	});
+	 
+	/*滚动*/
+	var Mheight=$("#movecontent").height();
+	var myar=setInterval('move('+Mheight+')', 80);
+	
+    /* $("#friendLink").hover(function() {
+    	console.log("hover!");
+     	clearInterval(myar); 
+     	}, 
+     	function() { 
+     		myar = setInterval('move()', 80) ;
+        }); *///当鼠标放上去的时候，滚动停止，鼠标离开的时候滚动开始
 });
 </script>
 </head>
@@ -27,7 +96,7 @@ $(function(){
 
 	<div id="comBar">
       <span id="headicon"><img src="${enterprise.logo}" class="img-polaroid" style="height:200px"/></span>
-      <span id="username"><h2>${enterprise.enterpriseName} </h2></span>
+      <span id="username"><h2>${enterprise.enterpriseName}  </h2></span>
       <button class="btn btn-info">加关注</button>
 	</div>
     
@@ -73,20 +142,28 @@ $(function(){
 				
 			</div>
 			<div id="wantedInfo">
-				<s:iterator value="recruitments" status="sts">
+				<div id="infos">
+				  <s:iterator value="recruitments" status="sts">
 					<div class="wantedInfocontent well-small">
          				<div class="media">
                 			<a href="#" class="pull-left">
     							<img class="media-object img-polaroid" src="${enterprise.logo}" style="" >
                				</a>
     						<div class="media-body">
-   								<a href="c_PositionDetail_load?recruitmentId=${recruitmentId }"><h4 class="media-heading">${postingName}</h4></a>
+   								<a href=" javascript:void(0)" onclick="window.parent.addTab('${postingName}','/JobPostingsWeb/enterprise/c_PositionDetail_load?recruitmentId=${recruitmentId }')">
+   									<h4 class="media-heading">${postingName}</h4>
+   								</a>
                    				<a href="#"><h6 class="media-heading">${enterprise.enterpriseName} </h6></a>
     			  				工作城市：${workingPlace } 每月薪水：${salary } 行业类别：${industry.jobType }
      						</div>
    			 			</div>
         			</div>
-				</s:iterator>
+				  </s:iterator>
+				</div>
+				<span class="label label-info" id="more">
+					<label>更多</label>
+					<img src="/JobPostingsWeb/img/loading.gif" alt="" style="display:none;" />
+				</span>
 			</div>
 			<div id="forum">
 				<s:iterator value="evaluations">
@@ -103,12 +180,50 @@ $(function(){
             				</div>
        		 			</div>
         		 	</div>
-         	</s:iterator>
+         		</s:iterator>
          		
 			</div>
    		</div>
    		<div id="right" class="span4">
-    		<div id="friendLink">navContent<br/>navContent<br/>navContent<br/>navContent<br/>navContent<br/>navContent<br/>navContent<br/>navContent<br/></div>
+    		<div id="friendLink" class="row-fluid">
+    				<div class="page-header"><h4>英才推荐</h4></div>
+				    <ul class="thumbnails" style="overflow: hidden;">
+				    	<div id="movecontent">
+    						<li class="span5" style="margin-left: 5px;">
+    							<div class="thumbnail">
+   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
+    							 	<div class="caption">
+    							 		<p style="word-break: break-all;">name</p>
+   								 	</div>
+    							</div>
+    						</li>
+    						<li class="span5">
+    							<div class="thumbnail">
+   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
+    							 	<div class="caption">
+    							 		<p style="word-break: break-all;">name</p>
+   								 	</div>
+    							</div>
+    						</li>
+    						<li class="span5">
+    							<div class="thumbnail">
+   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
+    							 	<div class="caption">
+    							 		<p style="word-break: break-all;">name</p>
+   								 	</div>
+    							</div>
+    						</li>
+    						<li class="span5">
+    							<div class="thumbnail">
+   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
+    							 	<div class="caption">
+    							 		<p style="word-break: break-all;">name</p>
+   								 	</div>
+    							</div>
+    						</li>
+					  </div>
+    				</ul>
+			</div>
    		</div>
    </div>
    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

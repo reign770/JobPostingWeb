@@ -25,6 +25,7 @@ public class LoginImpl implements Login {
 			//设置名字
 			enterprise.setEnterpriseName(enterprise2.getEnterpriseName());
 			enterprise.setEnterpriseId(enterprise2.getEnterpriseId());
+			enterprise.setLogo(enterprise2.getLogo());
 			msg="登录成功";
 		}else{
 			msg="登录失败";

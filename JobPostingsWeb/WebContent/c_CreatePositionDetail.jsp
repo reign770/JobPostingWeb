@@ -26,19 +26,28 @@ $(function(){
     	});
 	//检验数据
     $("form").submit(function(){
-		if($.trim($(":text").val())==""){
-			alert("请填写所有信息!");
-			return false;
-		}
+    	var result=false;
+    	$("input").each(function(){
+    			if($.trim($(this).val())==""){
+    				alert("请填写所有信息!");
+    				result=false;
+    				return false;
+    			}else{
+    				result=true;
+    				return true;
+    			}
+    		});
+    	return result;
 		
-	});
+    });
 	//timepicker
 	$(".form_datetime").datetimepicker({
 		minView:'month',
 		format: 'yyyy-mm-dd',
 		autoclose:"true",
 		todayHighlight:true,
-		language:"zh-CN"});
+		language:"zh-CN"
+		});
     
 	
 });
@@ -99,11 +108,11 @@ $(function(){
     	<div class="additionalInfo">
     		<div class="page-header"><h2>岗位描述</h2></div>
 			<div id="additionalInfoContent" class="row">	
-       			<p class="offset1"> <textarea rows="5" name="recruitment.qualification"></textarea></p>
+       			<p class="offset1"> <textarea rows="5" name="recruitment.qualification">无</textarea></p>
        		</div>
        		<div class="page-header"><h2>职责要求</h2></div>
 			<div id="additionalInfoContent" class="row">	
-       			<p class="offset1"> <textarea rows="5" name="recruitment.responsibilities" ></textarea></p>
+       			<p class="offset1"> <textarea rows="5" name="recruitment.responsibilities" >无</textarea></p>
        	 	</div>
 		</div>
         

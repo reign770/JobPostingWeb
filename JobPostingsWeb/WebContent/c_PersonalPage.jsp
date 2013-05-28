@@ -26,47 +26,47 @@
            
          
            <li class="nav-header"><i class="icon-chevron-down"></i>学生</li>
-           	<li><a href="#" onclick="addTab('a','/JobPostingsWeb/s_resume.html')">学生简历</a></li>
-          	<li><a href="#" onclick="addTab('a_revise','/JobPostingsWeb/s_resume_revise.html')">学生简历修改</a></li>
-           	<li><a href="#" onclick="addTab('newsOfStudents','/JobPostingsWeb/s_newsOfStudents.html')">学生新闻</a></li>
-           	<li><a href="#" onclick="addTab('notificationsOfStudents','/JobPostingsWeb/s_notificationsOfStudents.html')">通知页面</a></li>
-           	<li><a href="#" onclick="addTab('findaJob','/JobPostingsWeb/s_findaJob.html')">找工作</a></li>
-          	<li><a href="#" onclick="addTab('findaJob_result','/JobPostingsWeb/s_findaJob_result.html')">找工作结果</a></li>
-          	<li><a href="#" onclick="addTab('s_checkPositionDetail','/JobPostingsWeb/s_checkPositionDetail.html')">查看职位详情</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('a','/JobPostingsWeb/s_resume.html')">学生简历</a></li>
+          	<li><a href="javascript:void(0)" onclick="addTab('a_revise','/JobPostingsWeb/s_resume_revise.html')">学生简历修改</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('newsOfStudents','/JobPostingsWeb/s_newsOfStudents.html')">学生新闻</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('notificationsOfStudents','/JobPostingsWeb/s_notificationsOfStudents.html')">通知页面</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('findaJob','/JobPostingsWeb/s_findaJob.html')">找工作</a></li>
+          	<li><a href="javascript:void(0)" onclick="addTab('findaJob_result','/JobPostingsWeb/s_findaJob_result.html')">找工作结果</a></li>
+          	<li><a href="javascript:void(0)" onclick="addTab('s_checkPositionDetail','/JobPostingsWeb/s_checkPositionDetail.html')">查看职位详情</a></li>
            <li class="nav-header"><i class="icon-chevron-down"></i>学校</li>
-           	<li><a href="#" onclick="addTab('import','/JobPostingsWeb/a_import.html')">文件导入</a></li>
-           	<li><a href="#" onclick="addTab('school_dataCalculatingAndOutput','/JobPostingsWeb/a_dataCalculatingAndOutput.html')">学校查看学生信息&数据统计&数据导出</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('import','/JobPostingsWeb/a_import.html')">文件导入</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('school_dataCalculatingAndOutput','/JobPostingsWeb/a_dataCalculatingAndOutput.html')">学校查看学生信息&数据统计&数据导出</a></li>
            
            <li class="nav-header"><i class="icon-chevron-down"></i>企业</li>
-            <li><a href="#" onclick="addTab('dealWithApplicationsOne','/JobPostingsWeb/enterprise/c_DealWithApplicationsOne_load.action')">处理职位申请——选职位</a></li>
-           	<li><a href="#" onclick="addTab('dealWithApplicationsTwo','/JobPostingsWeb/c_dealWithApplicationsTwo.html')">处理职位申请</a></li>
-           	<li><a href="#" onclick="addTab('positionDetail_create','/JobPostingsWeb/enterprise/c_CreatePositionDetail_load.action')">创建招聘信息</a></li>
-           	<li><a href="#" onclick="addTab('companypage','/JobPostingsWeb/enterprise/c_CompanyPage_load.action')">公司首页</a></li> 
-           	<li><a href="#" onclick="addTab('c_positionDetail','/JobPostingsWeb/c_positionDetail.html')">职位详情</a></li>
+            <li><a href="javascript:void(0)" onclick="addTab('dealWithApplicationsOne','/JobPostingsWeb/enterprise/c_DealWithApplicationsOne_load.action')">处理职位申请——选职位</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('dealWithApplicationsTwo','/JobPostingsWeb/c_dealWithApplicationsTwo.html')">处理职位申请</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('positionDetail_create','/JobPostingsWeb/enterprise/c_CreatePositionDetail_load.action')">创建招聘信息</a></li>
+           	<li><a href="javascript:void(0)" onclick="addTab('companypage','/JobPostingsWeb/enterprise/c_CompanyPage_load.action')">公司首页</a></li> 
+           	<li><a href="javascript:void(0)" onclick="addTab('c_positionDetail','/JobPostingsWeb/c_positionDetail.html')">职位详情</a></li>
            <li class="nav-header"><i class="icon-chevron-down"></i>c</li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
            <li class="nav-header"><i class="icon-chevron-down"></i>c</li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
            <li class="nav-header"><i class="icon-chevron-down"></i>c</li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
            <li class="nav-header"><i class="icon-chevron-down"></i>c</li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
+           <li><a href="javascript:void(0)">首页</a></li>
 		</ul>
     </div>
     <div class="contents">

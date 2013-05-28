@@ -61,7 +61,7 @@ $(function () {
         
         
     </div>  
-    <div id="pagination" class="easyui-pagination" data-options="total:${pageBean.allRow},pageSize:${pageBean.pageSize},onSelectPage:function(pageNumber,pageSize){$('#contents').panel('refresh', 'bc_c_DealWithApplicationsOne_load.action?pageSize='+pageSize+'&&pageNum='+pageNumber);}">  
+    <div id="pagination" class="easyui-pagination" data-options="total:${pageBean.allRow},pageSize:${pageBean.pageSize},onSelectPage:function(pageNumber,pageSize){$('#contents').panel('refresh', 'bc_c_DealWithApplicationsOne_load_recruitment.action?pageSize='+pageSize+'&&pageNum='+pageNumber);}">  
     </div>  
 
 

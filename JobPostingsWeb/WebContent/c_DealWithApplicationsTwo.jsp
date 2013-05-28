@@ -51,7 +51,7 @@ $(function () {
 			
         ]],
 		pagination:true,
-		url:'json_c_DealWithApplicationsTwo_load.action',
+		url:'/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_load.action',
 		queryParams: {
 			recruitmentId:'${recruitmentId }'
 		},
@@ -75,32 +75,32 @@ $(function () {
 		/*查看范围*/
 	    $('#all').click(function(){
 	    	
-	    	$('#dg').datagrid({url:'json_c_DealWithApplicationsTwo_load.action'});
+	    	$('#dg').datagrid({url:'/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_load.action'});
 	    	
 	    });
 	    $('#processing').click(function(){
 	    	
-	    	$('#dg').datagrid({url:'json_c_DealWithApplicationsTwo_loadProcessing.action'});
+	    	$('#dg').datagrid({url:'/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_loadProcessing.action'});
 	    	
 	    });
 	    $('#resumepass').click(function(){
 	    	
-	    	$('#dg').datagrid({url:'json_c_DealWithApplicationsTwo_loadResumepass.action'});
+	    	$('#dg').datagrid({url:'/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_loadResumepass.action'});
 	    	
 	    });
 	    $('#writepass').click(function(){
 	    	
-	    	$('#dg').datagrid({url:'json_c_DealWithApplicationsTwo_loadWritepass.action'});
+	    	$('#dg').datagrid({url:'/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_loadWritepass.action'});
 	    	
 	    });
 	    $('#interviewpass').click(function(){
 	    	
-	    	$('#dg').datagrid({url:'json_c_DealWithApplicationsTwo_loadInterviewpass.action'});
+	    	$('#dg').datagrid({url:'/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_loadInterviewpass.action'});
 	    	
 	    });
 	    $('#signed').click(function(){
 	    	
-	    	$('#dg').datagrid({url:'json_c_DealWithApplicationsTwo_loadSigned.action'});
+	    	$('#dg').datagrid({url:'/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_loadSigned.action'});
 	    	
 	    });
 	    /*更改状态*/
@@ -117,7 +117,7 @@ $(function () {
 	    	}
 			$.ajax({
 				   type: "POST",
-				   url: "json_c_DealWithApplicationsTwo_changeToRejected",
+				   url: "/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_changeToRejected",
 				   dataType:'json',
 				   data: {
 					   selections:selections,
@@ -144,7 +144,7 @@ $(function () {
 	    	}
 			$.ajax({
 				   type: "POST",
-				   url: "json_c_DealWithApplicationsTwo_changeToResumepass",
+				   url: "/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_changeToResumepass",
 				   dataType:'json',
 				   data: {
 					   selections:selections,
@@ -170,7 +170,7 @@ $(function () {
 	    	}
 			$.ajax({
 				   type: "POST",
-				   url: "json_c_DealWithApplicationsTwo_changeToWritepass",
+				   url: "/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_changeToWritepass",
 				   dataType:'json',
 				   data: {
 					   selections:selections,
@@ -195,7 +195,7 @@ $(function () {
 	    	}
 			$.ajax({
 				   type: "POST",
-				   url: "json_c_DealWithApplicationsTwo_changeToInterviewpass",
+				   url: "/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_changeToInterviewpass",
 				   dataType:'json',
 				   data: {
 					   selections:selections,
@@ -220,7 +220,7 @@ $(function () {
 	    	}
 			$.ajax({
 				   type: "POST",
-				   url: "json_c_DealWithApplicationsTwo_changeToSigned",
+				   url: "/JobPostingsWeb/enterprise/json_c_DealWithApplicationsTwo_changeToSigned",
 				   dataType:'json',
 				   data: {
 					   selections:selections,
