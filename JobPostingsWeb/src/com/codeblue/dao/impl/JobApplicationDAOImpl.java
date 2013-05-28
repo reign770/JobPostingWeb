@@ -51,7 +51,13 @@ public class JobApplicationDAOImpl implements JobApplicationDAO{
 		Property recId = Property.forName("recruitment.recruitmentId");
 		detachedCriteria.add(stuId.eq(studentId))
 						.add(recId.eq(recruitmentId));
-		return (JobApplication)hibernateTemplate.findByCriteria(detachedCriteria).get(0);
+		List list =hibernateTemplate.findByCriteria(detachedCriteria);
+		if(list == null||list.size()==0){
+			return null;
+		}
+		else {
+			return (JobApplication)list.get(0);
+		}
 	}
 
 
