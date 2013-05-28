@@ -78,12 +78,13 @@ public interface RecruitmentDAO {
 	 * @param workingPlace
 	 * @param salary
 	 * @param enterpriseProperty
+	 * @param industryId
 	 * @param offset
 	 * @param pageSize
 	 * @return
 	 */
 	public List<Recruitment> queryByAddition(String queryWord,String postingName,String workingPlace,Integer salary,
-			String enterpriseProperty, int offset,int pageSize);
+			String enterpriseProperty, Integer industryId,int offset,int pageSize);
 	/**
 	 * 获取根据查询条件（搜索关键字，职位，工作地点，薪水）获取招聘信息的总数
 	 * @param querWord
@@ -91,10 +92,11 @@ public interface RecruitmentDAO {
 	 * @param workingPlace
 	 * @param salary
 	 * @param enterpriseProperty
+	 * @param industryId
 	 * @return
 	 */
 	public long getCountByAddition(String querWord,String postingName,String workingPlace,Integer salary,
-			String enterpriseProperty);
+			String enterpriseProperty,Integer industryId);
 	
 	
 	
