@@ -140,7 +140,7 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 			;
 		if(postingName !=null && !postingName.equals(""))
 			detachedCriteria
-			.add(Restrictions.eq("r.postingName", postingName));
+			.add(Restrictions.like("r.postingName", postingName,MatchMode.ANYWHERE));
 		
 		if(workingPlace != null && !workingPlace.equals(""))
 			detachedCriteria
@@ -185,7 +185,7 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 		
 		if(postingName !=null && !postingName.equals(""))
 			detachedCriteria
-			.add(Restrictions.eq("r.postingName", postingName));
+			.add(Restrictions.like("r.postingName", postingName,MatchMode.ANYWHERE));
 		
 		if(workingPlace != null && !workingPlace.equals(""))
 			detachedCriteria
