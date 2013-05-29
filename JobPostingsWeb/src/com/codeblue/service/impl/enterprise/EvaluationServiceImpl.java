@@ -13,7 +13,7 @@ import com.codeblue.service.enterprise.EvaluationService;
 import com.codeblue.util.PageBean;
 @Service("ent_evaluationService")
 public class EvaluationServiceImpl implements EvaluationService {
-	@Resource(name="evaluationDAO")
+	
 	private EvaluationDAO evaluationDAO;
 
 	@Override
@@ -30,5 +30,15 @@ public class EvaluationServiceImpl implements EvaluationService {
 		pageBean.init();
 		return pageBean;
 	}
+
+	public EvaluationDAO getEvaluationDAO() {
+		return evaluationDAO;
+	}
+	@Resource
+	public void setEvaluationDAO(EvaluationDAO evaluationDAO) {
+		this.evaluationDAO = evaluationDAO;
+	}
+	
+	
 
 }

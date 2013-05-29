@@ -6,8 +6,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.codeblue.dao.IndustryDAO;
 import com.codeblue.dao.RecruitmentDAO;
 import com.codeblue.dao.StudentDAO;
+import com.codeblue.model.Industry;
 import com.codeblue.model.Recruitment;
 import com.codeblue.service.student.RecruitmentService;
 import com.codeblue.util.PageBean;
@@ -16,7 +18,7 @@ import com.codeblue.util.QueryAddition;
 public class RecruitmentServiceImpl implements RecruitmentService{
 	
 	private RecruitmentDAO recruitmentDAO;
-	
+	private IndustryDAO industryDAO;
 	private StudentDAO studentDAO;
 	
 	@Override
@@ -27,7 +29,8 @@ public class RecruitmentServiceImpl implements RecruitmentService{
 									   queryAddition.getPostingName(), 
 									   queryAddition.getWorkingPlace(), 
 									   queryAddition.getSalary(), 
-									   queryAddition.getEnterpriseProperty(), 
+									   queryAddition.getEnterpriseProperty(),
+									   queryAddition.getIndustryId(),
 									   (pageNumber-1)*pageSize,
 									   pageSize);
 		long allRow = recruitmentDAO.getCountByAddition(
@@ -35,7 +38,8 @@ public class RecruitmentServiceImpl implements RecruitmentService{
 				   queryAddition.getPostingName(), 
 				   queryAddition.getWorkingPlace(), 
 				   queryAddition.getSalary(), 
-				   queryAddition.getEnterpriseProperty());
+				   queryAddition.getEnterpriseProperty(),
+				   queryAddition.getIndustryId());
 		PageBean pageBean = new PageBean();
 		pageBean.setList(list);
 		pageBean.setPageSize(pageSize);
@@ -85,6 +89,12 @@ public class RecruitmentServiceImpl implements RecruitmentService{
 		pageBean.init();
 		return pageBean;
 	}
+	
+
+	@Override
+	public List<Industry> getAllIndustries() {
+		return industryDAO.getAllIndustries();
+	}
 
 	public RecruitmentDAO getRecruitmentDAO() {
 		return recruitmentDAO;
@@ -101,5 +111,15 @@ public class RecruitmentServiceImpl implements RecruitmentService{
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
 	}
+
+	public IndustryDAO getIndustryDAO() {
+		return industryDAO;
+	}
+	@Resource
+	public void setIndustryDAO(IndustryDAO industryDAO) {
+		this.industryDAO = industryDAO;
+	}
+	
+	
 	
 }

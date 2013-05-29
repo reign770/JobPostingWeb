@@ -126,7 +126,7 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 	@Override
 	public List<Recruitment> queryByAddition(String queryWord,
 			String postingName, String workingPlace, Integer salary, 
-			String enterpriseProperty,int offset,int pageSize) {
+			String enterpriseProperty,Integer industryId,int offset,int pageSize) {
 		DetachedCriteria detachedCriteria = 
 				DetachedCriteria.forClass(Recruitment.class,"r")
 				.add(Property.forName("r.state").eq(1))
@@ -138,7 +138,6 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 					Restrictions.like("e.enterpriseName", queryWord,MatchMode.ANYWHERE), 
 					Restrictions.like("r.postingName", queryWord, MatchMode.ANYWHERE)))
 			;
-		
 		if(postingName !=null && !postingName.equals(""))
 			detachedCriteria
 			.add(Restrictions.eq("r.postingName", postingName));
@@ -161,12 +160,17 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 			detachedCriteria.add(Restrictions.eq("e.enterpriseProperty", enterpriseProperty));
 		}
 		
+		if(industryId !=null && industryId >=1){
+			detachedCriteria = detachedCriteria
+					.createAlias("r.industry", "i")
+					.add(Property.forName("i.industryId").eq(industryId));
+		}
 		return hibernateTemplate.findByCriteria(detachedCriteria, offset, pageSize);
 	}
 
 	@Override
 	public long getCountByAddition(String queryWord, String postingName,
-			String workingPlace, Integer salary,String enterpriseProperty) {
+			String workingPlace, Integer salary,String enterpriseProperty,Integer industryId) {
 		DetachedCriteria detachedCriteria = 
 				DetachedCriteria.forClass(Recruitment.class,"r")
 				.add(Property.forName("r.state").eq(1))
@@ -200,7 +204,11 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 		if(enterpriseProperty != null && !enterpriseProperty.equals("")) {
 			detachedCriteria.add(Restrictions.eq("e.enterpriseProperty", enterpriseProperty));
 		}
-		
+		if(industryId !=null && industryId >=1){
+			detachedCriteria = detachedCriteria
+					.createAlias("r.industry", "i")
+					.add(Property.forName("i.industryId").eq(industryId));
+		}
 		return (long)hibernateTemplate.findByCriteria(detachedCriteria).get(0);
 	}
 
