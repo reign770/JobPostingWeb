@@ -38,6 +38,12 @@ $(function(){
 	$('.carousel').carousel({
        interval: 2000
     });
+	
+	//注册按钮链接
+	$('.register').click(function(){
+		location.href="/JobPostingsWeb/c_Register.jsp";
+	
+	})
 });
  
 </script>
