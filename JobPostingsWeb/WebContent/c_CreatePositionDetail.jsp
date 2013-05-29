@@ -14,6 +14,7 @@
 <script src="/JobPostingsWeb/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script src="/JobPostingsWeb/css/bootstrap timepicker/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="/JobPostingsWeb/css/bootstrap timepicker/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script src="/JobPostingsWeb/js/jquery.form.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	//json设置行业类型
@@ -48,6 +49,15 @@ $(function(){
 		todayHighlight:true,
 		language:"zh-CN"
 		});
+	$('form').submit(function(){
+		$(this).ajaxSubmit({
+			dataType:"json",
+			success:function(data){
+				alert(data);
+			}
+		}); 
+		return false;
+	});
     
 	
 });
@@ -56,7 +66,7 @@ $(function(){
 
 <body>
 <div class="myLayout">
-<form action="/JobPostingsWeb/enterprise/c_CreatePositionDetail_insert" method="post">	
+<form action="/JobPostingsWeb/enterprise/json_c_CreatePositionDetail_insert" method="post">	
 	<div class="span10" id="positionInfo">
 		<div class="basicInfo">
     		<div class="page-header"><h2>基本信息</h2></div>
@@ -120,6 +130,26 @@ $(function(){
     		<input type="submit" class="btn btn-primary" value="    发 布    "/>
     		<input type="button" class="btn btn-primary offset1" value="    取 消    "/>
     	</div>
+    	
+    	
+    	<div id="myModal" class="modal hide fade" data-backdrop="static">
+    	<div class="modal-header">
+    		<h5>注册成功</h5>
+   		</div>
+    	<div class="modal-body">
+    		<p>
+    			<div  >
+					恭喜您~注册成功了！<br />
+					校方工作人员会尽快对您的账户进行审核，并与您联系，届时您可以登录系统开始使用。
+   		
+    			</div>
+    
+    		</p>
+    	</div>
+    	<div class="modal-footer">
+    		<button class="btn btn-primary" id="confirm">确认</button>
+   		 </div>
+    </div>
         
         
         
