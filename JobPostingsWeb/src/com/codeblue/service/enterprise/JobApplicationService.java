@@ -9,6 +9,8 @@ public interface JobApplicationService {
 	
 	public PageBean queryJobApplications(int recruitmentId, Integer[] state ,int pageNum,int pageSize);
 	
+	public JobApplication queryApplication(Long applyId);
+	
 	public void updateStudentState(JobApplication jobApplication,int state);
 
 

@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;}
+#content{
+	padding-left:10%;}
+#basicInfoHeadIcon{
+	height: auto; 
+	overflow: hidden; 
+	width: 210px;
+	}
+.input-append{
+	text-align: center;
+    width: 100%;
+	}
+#basicInfoHeadIcon .btn{
+   	float: left;
+	margin:5px;
+    padding: 5px;
+    width: 90%;}
+.additionalInfo textarea{
+	width:80%;
+	}
+#buttons{
+	padding-top:50px;
+	padding-bottom:50px;
+	text-align:center;}
+
+

@@ -35,6 +35,7 @@ public class PageBeanToJsonMapServiceImpl implements PageBeanToJsonMapService {
 			Map<String, Object> tempMap=new HashMap<>();
 			tempMap.put("rowindex",i);
 			i++;
+			tempMap.put("applyId", jobApplication.getApplyId());
 			tempMap.put("applyDate",dateConvert(jobApplication.getApplyDate()));
 			tempMap.put("postingName",jobApplication.getRecruitment().getPostingName());
 			String stateString="";
