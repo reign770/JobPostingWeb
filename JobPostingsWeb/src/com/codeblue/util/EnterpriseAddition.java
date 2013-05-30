@@ -5,6 +5,24 @@ public class EnterpriseAddition {
 	private String queryWord;
 	private String address;
 	private String property;
+	
+	public void init(){
+		if(queryWord != null){
+			queryWord = queryWord.trim();
+			if(queryWord.equals(""))
+				queryWord=null;
+		}
+		if(address != null){
+			address = address.trim();
+			if(address.equals(""))
+				address =null;
+		}
+		if(property != null){
+			property = property.trim();
+			if(property.equals(""))
+				property =null;
+		}
+	}
 	public String getQueryWord() {
 		return queryWord;
 	}

@@ -1,5 +1,9 @@
 package com.codeblue.util;
 
+import org.apache.commons.lang.ObjectUtils.Null;
+
+import com.sun.org.apache.xml.internal.security.Init;
+
 public class QueryAddition {
 	private String queryWord;
 	private String postingName;
@@ -7,6 +11,20 @@ public class QueryAddition {
 	private Integer salary;
 	private String enterpriseProperty;
 	private int industryId;
+	public void init(){
+		if(queryWord != null)
+		queryWord =queryWord.trim();
+		if(postingName != null)
+		postingName = postingName.trim();
+		if(workingPlace != null)
+		workingPlace = workingPlace.trim();
+		if(enterpriseProperty !=null)
+		enterpriseProperty = enterpriseProperty.trim();
+		if(salary==null||salary <=0)
+			salary=null;
+		if(industryId < 0)
+			industryId =0;
+	}
 	public String getQueryWord() {
 		return queryWord;
 	}
@@ -43,5 +61,6 @@ public class QueryAddition {
 	public void setIndustryId(int industryId) {
 		this.industryId = industryId;
 	}
+	
 	
 }
