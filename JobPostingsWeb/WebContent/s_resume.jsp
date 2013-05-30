@@ -23,41 +23,41 @@
        		<dl class="dl-horizontal span8" style="font-size: 18px;">
     			<dt>姓名：</dt>
     			<dd>${student.name}</dd>
-    			<br>
+    			<br/>
             	<dt>性别：</dt>
     			<dd>${student.sex}</dd>
-    			<br>
+    			<br />
     			<dt>出生年月日：</dt>	
     			<dd><fmt:formatDate value="${student.birthday}" 
     			type="date" dateStyle="long"/>
     			</dd>
-    			<br>
+    			<br />
     			<dt>民族：</dt>
     			<dd>${student.nation}</dd>
-    			<br>
+    			<br />
     			<dt>学历：</dt>
     			<dd>${student.degree}</dd>
-    			<br>
+    			<br />
     			<dt>电话：</dt>
     			<dd>${student.telephone}</dd>
-    			<br>
+    			<br />
     			<dt>身份证号码：</dt>
     			<dd>${student.idNum}</dd>
-    			<br>
+    			<br />
     			<dt>联系地址：</dt>
     			<dd>${student.address}</dd>
-    			<br>    			
+    			<br />    			
     			<dt>毕业时间：</dt>
     			<dd><fmt:formatDate value="${student.graduationDate}" 
     			type="date" dateStyle="long"/>
 				</dd>
-    			<br>
+    			<br />
     			<dt>平均绩点：</dt>
     			<dd>${student.gpa}</dd>
-    			<br>
+    			<br />
     			<dt>专业：</dt>
     			<dd>${student.schoolClass.major.majorName}</dd>
-    			<br>
+    			<br />
     			<dt>毕业学校：</dt>
     			<dd>${student.school}</dd>
     		</dl>
@@ -84,7 +84,7 @@
 	</div>
 		<div class="additionalInfo">
     	<div class="page-header"><h2>荣誉和奖励</h2></div>
-    	<c:forTokens items="${student.brief.honor}" delims="$" var="item">
+    	<c:forTokens items="${student.brief.honor}" delims="," var="item">
 			<div id="additionalInfoContent" class="row">	
 	       		<p class="offset1" style="font-size: 20px;">${item}</p>
 	        </div>
@@ -92,7 +92,7 @@
 	</div>
 		<div class="additionalInfo">
     	<div class="page-header"><h2>经验与实习</h2></div>
-    	<c:forTokens items="${student.brief.experience}" delims="$" var="item">
+    	<c:forTokens items="${student.brief.experience}" delims="," var="item">
 			<div id="additionalInfoContent" class="row">	
 	       		<p class="offset1" style="font-size: 20px;">${item}</p>
 	        </div>
