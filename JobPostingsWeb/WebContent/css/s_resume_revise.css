@@ -9,9 +9,17 @@ body{
 .additionalInfo textarea{
 	width:80%;
 	}
+.additionalInfoContent{
+	margin-left:250px;
+}
 #buttons{
 	padding-top:50px;
 	padding-bottom:50px;
 	text-align:center;}
+.item{
+	margin-bottom:15px;}
+.add{
+	margin-left:250px;
+}
 
 
