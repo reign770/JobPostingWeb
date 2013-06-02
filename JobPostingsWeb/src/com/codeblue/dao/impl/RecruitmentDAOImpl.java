@@ -32,8 +32,9 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 	}
 
 	@Override
-	public void insert(Recruitment recruitment) {
+	public int insert(Recruitment recruitment) {
 		hibernateTemplate.save(recruitment);
+		return recruitment.getRecruitmentId();
 	}
 
 	@Override

@@ -15,8 +15,9 @@ public interface RecruitmentDAO {
 	/**
 	 * 插入一条职位信息
 	 * @param recruitment
+	 * @return 插入的主键编号
 	 */
-	public void insert(Recruitment recruitment);
+	public int insert(Recruitment recruitment);
 	/**
 	 * 更新一条职位信息
 	 * @param recruitment
