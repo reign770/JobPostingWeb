@@ -44,4 +44,13 @@ public interface RecruitmentService {
 	 * @return
 	 */
 	public PageBean getJobIntentionRecruitments(String studentId,int pageNumber,int pageSize);
+	/**
+	 * 获取某个公司的招聘信息
+	 * @param studentId
+	 * @param pageNumber
+	 * @param pageSize
+	 * @return
+	 */
+	public PageBean getEnterpriseRecruitments(int enterpriseId,int pageNumber,int pageSize);
+	
 }
