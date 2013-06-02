@@ -12,6 +12,11 @@
 <link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
 <script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
 <script src="/JobPostingsWeb/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script>
+  $(function(){
+
+	});
+</script>
 </head>
 <body>
 <div class="myLayout">
@@ -19,16 +24,15 @@
         <div id="barPart">
             <div>
         		<span id="headicon"><img src="/JobPostingsWeb/img/12883156763984.jpg" style="height:32px"/></span>
-      			<span id="username"><h6>xxxx有限公司</h6></span>
+      			<span id="username"><h5>easyOffer</h5></span>
             </div>
-            <span id="notification" class="badge badge-info">2</span>
+            <span id="notification" class="badge badge-info">${unreadedNumber}</span>
         </div>
     	<ul class="nav nav-list layer1">
            <li class="nav-header"><i class="icon-chevron-down"></i>个人信息</li>
            	<li><a href="#" onclick="addTab('我的简历','studentInfo_showStudentInfo?studentId=${account}')">我的简历</a></li>
            	<li><a href="#" onclick="addTab('修改密码','../s_editPassword.jsp')">修改密码</a></li>
           	<li><a href="#" onclick="addTab('简历修改','studentInfo_showBrief.action')">简历修改</a></li>
-          	<li><a href="#" onclick="addTab('就业意向','s_resume_revise.html')">就业意向</a></li>
            <li class="nav-header"><i class="icon-chevron-down"></i>校园招聘</li>
            	<li><a href="#" onclick="addTab('找工作','recruitment_execute.action')">找工作</a></li>
            	<li><a href="#" onclick="addTab('我关注的招聘','recruitment_concern.action?pageNumber=1&pageSize=10')">我关注的招聘</a></li>
@@ -89,6 +93,9 @@ $(function(){
 	});
 	});
 	
+	function closeTab(title){
+		$("#tabs").tabs('close',title);
+	};
 </script>
 <script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
 </body>

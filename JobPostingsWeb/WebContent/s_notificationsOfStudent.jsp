@@ -46,7 +46,7 @@ $(function () {
  	$('#pagination').pagination({
  		total:${pageBean.allRow},
  		pageSize:${pageBean.pageSize},
-		pageList: [2],
+		pageList: [10],
 		onSelectPage:
 			  function(pageNumber,pageSize){
 	   		  $(content).panel('refresh', 

@@ -50,15 +50,47 @@
 		    });
 		    //保存
 		    $('#save').click(function(){
-		    	
+		    	$('#alert').modal('show');
+		    });
+		    $('#confirm').click(function(){
+		    	$('#info').submit();
 		    });
 		});
 </script>
 </head>
 <body>
+<div class="modal hide fade in" id="alert" style="display: none;">
+            <div class="modal-header">
+              <a data-dismiss="modal" class="close">×</a>
+              <h3>确定</h3>
+            </div>
+            <div class="modal-body">
+              <h5>你确定你要修改并保存你的简历吗？</h5>
+      	    </div>
+            <div class="modal-footer">
+              <a class="btn btn-primary" href="#" id="confirm">确定</a>
+              <a data-dismiss="modal" class="btn btn-warning" href="#">取消</a>
+            </div>
+</div>
 <div class="myLayout">
-	<form method="post" onsubmit="flase">
-	<div>
+	<form  id='info' method="post"  action="studentInfo_modifyBrief.action">
+	<div>	
+            <div id="industry" class="additionalInfo">
+            	<div class="page-header"><h2>就业意向</h2></div>
+            	
+            	<div class="additionalInfoContent" class="row" >
+       			<select id="industry" name="jobIntentionId">
+					<s:iterator value="industries" var="industry">
+					   <s:if test="jobIntentionId == industryId">
+					   <option value="${industryId}" selected>${jobType}</option>
+					   </s:if>
+					   <s:else>
+					   <option value="${industryId}" >${jobType}</option>
+					   </s:else>
+					</s:iterator>
+				</select>
+                </div>
+            </div>
             <div id="course" class="additionalInfo">
                 <div class="page-header"><h2>主修课程</h2></div>
                 <div class="additionalInfoContent" class="row" >

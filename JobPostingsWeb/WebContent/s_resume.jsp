@@ -62,7 +62,7 @@
     			<dd>${student.school}</dd>
     		</dl>
             <div id="basicInfoHeadIcon" >
-            	<img src="/JobPostingsWeb/img/12883156763984.jpg" width="100" height="100"  class="img-polaroid"/>
+            	<img src="${student.headImage }" width="100" height="100"  class="img-polaroid"/>
             </div>
         </div>	
 	</div>
