@@ -98,6 +98,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		}
 		return false;
 	}
+	
+
+	@Override
+	public Enterprise getEnterpriseById(int enterpriseId) {
+		return enterpriseDAO.getByEnterpriseId(enterpriseId);
+	}
 
 	public EnterpriseDAO getEnterpriseDAO() {
 		return enterpriseDAO;
