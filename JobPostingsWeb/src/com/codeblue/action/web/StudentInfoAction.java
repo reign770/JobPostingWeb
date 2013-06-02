@@ -12,8 +12,12 @@ import org.hibernate.mapping.Array;
 import org.springframework.stereotype.Controller;
 
 import com.codeblue.model.Brief;
+import com.codeblue.model.Industry;
 import com.codeblue.model.Student;
+import com.codeblue.service.student.RecruitmentService;
 import com.codeblue.service.student.StudentInfoService;
+import com.codeblue.util.ResumeUntil;
+import com.codeblue.vo.Resume;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -24,10 +28,12 @@ public class StudentInfoAction extends ActionSupport implements SessionAware{
 	
 	private String studentId;
 	private String password;
-	private int industryId;
+	private int jobIntentionId;
+	private List<Industry> industries;
 	private Student student;
 	private StudentInfoService studentInfoService;
-	private Brief brief;
+	private RecruitmentService recruitmentService;
+	private Resume resume;
 	private Map<String, Object> session;
 	@Override
 	public String execute() throws Exception {
@@ -45,23 +51,47 @@ public class StudentInfoAction extends ActionSupport implements SessionAware{
 			return "getinfo";
 		}
 	}
+	//获取简历信息
+	public String showBrief() {
+	    //获取所有行业
+		industries = recruitmentService.getAllIndustries();
+		Student student  = (Student)session.get("student");
+		resume = ResumeUntil.changeToResume(
+				student.getBrief());
+		jobIntentionId = student.getJobIntention().getIndustryId();
+		return "show_brief";
+	}
+	//修改简历
 	public String modifyBrief() {
+	    if(resume ==null)
+	    	resume = new Resume();
+	    Brief brief = ResumeUntil.changeToBrief(resume);
+	    Student student = (Student)session.get("student");
+	    brief.setStudentId(student.getStudentId());
 		studentInfoService.modifyBrief(brief);
+		studentInfoService.modifyJobIntention(student.getStudentId(), jobIntentionId);
+		//更新session
+		Industry jobIntention = new Industry();
+		jobIntention.setIndustryId(jobIntentionId);
+		System.err.println("industryId:"+jobIntentionId);
+		student.setJobIntention(jobIntention);
+		student.setBrief(brief);
+		brief.setStudent(student);
+		session.put("student", student);
 		return SUCCESS;
 	}
-	
+	//修改密码
 	public String modifyPassword() {
-		System.err.println("modifypassword");
+		Student student = (Student)session.get("student"); 
 		studentInfoService.modifyPassword(
-				((Student)session.get("student")).getStudentId(), 
+				student.getStudentId(), 
 				password);
+		//更新session
+		student.setPassword(password);
+		session.put("student", student);
 		return "modifypassword_success";
 	}
 	
-	public String modifyJobIntention() {
-		studentInfoService.modifyJobIntention(studentId, industryId);
-		return SUCCESS;
-	}
 
 	public String getStudentId() {
 		return studentId;
@@ -87,23 +117,22 @@ public class StudentInfoAction extends ActionSupport implements SessionAware{
 		this.student = student;
 	}
 	
-	public Brief getBrief() {
-		return brief;
+	
+	public int getJobIntentionId() {
+		return jobIntentionId;
 	}
 
-	public void setBrief(Brief brief) {
-		this.brief = brief;
-	}
-	
-	public int getIndustryId() {
-		return industryId;
+	public void setJobIntentionId(int jobIntentionId) {
+		this.jobIntentionId = jobIntentionId;
 	}
 
-	public void setIndustryId(int industryId) {
-		this.industryId = industryId;
+	public Resume getResume() {
+		return resume;
 	}
-	
-	
+
+	public void setResume(Resume resume) {
+		this.resume = resume;
+	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -117,6 +146,23 @@ public class StudentInfoAction extends ActionSupport implements SessionAware{
 	public void setStudentInfoService(StudentInfoService studentInfoService) {
 		this.studentInfoService = studentInfoService;
 	}
+
+	public RecruitmentService getRecruitmentService() {
+		return recruitmentService;
+	}
+	@Resource
+	public void setRecruitmentService(RecruitmentService recruitmentService) {
+		this.recruitmentService = recruitmentService;
+	}
+
+	public List<Industry> getIndustries() {
+		return industries;
+	}
+	
+	public void setIndustries(List<Industry> industries) {
+		this.industries = industries;
+	}
+	
 	
 	
 	

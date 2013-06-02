@@ -19,6 +19,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
 public class InvitationAction extends ActionSupport implements SessionAware{
+	
+	public static final String JSON_RESULT = "json_result";
 	/**
 	 * 
 	 */
@@ -27,9 +29,13 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 	private int pageSize ;
 	private Map<String, Object> session;
 	private int pageNumber;
+	private String content;
 	private MessageService messageService;
 	private JobInvitationService jobInvitationService;
 	private PageBean pageBean;
+	private long invitationId;
+	private String message;
+	
 	@Override
 	public String execute() throws Exception {
 		
@@ -37,7 +43,6 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 		pageBean = jobInvitationService
 				.getUnProcessInvitations(studentId, pageNumber, pageSize);
 		pageSize = 1;
-		
 		return SUCCESS;
 	}
 	
@@ -63,13 +68,35 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 		return "item";
 	}
 	
+	public String accept() {
+		content = content.trim();
+		int flag = jobInvitationService.acceptJobInvitation(invitationId,content);
+		System.err.println("flag:"+flag);
+		//判断是否接受邀请成功
+		if(flag == 1){
+			message = "accept_success";
+		}
+		else {
+			System.err.println("ignore");
+			jobInvitationService.ingoreJobInvitation(invitationId);
+			message = "accept_fail";
+		}
+		return JSON_RESULT;
+	}
+	
+	public String ignore() {
+		System.err.println("ignore");
+		jobInvitationService.ingoreJobInvitation(invitationId);
+		message = "ignore_success";
+		return JSON_RESULT;
+	}
 	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	@JSON(deserialize=true)
+	@JSON(serialize=false)
 	public MessageService getMessageService() {
 		return messageService;
 	}
@@ -78,7 +105,7 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 		this.messageService = messageService;
 	}
 	
-
+	@JSON(serialize=false)
 	public JobInvitationService getJobInvitationService() {
 		return jobInvitationService;
 	}
@@ -86,7 +113,17 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 	public void setJobInvitationService(JobInvitationService jobInvitationService) {
 		this.jobInvitationService = jobInvitationService;
 	}
+	
+	@JSON(serialize=true)
+	public String getMessage() {
+		return message;
+	}
 
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	@JSON(serialize=false)
 	public PageBean getPageBean() {
 		return pageBean;
 	}
@@ -94,7 +131,7 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 	public void setPageBean(PageBean pageBean) {
 		this.pageBean = pageBean;
 	}
-
+	@JSON(serialize=false)
 	public int getPageNumber() {
 		return pageNumber;
 	}
@@ -102,7 +139,7 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 	public void setPageNumber(int pageNumber) {
 		this.pageNumber = pageNumber;
 	}
-
+	@JSON(serialize=false)
 	public int getPageSize() {
 		return pageSize;
 	}
@@ -110,6 +147,24 @@ public class InvitationAction extends ActionSupport implements SessionAware{
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
+	@JSON(serialize=false)
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	@JSON(serialize=false)
+	public long getInvitationId() {
+		return invitationId;
+	}
+
+	public void setInvitationId(long invitationId) {
+		this.invitationId = invitationId;
+	}
+	
+	
 	
 
 }
