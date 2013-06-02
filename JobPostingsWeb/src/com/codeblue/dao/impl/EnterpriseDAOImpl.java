@@ -117,12 +117,12 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 				Criteria criteria = session.createCriteria(Enterprise.class);
 				Map valueMap = new HashedMap();
 				valueMap.put("state", EnterpriseAccountState.PASS);
-				if(address != null)
+				if(address != null && !address.trim().equals(""))
 					valueMap.put("address", address);
-				if(property != null)
+				if(property != null && !property.trim().equals(""))
 					valueMap.put("enterpriseProperty", property);
 				criteria.add(Restrictions.allEq(valueMap));
-				if(queryWord != null)
+				if(queryWord != null && !queryWord.trim().equals(""))
 				    criteria.add(Restrictions.like("enterpriseName", queryWord,MatchMode.ANYWHERE));
 				criteria.setFirstResult(offset);
 				criteria.setMaxResults(pageSize);
@@ -142,12 +142,12 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 				Criteria criteria = session.createCriteria(Enterprise.class);
 				Map valueMap = new HashedMap();
 				valueMap.put("state", EnterpriseAccountState.PASS);
-				if(address != null)
+				if(address != null && !address.trim().equals(""))
 					valueMap.put("address", address);
-				if(property != null)
+				if(property != null && !property.trim().equals(""))
 					valueMap.put("enterpriseProperty", property);
 				criteria.add(Restrictions.allEq(valueMap));
-				if(queryWord != null)
+				if(queryWord != null && !queryWord.trim().equals(""))
 				criteria.add(Restrictions.like("enterpriseName", queryWord,MatchMode.ANYWHERE));
 				return criteria.list().size();
 			}

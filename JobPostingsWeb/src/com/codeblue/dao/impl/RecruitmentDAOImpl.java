@@ -221,6 +221,4 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 	
-	
-
 }
