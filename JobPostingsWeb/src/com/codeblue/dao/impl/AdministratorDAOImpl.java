@@ -1,5 +1,7 @@
 package com.codeblue.dao.impl;
 
+import javax.annotation.Resource;
+
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -28,11 +30,9 @@ public class AdministratorDAOImpl implements AdministratorDAO {
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
 	}
-
+	@Resource
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-	
-	
 
 }
