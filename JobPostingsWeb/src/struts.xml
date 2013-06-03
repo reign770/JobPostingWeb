@@ -34,24 +34,135 @@
 	
 	<package name="studentService" namespace="/student" extends="json-default">
 		<action name="login_*" 
-				class="com.codeblue.action.web.StudentLoginAction"
+				class="com.codeblue.action.web.student.StudentLoginAction"
 				method="{1}">
 				<result name="validate" type="json"/>
 				<result name="success" >/s_PersonalPage.jsp</result>
-				<result name="login" type="redirect">/login.jsp</result>
+				<result name="login" type="redirect">/s_login.jsp</result>
 		</action>
 		<action name="studentInfo_*"
-		        class="com.codeblue.action.web.StudentInfoAction"
+		        class="com.codeblue.action.web.student.StudentInfoAction"
 		        method="{1}">
 		        <result name="modifypassword_success">/s_modifypassword_success.jsp</result>
 		        <result name="getinfo">/s_resume.jsp</result>
+		        <result name="show_brief">/s_resume_revise.jsp</result>
+		        <result name="success">/index.html</result>
 		</action>
-		<action name="message_*" 
-		        class="com.codeblue.action.web.MessageAction"
+		<action name="invitation_*" 
+		        class="com.codeblue.action.web.student.InvitationAction"
 				method="{1}">
-				<result name="success">/s_notificationsOfStudents.jsp</result>
-				<result name="item">/s_notificationsOfStudents_item.jsp</result>
+				<result name="success">/s_invitationsOfStudents.jsp</result>
+				<result name="item">/s_invitationsOfStudents_item.jsp</result>
+				<result name="json_result" type="json"/>
 		</action>
+		
+		<action name="notification_*" 
+		        class="com.codeblue.action.web.student.NotificationAction"
+		        method="{1}">
+		        <result name="success">/s_notificationsOfStudent.jsp</result>
+		        <result name="item">/s_notificationsOfStudent_item.jsp</result>
+		        <result name="readed_success" type="json"/>
+		</action>
+		<action name="feedback_*" 
+				class="com.codeblue.action.web.FeedbackAction" 
+				method="{1}">
+				<result name="success">/s_feedback.jsp</result>
+				<result name="item">/s_feedback_item.jsp</result>
+	    </action>
+	    <action name="recruitment_*" 
+	    		class="com.codeblue.action.web.student.RecruitmentAction"
+	    		method="{1}">
+	    		<result name="find">/s_findaJob_result.jsp</result>
+	    		<result name="concern">/s_newsOfStudents.jsp</result>
+	    		<result name="item">/s_recruitment_item.jsp</result>
+	    </action>
+	    <action name="enterprise_*"
+	    		class="com.codeblue.action.web.student.Stu_EnterpriseAction"
+	    		method="{1}">
+	    		<result name="find">/s_find_enterprise.jsp</result>
+	    		<result name="concern">/s_concern_enterprise.jsp</result>
+	    		<result name="item">/s_enterprise_item.jsp</result>
+	    		<result name="c_item">/s_concern_enterprise_item.jsp</result>
+	    		<result name="json_result" type="json"/>	    
+	    </action>
+	</package>
+	<package name="test" extends="json-default" namespace="/test">
+		<action name="recruitment_*" 
+				class="com.codeblue.action.web.TestAction"
+				method="{1}">
+				<result name="success" type="json">
+					<param name="root">
+						list
+					</param>
+				</result>
+		</action>
+	</package>
+	<package name="app" extends="json-default" namespace="/app">
+		<action name="studentInfo_*"
+		        class="com.codeblue.action.app.StudentInfoAction"
+		        method="{1}">
+		        <result name="result" type="json">
+		        	<param name="root">
+						status
+		        	</param>
+		        </result>
+		        <result name="studentInfo" type="json">
+		        	<param name="root">
+		        	 	studentVO
+		        	</param>
+		        </result>
+	   </action>
+	   <action name="recruitment_*"
+	   		   class="com.codeblue.action.app.RecruitmentAction"
+	   		   method="{1}">
+	   		   <result name="items" type="json">
+	   		   		<param name="root">
+	   		   			recruitmentItemVOs
+	   		   		</param>
+	   		   </result>
+	   		   <result name="recruitment" type="json">
+	   		   		<param name="root">
+	   		   			recruitmentVO
+	   		   		</param>
+	   		   </result>
+	   </action>
+	   <action name="enterprise_*"
+	   		   class="com.codeblue.action.app.EnterpriseAction"
+	   		   method="{1}">
+	   		   <result name="items" type="json">
+	   		   		<param name="root">
+	   		   			enterpriseItemVOs
+	   		   		</param>
+	   		   </result>
+	   		   <result name="result" type="json">
+	   		   		<param name="root">
+	   		   			status
+	   		   		</param>
+	   		   </result>
+	   </action>
+	   <action name="jobInvitation_*"
+	   		   class="com.codeblue.action.app.JobInvitationAction"
+	   		   method="{1}">
+	   		   <result name="items" type="json">
+	   		   		<param name="root">
+	   		   			jobInvitationVOs
+	   		   		</param>
+	   		   </result>
+	   		   <result name="result" type="json">
+	   		   		<param name="root">
+	   		   			status
+	   		   		</param>
+	   		   </result>
+	   </action>
+	   <action name="industry_showAllIndustries" 
+	   		   class="com.codeblue.action.app.IndustryAction"
+	   		   method="{1}">
+	   		   <result name="items" type="json">
+	   		   		<param name="root">
+	   		   			industries
+	   		   		</param>
+	   		   </result>
+	   </action>
 	</package>
 
 </struts>
