@@ -38,14 +38,17 @@ public class CreatePositionDetailAction extends BaseAction {
 		return "success";
 	}
 	public String insert() {
+		int recruitmentId;
 		Enterprise enterprise=(Enterprise)session.get("user");
 		recruitment.setEnterprise(enterprise);
 		System.out.println(recruitment.getIndustry().getIndustryId()+" "+recruitment.getDeadline());
 		recruitment.setState(RecruitmentState.POSTING);
 		recruitment.setReleaseDate(new Date());
-		recruitmentService.insertRecruitment(recruitment);
+		recruitmentId=recruitmentService.insertRecruitment(recruitment);
 		jsonMap.clear();
 		jsonMap.put("msg", "success");
+		jsonMap.put("recruitmentId", 4);
+		System.out.println(recruitmentId+"    hhhhhhhh");
 		return "success";
 	}
 	

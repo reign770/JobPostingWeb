@@ -20,10 +20,73 @@
 var pageSize1=10;
 var	pageNum1=1;
 var totalOfRecommendation;
+var recruitmentId;
 
 
 var chooseNum=0;//邀请的人数
 var chooseIDs="";//邀请的学生ID串
+
+$(function(){
+	//json设置行业类型
+	var industries = $("#industries");
+	industries.empty();//清空select下拉框
+    $.getJSON("/JobPostingsWeb/industry.json", function(json){
+    		for(var i=0;i<json.industries.length;i++){
+            	$("<option value='" + json.industries[i].industryId + "'>" + json.industries[i].jobType + "</option>").appendTo(industries);//动态添加Option子项
+        	}
+    	});
+	//检验数据
+    $("form").submit(function(){
+    	var result=false;
+    	$("input").each(function(){
+    			if($.trim($(this).val())==""){
+    				alert("请填写所有信息!");
+    				result=false;
+    				return false;
+    			}else{
+    				result=true;
+    				return true;
+    			}
+    		});
+    	if(result==true){
+    		$(this).ajaxSubmit({
+    			dataType:"json",
+    			success:function(data){
+    				if($.trim(data.msg)=="success"){
+    					$('#myModal1').modal('show');
+    					recruitmentId=data.recruitmentId;
+    					console.log("ssss"+recruitmentId);
+    					loadRecommendation(pageSize1,pageNum1);
+    				}else{
+    					$('#myModal2').modal('show');
+    				}
+    			},
+    			error:function(){
+    				$('#myModal2').modal('show');
+    			}
+    		}); 
+    	}
+    	return false;
+		
+    });
+	//timepicker
+	$(".form_datetime").datetimepicker({
+		minView:'month',
+		format: 'yyyy-mm-dd',
+		autoclose:"true",
+		todayHighlight:true,
+		language:"zh-CN"
+		});
+	
+	recommendToggleInit();
+    
+	
+	$('#NOinvite').click(function(){
+		location.href="/JobPostingsWeb/c_CreatePositionDetail.jsp";
+	});
+	
+});
+
 
 function loadRecommendation(pS,pN){
 	$.ajax({
@@ -73,7 +136,7 @@ function recommendToggleInit(){
 }
 
 function inviteClick(){
-
+	console.log("sssas"+recruitmentId);
 	$('#myModal1 #friendLink li').has('.icon-ok:visible').each(function(){
 		chooseIDs=chooseIDs+$(this).find("input:hidden").val()+":";
 	});
@@ -84,7 +147,7 @@ function inviteClick(){
 		   dataType:'json',
 		   data: {
 			   chooseIds:chooseIDs,
-			   recruitmentId:4
+			   recruitmentId:recruitmentId
 		   },
 		   success: function(data){
 			 if($.trim(data.msg)=="success"){
@@ -100,66 +163,7 @@ function inviteClick(){
 		});
 }
 
-$(function(){
-	//json设置行业类型
-	var industries = $("#industries");
-	industries.empty();//清空select下拉框
-    $.getJSON("/JobPostingsWeb/industry.json", function(json){
-    		for(var i=0;i<json.industries.length;i++){
-            	$("<option value='" + json.industries[i].industryId + "'>" + json.industries[i].jobType + "</option>").appendTo(industries);//动态添加Option子项
-        	}
-    	});
-	//检验数据
-    $("form").submit(function(){
-    	var result=false;
-    	$("input").each(function(){
-    			if($.trim($(this).val())==""){
-    				alert("请填写所有信息!");
-    				result=false;
-    				return false;
-    			}else{
-    				result=true;
-    				return true;
-    			}
-    		});
-    	if(result==true){
-    		$(this).ajaxSubmit({
-    			dataType:"json",
-    			success:function(data){
-    				if($.trim(data.msg)=="success"){
-    					$('#myModal1').modal('show');
-    					loadRecommendation(pageSize1,pageNum1);
-    				}else{
-    					$('#myModal2').modal('show');
-    				}
-    			},
-    			error:function(){
-    				$('#myModal2').modal('show');
-    			}
-    		}); 
-    	}
-    	return false;
-		
-    });
-	//timepicker
-	$(".form_datetime").datetimepicker({
-		minView:'month',
-		format: 'yyyy-mm-dd',
-		autoclose:"true",
-		todayHighlight:true,
-		language:"zh-CN"
-		});
-	
-	recommendToggleInit();
-    
-	$('#invite').click(function(){
-		
-	});
-	$('#NOinvite').click(function(){
-		location.href="/JobPostingsWeb/c_CreatePositionDetail.jsp";
-	});
-	
-});
+
 </script>
 </head>
 

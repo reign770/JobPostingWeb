@@ -35,7 +35,6 @@ public class LoginAction extends BaseAction{
 		
 		String account=request.getParameter("account");
 		String password=request.getParameter("password");
-		System.out.println(account+"   "+password);
 		enterprise=new Enterprise();
 		enterprise.setEnterpriseAccount(account);
 		enterprise.setPassword(password);
@@ -51,8 +50,6 @@ public class LoginAction extends BaseAction{
 		}else{
 			jsonMap.put("loginmessage","disable");
 		}
-		System.out.println("ssss"+msg);
-		System.out.println("aaaa"+jsonMap);
 		return "success";
 	}
 
