@@ -22,7 +22,7 @@ public class CreatePositionDetailAction extends BaseAction {
 	private int pageNum=1;
 	private int industryId;
 	
-	private PageBean pageBean;
+	private PageBean pageBean=new PageBean();
 	
 	private Recruitment recruitment;
 	@Resource(name="ent_recruitmentService")
@@ -47,8 +47,7 @@ public class CreatePositionDetailAction extends BaseAction {
 		recruitmentId=recruitmentService.insertRecruitment(recruitment);
 		jsonMap.clear();
 		jsonMap.put("msg", "success");
-		jsonMap.put("recruitmentId", 4);
-		System.out.println(recruitmentId+"    hhhhhhhh");
+		jsonMap.put("recruitmentId", recruitmentId);
 		return "success";
 	}
 	

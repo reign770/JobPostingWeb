@@ -12,7 +12,7 @@ public class FindStudentsAction extends BaseAction {
 	private int classId;
 	
 	
-	private PageBean pageBean;
+	private PageBean pageBean=new PageBean();
 	
 	@Resource(name="ent_studentService")
 	private StudentService studentService;

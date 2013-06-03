@@ -33,7 +33,7 @@ public class DealWithApplicationsTwoAction{
 	private int rows=10;//跟其他action不一样的原因是因为 为了适应datagrid的变量名
 	private int page=1;
 	
-	private PageBean pageBean;
+	private PageBean pageBean=new PageBean();
 	private int recruitmentId;
 	private Map<String,Object> jsonMap=new HashMap<>();
 	

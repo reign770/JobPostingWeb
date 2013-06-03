@@ -12,9 +12,9 @@ public class LoginContentsAction extends BaseAction {
 	private int pageSize=10;
 	private int pageNum=1;
 	
-	private PageBean pageBeanOne;
-	private PageBean pageBeanTwo;
-	private PageBean pageBeanThree;
+	private PageBean pageBeanOne=new PageBean();
+	private PageBean pageBeanTwo=new PageBean();
+	private PageBean pageBeanThree=new PageBean();
 	
 	@Resource(name="ent_employeementInfoService")
 	private EmployeementInfoService employeementInfoService;

@@ -20,7 +20,7 @@ public class ArrangePositionsAction extends BaseAction {
 	private int pageSize=10;
 	private int pageNum=1;
 	
-	private PageBean pageBean;
+	private PageBean pageBean=new PageBean();
 	private List<Recruitment> recruitments;
 	
 	private Map<String,Object> jsonMap=new HashMap<>();

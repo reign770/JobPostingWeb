@@ -23,9 +23,9 @@ public class CompanyPageAction extends BaseAction {
 	private int industryId;
 	
 	private Enterprise enterprise;
-	private PageBean pageBean1;
-	private PageBean pageBean2;
-	private PageBean pageBean3;
+	private PageBean pageBean1=new PageBean();
+	private PageBean pageBean2=new PageBean();
+	private PageBean pageBean3=new PageBean();
 	private List<Recruitment> recruitments;
 	private List<Evaluation> evaluations;
 
