@@ -7,8 +7,11 @@ import javax.annotation.Resource;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 
+import com.codeblue.model.Brief;
 import com.codeblue.service.student.StudentInfoService;
+import com.codeblue.util.ResumeUntil;
 import com.codeblue.util.VOUntil;
+import com.codeblue.vo.Resume;
 import com.codeblue.vo.Status;
 import com.codeblue.vo.StudentVO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,12 +25,19 @@ public class StudentInfoAction extends ActionSupport{
 	public final static String SUCCEED = "succeed";
 	public final static String FAIL = "fail";
 	
+	//传入参数
 	private String username;//学生账号
 	private String studentId;//学生学号
 	private String password;//密码
-	private Status status = new Status();//状态
-	private StudentVO studentVO;//学生值对象
+	private String newPassword;
+	private String[] majorCourse;
+	private String[] honor;
+	private String[] experience;
+	private String[] interests;
+	private String resume;
 	
+	private StudentVO studentVO;//学生值对象
+	private Status status = new Status();//状态
 	private StudentInfoService studentInfoService;
 	
 	public String login() {
@@ -48,9 +58,21 @@ public class StudentInfoAction extends ActionSupport{
 		
 		return "studentInfo";
 	}
+	public String modifyBrief() {
+		Resume resumeInfo = new Resume();
+		resumeInfo.setStudentId(studentId);
+		resumeInfo.setHonors(honor);
+		resumeInfo.setInterests(interests);
+		resumeInfo.setMajorCourse(majorCourse);
+		resumeInfo.setResume(resume);
+		Brief brief = ResumeUntil.changeToBrief(resumeInfo);
+		studentInfoService.modifyBrief(brief);
+		status.setStatus(SUCCEED);
+		return "result";
+	}
 	
 	public String modifyPassword(){
-		studentInfoService.modifyPassword(username, password);
+		studentInfoService.modifyPassword(studentId, newPassword);
 		status.setStatus(SUCCEED);
 		return "result";
 	}
@@ -98,6 +120,56 @@ public class StudentInfoAction extends ActionSupport{
 	public void setStudentVO(StudentVO studentVO) {
 		this.studentVO = studentVO;
 	}
+	
+	
+	public String[] getMajorCourse() {
+		return majorCourse;
+	}
+
+	public void setMajorCourse(String[] majorCourse) {
+		this.majorCourse = majorCourse;
+	}
+
+	public String[] getHonor() {
+		return honor;
+	}
+
+	public void setHonor(String[] honor) {
+		this.honor = honor;
+	}
+
+	public String[] getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String[] experience) {
+		this.experience = experience;
+	}
+
+	public String[] getInterests() {
+		return interests;
+	}
+
+	public void setInterests(String[] interests) {
+		this.interests = interests;
+	}
+
+	public String getResume() {
+		return resume;
+	}
+
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+	
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
+
 	@Resource
 	public void setStudentInfoService(StudentInfoService studentInfoService) {
 		this.studentInfoService = studentInfoService;
