@@ -13,16 +13,19 @@ import com.codeblue.model.property.RecruitmentState;
 import com.codeblue.service.enterprise.EnterpriseService;
 import com.codeblue.service.enterprise.EvaluationService;
 import com.codeblue.service.enterprise.RecruitmentService;
+import com.codeblue.service.enterprise.StudentService;
 import com.codeblue.service.impl.enterprise.EvaluationServiceImpl;
 import com.codeblue.util.PageBean;
 
 public class CompanyPageAction extends BaseAction {
-	private int pageSize=1;
+	private int pageSize=10;
 	private int pageNum=1;
+	private int industryId;
 	
 	private Enterprise enterprise;
 	private PageBean pageBean1;
 	private PageBean pageBean2;
+	private PageBean pageBean3;
 	private List<Recruitment> recruitments;
 	private List<Evaluation> evaluations;
 
@@ -32,6 +35,8 @@ public class CompanyPageAction extends BaseAction {
 	private RecruitmentService recruitmentService;
 	@Resource(name="ent_evaluationService")
 	private EvaluationService evaluationService;
+	@Resource(name="ent_studentService")
+	private StudentService studentService;
 	
 	public String load() {
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
@@ -41,9 +46,34 @@ public class CompanyPageAction extends BaseAction {
 		recruitments=pageBean1.getList();
 		pageBean2=evaluationService.queryEvaluationsOfCompany(enterpriseId,pageNum, pageSize);
 		evaluations=pageBean2.getList();
+		industryId=1;
+		pageBean3=studentService.queryRecommandStudentsByJobIntention(industryId, pageNum, pageSize);
+		return "success";
+	}
+	
+	public String loadRecruitments() {
+		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
+		Integer[] states={RecruitmentState.POSTING};
+		pageBean1=recruitmentService.queryRecruitmentsOfCompany(enterpriseId,states , pageNum, pageSize);
+		recruitments=pageBean1.getList();
 		return "success";
 	}
 
+	public String loadEvaluations() {
+		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
+		Integer[] states={RecruitmentState.POSTING};
+		pageBean2=evaluationService.queryEvaluationsOfCompany(enterpriseId,pageNum, pageSize);
+		evaluations=pageBean2.getList();
+		return "success";
+	}
+	
+	public String loadRecommendation(){
+		//int industryId=(int)(Math.random()*26)+1;
+		industryId=1;
+		pageBean3=studentService.queryRecommandStudentsByJobIntention(industryId, pageNum, pageSize);
+		return "success";
+	}
+	
 	public Enterprise getEnterprise() {
 		return enterprise;
 	}
@@ -96,6 +126,22 @@ public class CompanyPageAction extends BaseAction {
 
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
+	}
+
+	public int getIndustryId() {
+		return industryId;
+	}
+
+	public void setIndustryId(int industryId) {
+		this.industryId = industryId;
+	}
+
+	public PageBean getPageBean3() {
+		return pageBean3;
+	}
+
+	public void setPageBean3(PageBean pageBean3) {
+		this.pageBean3 = pageBean3;
 	}
 	
 

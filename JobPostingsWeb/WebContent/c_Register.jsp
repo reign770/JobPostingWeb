@@ -57,7 +57,7 @@ $(function(){
   //检验数据
     $("form").submit(function(){
     	var result=true;
-    	$(":text,:file").each(function(){
+    	$(":text,:file,:password").each(function(){
     			if($.trim($(this).val())==""){
     				alert("请填写所有信息!");
     				result=false;
@@ -66,7 +66,9 @@ $(function(){
     				return true;
     			}
     		});
-    	$('#myModal').modal('show');
+    	if(result==true){
+    	 $('#myModal').modal('show');
+    	}
     	
     	return result;
 		

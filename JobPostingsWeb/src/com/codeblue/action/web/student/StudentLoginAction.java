@@ -1,4 +1,4 @@
-package com.codeblue.action.web;
+package com.codeblue.action.web.student;
 
 import java.util.Map;
 
@@ -8,6 +8,8 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.json.annotations.JSON;
 import org.springframework.stereotype.Controller;
 
+import com.codeblue.model.Student;
+import com.codeblue.service.student.MessageService;
 import com.codeblue.service.student.StudentInfoService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,12 +22,18 @@ public class StudentLoginAction extends ActionSupport implements SessionAware{
 	private String account;
 	private String password;
 	private Map<String,Object> session;
-	private StudentInfoService studentInfoService;
 	private String loginmessage;
+	private long unreadedNumber;
+	
+	private MessageService messageService;
+	private StudentInfoService studentInfoService;
 
 	@Override
 	public String execute() throws Exception {
 		if(session.get("student") != null) {
+			Student student = (Student)session.get("student");
+			unreadedNumber = messageService
+					.getUnreadedNotifications(student.getStudentId(), 1, 1).getAllRow();
 			return Action.SUCCESS;
 		}
 		else {
@@ -80,6 +88,16 @@ public class StudentLoginAction extends ActionSupport implements SessionAware{
 	public void setLoginmessage(String loginmessage) {
 		this.loginmessage = loginmessage;
 	}
+	
+	@JSON(serialize=false)
+	public long getUnreadedNumber() {
+		return unreadedNumber;
+	}
+
+	public void setUnreadedNumber(long unreadedNumber) {
+		this.unreadedNumber = unreadedNumber;
+	}
+
 	@JSON(serialize=false)
 	public StudentInfoService getStudentInfoService() {
 		return studentInfoService;
@@ -88,6 +106,16 @@ public class StudentLoginAction extends ActionSupport implements SessionAware{
 	public void setStudentInfoService(StudentInfoService studentInfoService) {
 		this.studentInfoService = studentInfoService;
 	}
+	@JSON(serialize=false)
+	public MessageService getMessageService() {
+		return messageService;
+	}
+	@Resource
+	public void setMessageService(MessageService messageService) {
+		this.messageService = messageService;
+	}
+	
+	
 	
 	
 	

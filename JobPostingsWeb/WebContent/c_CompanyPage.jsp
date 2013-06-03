@@ -15,11 +15,15 @@
 	var pageSize1=1;
 	var	pageNum1=2;
 	var totalOfRecruitment=${pageBean1.allRow};
+	/*英才推荐信息分页参数（从第二页开始）
+	var pageSize3=10;
+	var	pageNum3=2;
+	var totalOfRecommendation=${pageBean3.allRow};*/
 	//加载招聘信息
 	function loadRecruitment(pS,pN){
 		$.ajax({
 			   type: "POST",
-			   url: "bc_c_CompanyPage_load_recruitment.action",
+			   url: "bc_c_CompanyPage_loadRecruitments_recruitment.action",
 			   dataType:'html',
 			   data: {
 				   pageSize:pS,
@@ -45,8 +49,8 @@
 	
 	function move(h){
 		$("#movecontent").animate({"margin-top":Top,"margin-bottom":Bottom},Time);//animate方法，只能对数值型的值进行渐变
-		Top+=-10;
-		Bottom+=10;
+		Top+=-6;
+		Bottom+=6;
 		if(Top<=-h)//判断当总高度大于你DIV或者图片总高度
 		{
 			Top=0;//把距离设置回0
@@ -67,7 +71,7 @@ $(function(){
 		$("html,body").stop().animate({scrollTop:anh-50},500);
 	}); 
 	$('#wantedInfo #more').click(function(){
-		if(pageNum1<=totalOfRecruitment){
+		if(pageNum1<=Math.ceil(totalOfRecruitment/pageSize1)){
 			$('#wantedInfo #more label').hide();
 			$('#wantedInfo #more img').show();
 			loadRecruitment(pageSize1,pageNum1);
@@ -186,41 +190,20 @@ $(function(){
    		</div>
    		<div id="right" class="span4">
     		<div id="friendLink" class="row-fluid">
+    				
     				<div class="page-header"><h4>英才推荐</h4></div>
 				    <ul class="thumbnails" style="overflow: hidden;">
 				    	<div id="movecontent">
+				    	<s:iterator value="pageBean3.list">
     						<li class="span5" style="margin-left: 5px;">
     							<div class="thumbnail">
-   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
+   								 	<img src="${headImage }" alt="" >
     							 	<div class="caption">
-    							 		<p style="word-break: break-all;">name</p>
+    							 		<p style="word-break: break-all;">${name }</p>
    								 	</div>
     							</div>
     						</li>
-    						<li class="span5">
-    							<div class="thumbnail">
-   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
-    							 	<div class="caption">
-    							 		<p style="word-break: break-all;">name</p>
-   								 	</div>
-    							</div>
-    						</li>
-    						<li class="span5">
-    							<div class="thumbnail">
-   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
-    							 	<div class="caption">
-    							 		<p style="word-break: break-all;">name</p>
-   								 	</div>
-    							</div>
-    						</li>
-    						<li class="span5">
-    							<div class="thumbnail">
-   								 	<img src="/JobPostingsWeb/img/12883156763984.jpg" alt="" >
-    							 	<div class="caption">
-    							 		<p style="word-break: break-all;">name</p>
-   								 	</div>
-    							</div>
-    						</li>
+    					</s:iterator>
 					  </div>
     				</ul>
 			</div>

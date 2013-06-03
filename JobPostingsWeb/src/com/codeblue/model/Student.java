@@ -17,6 +17,7 @@ public class Student {
 	private String sex;
 	private String headImage;//头像
 	private Date birthday;//生日
+	private String email;//邮箱
 	private String nation;
 	private String degree;//学历
 	private String telephone;
@@ -200,6 +201,14 @@ public class Student {
 	@JoinColumn(name="studentId")
 	public Set<Notification> getNotifications() {
 		return notifications;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setNotifications(Set<Notification> notifications) {

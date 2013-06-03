@@ -62,6 +62,8 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		Industry industry = new Industry();
 		industry.setIndustryId(industryId);
 		student.setJobIntention(industry);
+		System.err.println("modifyJobIntention");
+		studentDAO.update(student);
 	}
 
 	public StudentDAO getStudentDAO() {

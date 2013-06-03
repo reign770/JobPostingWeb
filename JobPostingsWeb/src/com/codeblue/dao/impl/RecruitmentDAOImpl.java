@@ -32,8 +32,9 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 	}
 
 	@Override
-	public void insert(Recruitment recruitment) {
+	public int insert(Recruitment recruitment) {
 		hibernateTemplate.save(recruitment);
+		return recruitment.getRecruitmentId();
 	}
 
 	@Override
@@ -140,7 +141,7 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 			;
 		if(postingName !=null && !postingName.equals(""))
 			detachedCriteria
-			.add(Restrictions.eq("r.postingName", postingName));
+			.add(Restrictions.like("r.postingName", postingName,MatchMode.ANYWHERE));
 		
 		if(workingPlace != null && !workingPlace.equals(""))
 			detachedCriteria
@@ -185,7 +186,7 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 		
 		if(postingName !=null && !postingName.equals(""))
 			detachedCriteria
-			.add(Restrictions.eq("r.postingName", postingName));
+			.add(Restrictions.like("r.postingName", postingName,MatchMode.ANYWHERE));
 		
 		if(workingPlace != null && !workingPlace.equals(""))
 			detachedCriteria
@@ -220,6 +221,4 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 	
-	
-
 }

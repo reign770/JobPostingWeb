@@ -12,6 +12,7 @@ body{
 	left: 0;
 	background:#ECEFF1;
 	overflow:hidden;
+	padding-bottom: 200px;
     }
 	
 #comBar{
@@ -64,6 +65,7 @@ body{
     top: 150px;
     width: 90%;
     overflow:hidden;
+    padding-bottom: 100px;
 	}	
 #comContent #left{
 	}

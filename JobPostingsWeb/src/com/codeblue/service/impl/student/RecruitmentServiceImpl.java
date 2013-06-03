@@ -92,6 +92,22 @@ public class RecruitmentServiceImpl implements RecruitmentService{
 	
 
 	@Override
+	public PageBean getEnterpriseRecruitments(int enterpriseId, int pageNumber,
+			int pageSize) {
+		List<Recruitment> list =
+			    recruitmentDAO.queryByEnterpriseId(enterpriseId, new Integer[]{1},(pageNumber-1)*pageSize, pageSize);
+				long allRow =
+				recruitmentDAO.getCountByEnterpriseId(enterpriseId, new Integer[]{1});
+				PageBean pageBean = new PageBean();
+				pageBean.setList(list);
+				pageBean.setAllRow(allRow);
+				pageBean.setPageSize(pageSize);
+				pageBean.setCurrentPage(pageNumber);
+				pageBean.init();
+		return pageBean;
+	}
+
+	@Override
 	public List<Industry> getAllIndustries() {
 		return industryDAO.getAllIndustries();
 	}

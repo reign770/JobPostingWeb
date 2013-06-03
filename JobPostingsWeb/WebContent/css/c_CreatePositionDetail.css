@@ -30,3 +30,10 @@ body{
 	padding-top:50px;
 	padding-bottom:50px;
 	text-align:center;}
+/*英才推荐*/
+#friendLink li{
+	margin-top:5px;
+}
+#friendLink li .icon-ok{
+	display:none;
+}

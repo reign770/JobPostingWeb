@@ -2,6 +2,7 @@ package com.codeblue.service.student;
 
 import org.hamcrest.core.Is;
 
+import com.codeblue.model.Enterprise;
 import com.codeblue.util.EnterpriseAddition;
 import com.codeblue.util.PageBean;
 
@@ -18,5 +19,7 @@ public interface EnterpriseService {
 	public PageBean queryEnterprise(EnterpriseAddition enterpriseAddition,int pageNumber,int pageSize);
 	
 	public void commentEnterpise(String studentId,int enterpriseId,String comment);
+	
+	public Enterprise getEnterpriseById(int enterpriseId);
 	
 }

@@ -77,11 +77,11 @@ public class RegisterAction extends BaseAction{
 		String realImagePath=servletContext.getRealPath(imagePath);
 		//System.out.println(realImagePath);
 		//从缓存里面读取图片文件
-		/*BufferedInputStream is=new BufferedInputStream(new FileInputStream(image));
+		BufferedInputStream is=new BufferedInputStream(new FileInputStream(image));
 		BufferedOutputStream os=new BufferedOutputStream(new FileOutputStream(realImagePath));
 		IOUtils.copy(is, os);
 		is.close();
-		os.close();*/
+		os.close();
 	}
 	
 	

@@ -44,8 +44,7 @@
     				<dd>${recruitment.industry.jobType}</dd>
     				
     			</dl>
-                <button class="btn btn-info pull-right" >修改</button>
-                <button class="btn btn-danger pull-right" >停止招聘</button>
+                <!--  <button class="btn btn-danger pull-right" >停止招聘</button>-->
         	</div>	
 		</div>
         
@@ -69,7 +68,7 @@
     
     <div class="span10" id="publisher">
     	<div class="page-header"><h4>职位发布人</h4></div>
-    	<span id="headicon" class="pull-left"><img src="/JobPostingsWeb/img/12883156763984.jpg" class="img-polaroid" style="height:100px"/></span>
+    	<span id="headicon" class="pull-left"><img src="${recruitment.enterprise.logo}" class="img-polaroid" style="height:100px"/></span>
       	<span id="username"><a href="#"><h4>${recruitment.enterprise.enterpriseName}</h4></a></span>
      	<button class="btn btn-info">加关注</button>
     </div> 
