@@ -8,6 +8,7 @@ import com.codeblue.model.Enterprise;
 import com.codeblue.model.Evaluation;
 import com.codeblue.model.JobApplication;
 import com.codeblue.model.JobInvitation;
+import com.codeblue.model.Notification;
 import com.codeblue.model.Recruitment;
 import com.codeblue.model.Student;
 import com.codeblue.model.property.JobApplicationState;
@@ -16,14 +17,15 @@ import com.codeblue.vo.EnterpriseVO;
 import com.codeblue.vo.EvaluationVO;
 import com.codeblue.vo.JobApplicationVO;
 import com.codeblue.vo.JobInvitationVO;
+import com.codeblue.vo.NotificationVO;
 import com.codeblue.vo.RecruitmentItemVO;
 import com.codeblue.vo.RecruitmentVO;
 import com.codeblue.vo.StudentVO;
 
 public class VOUntil {
 	private static SimpleDateFormat formator = new SimpleDateFormat("yyyy-MM-dd");
-	private static SimpleDateFormat formator_time =
-			new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private static SimpleDateFormat formator_time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private static SimpleDateFormat formator_zhTime = new SimpleDateFormat();
 	/**
 	 * 转换成学生值对象
 	 * @param student
@@ -223,6 +225,23 @@ public class VOUntil {
 			list.add(jobInvitationVO);
 		}
 		return list;
-	} 
+	}
+	
+	public static List<NotificationVO> convertToNotificationVOs(List<Notification> notifications) {
+		List<NotificationVO> list = new ArrayList<NotificationVO>();
+		for(Notification notification : notifications) {
+			NotificationVO notificationVO = new NotificationVO();
+			notificationVO.setContent(notification.getContent());
+			notificationVO.setEnterpriseId(
+		    String.valueOf(notification.getEnterprise().getEnterpriseId()));
+			notificationVO.setEnterpriseLogo(notification
+					.getEnterprise().getLogo());
+			notificationVO.setNotificationId(String
+					.valueOf(notification.getNotificationId()));
+			notificationVO.setPostTime(formator_time
+					.format(notification.getPostTime()));
+		}
+		return list;
+	}
 	
 }

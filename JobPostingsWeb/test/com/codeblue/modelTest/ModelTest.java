@@ -44,6 +44,11 @@ public class ModelTest extends AbstractJUnit4SpringContextTests{
 	}
 	
 	@Test
+	public void getaStudent(){
+		Student student = (Student)hibernateTemplate.get(Student.class, "10060130");
+		System.out.println(student);
+	}
+	@Test
 	public void testClass(){
 		Major major = new Major();
 		major.setMajorId(1);
@@ -65,7 +70,7 @@ public class ModelTest extends AbstractJUnit4SpringContextTests{
 	@Test
 	public void testStudent(){
 	    Student student = new Student();
-		student.setStudentId("10060130");
+		student.setStudentId("10060129");
 		student.setPassword(student.getStudentId());
 		student.setSex("男");
 		student.setState(0);
@@ -80,6 +85,9 @@ public class ModelTest extends AbstractJUnit4SpringContextTests{
 		student.setNation("汉族");
 		student.setSchool("重庆交通大学");
 		student.setTelephone("199432423412");
+		Brief brief = new Brief();
+		brief.setStudentId("10060129");
+		student.setBrief(brief);
 		Class class1 = new Class();
 		class1.setClassId(1);
 		student.setSchoolClass(class1);
