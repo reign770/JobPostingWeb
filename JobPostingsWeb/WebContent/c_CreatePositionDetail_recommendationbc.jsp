@@ -23,4 +23,7 @@ $(function () {
     					</div>
     				</li>
 				  </s:iterator>
+				  <s:if test="pageBean.list.size==0">
+				  		木有人才了...哈哈哈哈哈哈~~
+				  </s:if>
 				
