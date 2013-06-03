@@ -14,7 +14,7 @@ public class DealWithApplicationsOneAction extends BaseAction{
 	private int pageSize=10;
 	private int pageNum=1;
 	
-	private PageBean pageBean;
+	private PageBean pageBean=new PageBean();
 	
 	@Resource(name="ent_recruitmentService")
 	private RecruitmentService recruitmentService;

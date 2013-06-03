@@ -104,7 +104,7 @@
 	
  	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-		    <tx:method name="*" propagation="REQUIRED"/>
+   			<tx:method name="*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice> 
 

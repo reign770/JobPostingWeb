@@ -2,6 +2,8 @@
 /* CSS Document */
 .navs>.layer1>li:not([class=nav-header]){
 	display:none;}
+.navs>.layer1>li[class=ohno]{
+	display:block;}
 .layer1{
 	padding:2%;
 	position: absolute;
@@ -35,7 +37,6 @@
 .icon-chevron-right{
 	position: absolute;
     right: 5%;
-	top:40%;
 	}
 .icon-chevron-down{
 	position: absolute;

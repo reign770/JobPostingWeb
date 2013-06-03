@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>处理申请——选择职位</title>
+<title>管理招聘信息</title>
 <link href="/JobPostingsWeb/css/c_dealWithApplicationsOne.css" rel="stylesheet" media="screen"/>
 <link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
 <link href="/JobPostingsWeb/js/jquery-easyui-1.3.3/themes/bootstrap/easyui.css" rel="stylesheet" media="screen"/>
@@ -14,12 +14,39 @@
 <script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
 <script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
 <script src="/JobPostingsWeb/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+
+
 <script type="application/javascript">
 $(function () {
 	$('#pagination').pagination({
 		pageList: [1,2,10,20,50,100]
 	});
+	
 });
+
+function stopRecruitingClick(rID,btn){
+	$.ajax({
+		   type: "POST",
+		   url: "/JobPostingsWeb/enterprise/json_c_ArrangePositions_stopRecruiting",
+		   dataType:'json',
+		   data: {
+			   recruitmentId:rID+""
+		   },
+		   success: function(data){
+		     if(data.msg!=null&&$.trim(data.msg)=="success" ){
+		     	$(btn).text("已停止招聘");
+		    	$(btn).attr("disabled","disabled");
+		     }else{
+		    	 alert("出错，请重新再试！");
+		     }
+		   },
+		   error: function(){
+			    $(btn).text("停止招聘");
+		    	$(btn).removeAttr("disabled");
+			   alert("出错，请重新再试！");
+		   }
+		});
+}
 </script>
 </head>
 
@@ -31,13 +58,13 @@ $(function () {
  	<div id="contents" class="easyui-panel" style="height:auto; overflow:hidden; background:transparent; border:none;" data-options="href:''"> 
     	<s:iterator value="pageBean.list" status="sts">
 			<div class="content well-small">
-         		<a href="c_DealWithApplicationsTwo_redirect?recruitmentId=${recruitmentId }" >
-         			
+         		
          			<h4 class="media-heading" class="pull-left">
          				${postingName}
          			</h4>
-         			<i class="icon-chevron-right pull-right"></i>
-         		</a>
+         			<button class="btn btn-info pull-right" type="button" onclick="window.parent.addTab('${postingName}','/JobPostingsWeb/enterprise/c_PositionDetail_load?recruitmentId=${recruitmentId }')">查看详细信息</button>
+                	<button class="btn btn-danger pull-right" type="button" id="stopRecruiting" onclick="stopRecruitingClick(${recruitmentId},this)">停止招聘</button>
+         	
          			<br />
          		 	<strong>    职位名称：</strong>${postingName} 
     				<strong>    工作城市：</strong>${workingPlace} 
@@ -61,7 +88,7 @@ $(function () {
         
         
     </div>  
-    <div id="pagination" class="easyui-pagination" data-options="total:${pageBean.allRow},pageSize:${pageBean.pageSize},onSelectPage:function(pageNumber,pageSize){$('#contents').panel('refresh', 'bc_c_DealWithApplicationsOne_load_recruitment.action?pageSize='+pageSize+'&&pageNum='+pageNumber);}">  
+    <div id="pagination" class="easyui-pagination" data-options="total:${pageBean.allRow},pageSize:${pageBean.pageSize},onSelectPage:function(pageNumber,pageSize){$('#contents').panel('refresh', 'bc_c_ArrangePositions_load_recruitment.action?pageSize='+pageSize+'&&pageNum='+pageNumber);}">  
     </div>  
 
 

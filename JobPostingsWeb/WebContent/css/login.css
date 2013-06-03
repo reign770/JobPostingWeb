@@ -78,9 +78,8 @@ body{
 	margin-bottom:20px;
 	background: #ECEFF1;
     border-radius: 5px 5px 5px 5px;
-    height: auto;
 	overflow:hidden;
-	min-height:580px;
+	height:580px;
     }
 #news #news-contents .news-contents-title{
 	height: auto;
@@ -89,13 +88,34 @@ body{
 	
 	}
 #news #news-contents .news-contents-list{
+	padding-top:20px;
+	height:480px;
+	overflow:auto;
 	border-top: 1px solid #DDDEDF;
-	text-align:center
+	}
+#news #news-contents .news-contents-list li a{
+	cursor:pointer;
 	}
 #news #news-contents .news-contents-list .news-contents-list-title{
 	}
 #news #news-contents .news-contents-list .news-contents-list-time{
 	}
+/*企业信息库*/
+.content{
+	width:90%;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:0;
+	height:auto;
+	overflow:hidden;
+	background:white;}
+.content img{
+	overflow:hidden;
+	max-width:100px;
+	max-height:100px;}
+.content a:hover{
+	text-decoration:none;
+	color:#666;}
 /*轮播部分*/
 #news .news_picCarousel{
 	margin-top:30px;
@@ -104,3 +124,11 @@ body{
 	height:auto;
 	overflow:hidden;
 	}
+/*更多*/
+#more1,#more2,#more3{
+	margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+    width: 90%;
+    cursor:pointer;}

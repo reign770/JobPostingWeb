@@ -1,6 +1,7 @@
 package com.codeblue.service.enterprise;
 
 import com.codeblue.model.Enterprise;
+import com.codeblue.util.PageBean;
 
 /**
  * 
@@ -12,6 +13,8 @@ public interface EnterpriseService {
 	public Enterprise queryEnterprise(int enterpriseId);
 	
 	public void updateEnterprise(Enterprise enterprise);
+	
+	public PageBean queryEnterprises(Integer[] states, int pageNum, int pageSize);
 	
 	
 

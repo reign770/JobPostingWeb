@@ -14,6 +14,13 @@
 		    <result name="login">/c_login.jsp</result>
 			<result name="success">/c_PersonalPage.jsp</result>
 		</action>
+		<action name="c_Register" class="com.codeblue.action.web.enterprise.RegisterAction" method="register">
+		    <interceptor-ref name="fileUpload"/>
+		    <interceptor-ref name="basicStack"/>
+		    <result name="input">/c_Register.jsp</result>
+			<result name="success">/c_Register_Success.jsp</result>
+			<result name="error">/c_Register_Error.jsp</result>
+		</action>
 		<action name="c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
 			<result name="success">/c_{1}.jsp</result>
 		</action>
@@ -27,8 +34,8 @@
 	              
 			</result>
 		</action>
-		<action name="bc_c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
-			<result name="success">/c_{1}_bc.jsp</result>
+		<action name="bc_c_*_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
+			<result name="success">/c_{1}_{3}bc.jsp</result>
 		</action>
 	</package>
 	

@@ -38,9 +38,9 @@ public class RecruitmentServiceImpl implements RecruitmentService {
 	}
 
 	@Override
-	public void insertRecruitment(Recruitment recruitment) {
+	public int insertRecruitment(Recruitment recruitment) {
 		// TODO Auto-generated method stub
-		recruitmentDAO.insert(recruitment);
+		return recruitmentDAO.insert(recruitment);
 	}
 
 	@Override

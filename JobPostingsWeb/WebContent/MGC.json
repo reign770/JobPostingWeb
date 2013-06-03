@@ -1,0 +1,10 @@
+{"majors":[
+{"majorId":"1","majorName":"计算机科学与技术",
+	"classes":[{"grade":"2010","classId":"1","className":"软件一班"},
+			   {"grade":"2010","classId":"2","className":"软件二班"}
+			]},
+{"majorId":"2","majorName":"电子信息工程",
+	"classes":[{"grade":"2010","classId":"3","className":"电子一班"}]},
+{"majorId":"3","majorName":"通信工程",
+	"classes":[{"grade":"2010","classId":"4","className":"通信一班"}]}
+	]}

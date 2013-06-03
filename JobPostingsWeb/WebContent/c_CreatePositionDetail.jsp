@@ -14,7 +14,18 @@
 <script src="/JobPostingsWeb/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script src="/JobPostingsWeb/css/bootstrap timepicker/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="/JobPostingsWeb/css/bootstrap timepicker/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script src="/JobPostingsWeb/js/jquery.form.min.js"></script>
 <script type="text/javascript">
+/*英才推荐分页参数（现在没用分页，以后用的话可以直接用）*/
+var pageSize1=10;
+var	pageNum1=1;
+var totalOfRecommendation;
+var recruitmentId;
+
+
+var chooseNum=0;//邀请的人数
+var chooseIDs="";//邀请的学生ID串
+
 $(function(){
 	//json设置行业类型
 	var industries = $("#industries");
@@ -26,28 +37,139 @@ $(function(){
     	});
 	//检验数据
     $("form").submit(function(){
-		if($.trim($(":text").val())==""){
-			alert("请填写所有信息!");
-			return false;
-		}
+    	var result=false;
+    	$("input").each(function(){
+    			if($.trim($(this).val())==""){
+    				alert("请填写所有信息!");
+    				result=false;
+    				return false;
+    			}else{
+    				result=true;
+    				return true;
+    			}
+    		});
+    	if(result==true){
+    		$(this).ajaxSubmit({
+    			dataType:"json",
+    			success:function(data){
+    				if($.trim(data.msg)=="success"){
+    					$('#myModal1').modal('show');
+    					recruitmentId=data.recruitmentId;
+    					console.log("ssss"+recruitmentId);
+    					loadRecommendation(pageSize1,pageNum1);
+    				}else{
+    					$('#myModal2').modal('show');
+    				}
+    			},
+    			error:function(){
+    				$('#myModal2').modal('show');
+    			}
+    		}); 
+    	}
+    	return false;
 		
-	});
+    });
 	//timepicker
 	$(".form_datetime").datetimepicker({
 		minView:'month',
 		format: 'yyyy-mm-dd',
 		autoclose:"true",
 		todayHighlight:true,
-		language:"zh-CN"});
+		language:"zh-CN"
+		});
+	
+	recommendToggleInit();
     
 	
+	$('#NOinvite').click(function(){
+		location.href="/JobPostingsWeb/c_CreatePositionDetail.jsp";
+	});
+	
 });
+
+
+function loadRecommendation(pS,pN){
+	$.ajax({
+		   type: "POST",
+		   url: "bc_c_CreatePositionDetail_loadRecommendation_recommendation.action",
+		   dataType:'html',
+		   data: {
+			   pageSize:pS,
+			   pageNum:pN,
+			   industryId:$('#industries').val()
+		   },
+		   success: function(data){
+			 $('#myModal1 #friendLink #movecontent').append(data);
+		     pageNum1++;
+		   },
+		   error:function(data){
+			   alert("推荐加载失败，抱歉！");
+		   }
+		});
+}
+
+function recommendToggleInit(){
+	var chooseNum=0;
+	$('#myModal1 #friendLink li').unbind("click");
+	$('#myModal1 #friendLink li').toggle(function(){
+		
+		$(this).find(".icon-ok").css("display","block");
+		chooseNum=chooseNum+1;
+		if(chooseNum<=0){
+			$('#invite').attr("disabled","disabled");
+		}else{
+			$('#invite').removeAttr("disabled");
+			$('#invite').attr("enable","enable");
+		}
+		//console.log(chooseNum+" ");
+	},function(){
+		$(this).find(".icon-ok").css("display","none");
+		chooseNum=chooseNum-1;
+		if(chooseNum<=0){
+			$('#invite').attr("disabled","disabled");
+		}else{
+			$('#invite').removeAttr("disabled");
+			$('#invite').attr("enable","enable");
+		}
+		//console.log(chooseNum+" ");
+	});
+}
+
+function inviteClick(){
+	console.log("sssas"+recruitmentId);
+	$('#myModal1 #friendLink li').has('.icon-ok:visible').each(function(){
+		chooseIDs=chooseIDs+$(this).find("input:hidden").val()+":";
+	});
+	
+	$.ajax({
+		   type: "POST",
+		   url: "json_c_CreatePositionDetail_doInvitation.action",
+		   dataType:'json',
+		   data: {
+			   chooseIds:chooseIDs,
+			   recruitmentId:recruitmentId
+		   },
+		   success: function(data){
+			 if($.trim(data.msg)=="success"){
+				 alert("邀请成功！");
+				 location.href="/JobPostingsWeb/c_CreatePositionDetail.jsp";
+			 }else{
+				 alert("出错啦，抱歉！请重试");
+			 }
+		   },
+		   error:function(data){
+			   alert("出错啦，抱歉！请重试");
+		   }
+		});
+}
+
+
 </script>
 </head>
 
 <body>
 <div class="myLayout">
-<form action="/JobPostingsWeb/enterprise/c_CreatePositionDetail_insert" method="post">	
+<form action="/JobPostingsWeb/enterprise/json_c_CreatePositionDetail_insert" method="post">	
 	<div class="span10" id="positionInfo">
 		<div class="basicInfo">
     		<div class="page-header"><h2>基本信息</h2></div>
@@ -99,17 +221,59 @@ $(function(){
     	<div class="additionalInfo">
     		<div class="page-header"><h2>岗位描述</h2></div>
 			<div id="additionalInfoContent" class="row">	
-       			<p class="offset1"> <textarea rows="5" name="recruitment.qualification"></textarea></p>
+       			<p class="offset1"> <textarea rows="5" name="recruitment.qualification">无</textarea></p>
        		</div>
        		<div class="page-header"><h2>职责要求</h2></div>
 			<div id="additionalInfoContent" class="row">	
-       			<p class="offset1"> <textarea rows="5" name="recruitment.responsibilities" ></textarea></p>
+       			<p class="offset1"> <textarea rows="5" name="recruitment.responsibilities" >无</textarea></p>
        	 	</div>
 		</div>
         
         <div id="buttons" class="row" >
     		<input type="submit" class="btn btn-primary" value="    发 布    "/>
     		<input type="button" class="btn btn-primary offset1" value="    取 消    "/>
+    	</div>
+    	
+    	
+    	<div id="myModal1" class="modal hide fade" data-backdrop="static">
+    		<div class="modal-header">
+    			<h5>创建成功</h5>
+   			</div>
+    		<div class="modal-body">
+    			<p>
+    				<div  >
+						恭喜您~新的招聘信息创建成功了！<br />
+   						<div id="friendLink" class="row-fluid">
+   							<div class="page-header"><h4>英才推荐<small>下面是您可能感兴趣的人才，赶快邀请他们来投简历吧~</small></h4></div>
+				   			 <ul class="thumbnails" style="overflow: hidden;">
+				    			<div id="movecontent">
+				    				
+    								
+					  			</div>
+    						</ul>
+						</div>	
+    				</div>
+    			</p>
+    		</div>
+    		<div class="modal-footer">
+    			<button class="btn btn-primary" disabled="disabled" id="invite" type="button" onclick="inviteClick()">邀请</button>
+    			<button class="btn btn-primary" id="NOinvite" type="button">不邀请，返回</button>
+   			</div>
+    	</div>
+    	<div id="myModal2" class="modal hide fade" data-backdrop="static">
+    		<div class="modal-header">
+    			<h5>创建失败</h5>
+   			</div>
+    		<div class="modal-body">
+    			<p>
+    				<div  >
+						创建出错了！请返回尝试重新提交<br />
+    				</div>
+    			</p>
+    		</div>
+    		<div class="modal-footer">
+    			<button class="btn btn-primary" id="confirm" type="button" id="NOinvite" onclick="$('#myModal2').modal('hide');">返回</button>
+   			</div>
     	</div>
         
         

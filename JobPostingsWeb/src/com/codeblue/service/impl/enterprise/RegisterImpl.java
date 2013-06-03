@@ -17,13 +17,24 @@ public class RegisterImpl implements Register {
 	@Override
 	public void register(Enterprise enterprise) {
 		// TODO Auto-generated method stub
-		if(enterpriseDAO.getEnterpriseByAccount(enterprise.getEnterpriseAccount())==null){
+		if(checkIfExist(enterprise.getEnterpriseAccount())){
 			enterpriseDAO.insert(enterprise);
 			msg="注册成功!";
 		}else{
 			msg="注册失败！";
-		};
+		}
 
+	}
+	
+	public boolean checkIfExist(String enterpriseAccount){
+		if(enterpriseDAO.getEnterpriseByAccount(enterpriseAccount)==null){
+			
+			msg="true";
+			return true;
+		}else{
+			msg="false";
+			return false;
+		}
 	}
 
 	@Override
