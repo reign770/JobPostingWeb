@@ -27,6 +27,8 @@ $(function(){
 	//$('#news #news-nav').attr("data-offset-top","640px");
 	//$('#news #news-nav').affix();
 	//$('#news #news-content').scrollspy();
+	var validateAction = "student/login_validateInfo.action";
+	var postAction = "";
 	 $('#news-nav li').click(function(event){
 		event.preventDefault();
 		value=$(this).find('a').text();
@@ -42,6 +44,23 @@ $(function(){
        interval: 2000
     });
 	$("#alert").hide();
+	//切换
+	$('#student').click(function(){
+		validateAction = 'student/login_validateInfo.action';
+		action = 'student/login_execute.action';
+		$('#loginForm').attr("action",action);
+	});
+	$('#enterprise').click(function(){
+		validateAction = 'enterprise/login_validateInfo.action';
+		action = 'student/login_execute.action';
+		$('#loginForm').attr("action",action);
+	});
+	$('#admin').click(function(){
+		validateAction = 'admin/login_validateInfo.action';
+		action = 'admin/login_execute.action';
+		$('#loginForm').attr("action",action);
+	});
+	//登录
 	$("#btnlogin").click(function(event){
 		if($("#account").val().trim() == ""){
 			$("#msg").text("账户不能为空!");
@@ -51,7 +70,7 @@ $(function(){
 			$("#msg").text("密码不能为空!");
 			$("#alert").show();
 		}else {
-			$.post("student/login_validateInfo.action",
+			$.post(validateAction,
 				{account:$("#account").val(), password:$("#password").val()},
 				function(dataObj){ 
 				if(dataObj.loginmessage == 'noaccount'){
@@ -84,7 +103,7 @@ $(function(){
 		<div id="loginPanel">
         	<div class="btn-group roleChooser" data-toggle="buttons-radio">
     			<button id="student"class="btn active">学生</button>
-    			<button id="school" class="btn">学校</button>
+    			<button id="admin" class="btn">学校</button>
    				<button id="enterprise" class="btn">企业</button>
    			</div>
         	<form id="loginForm" action="student/login_execute.action" method="post">

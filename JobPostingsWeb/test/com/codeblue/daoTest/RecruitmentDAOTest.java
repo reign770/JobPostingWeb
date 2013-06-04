@@ -83,7 +83,7 @@ public class RecruitmentDAOTest extends AbstractJUnit4SpringContextTests{
 	@Test
 	public void testQueryByAddition() {
 		List<Recruitment> list = 
-		recruitmentDAO.queryByAddition(null, null, null, 1000,EnterpriseProperty.FOREIGN_FUNDS, 0, 10);
+		recruitmentDAO.queryByAddition(null, null, null, 200,EnterpriseProperty.JOINT_EQUITY, 1,0, 10);
 		for(Recruitment r:list) {
 			System.out.println(r);
 		}

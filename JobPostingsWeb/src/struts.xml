@@ -74,7 +74,7 @@
 		        <result name="readed_success" type="json"/>
 		</action>
 		<action name="feedback_*" 
-				class="com.codeblue.action.web.FeedbackAction" 
+				class="com.codeblue.action.web.student.FeedbackAction" 
 				method="{1}">
 				<result name="success">/s_feedback.jsp</result>
 				<result name="item">/s_feedback_item.jsp</result>
@@ -96,17 +96,7 @@
 	    		<result name="json_result" type="json"/>	    
 	    </action>
 	</package>
-	<package name="test" extends="json-default" namespace="/test">
-		<action name="recruitment_*" 
-				class="com.codeblue.action.web.TestAction"
-				method="{1}">
-				<result name="success" type="json">
-					<param name="root">
-						list
-					</param>
-				</result>
-		</action>
-	</package>
+	<!-- 移动平台通信 -->
 	<package name="app" extends="json-default" namespace="/app">
 		<action name="studentInfo_*"
 		        class="com.codeblue.action.app.StudentInfoAction"
@@ -164,12 +154,26 @@
 	   		   		</param>
 	   		   </result>
 	   </action>
-	   <action name="industry_showAllIndustries" 
+	   <action name="industry_*" 
 	   		   class="com.codeblue.action.app.IndustryAction"
 	   		   method="{1}">
 	   		   <result name="items" type="json">
 	   		   		<param name="root">
 	   		   			industries
+	   		   		</param>
+	   		   </result>
+	   </action>
+	   <action name="notification_*"
+	   		   class="com.codeblue.action.app.NotificationAction"
+	   		   method="{1}">
+	   		   <result name="items" type="json">
+	   		   		<param name="root">
+	   		   			notificationVOs
+	   		   		</param>
+	   		   </result>
+	   		   <result name="items" type="json">
+	   		   		<param name="root">
+	   		   			status
 	   		   		</param>
 	   		   </result>
 	   </action>

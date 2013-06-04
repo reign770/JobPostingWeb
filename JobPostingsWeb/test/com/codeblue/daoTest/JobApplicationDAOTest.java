@@ -80,6 +80,10 @@ public class JobApplicationDAOTest extends AbstractJUnit4SpringContextTests{
 			System.out.println(j);
 		}
 	}
+	@Test
+	public void test() {
+		System.out.println(jobApplicationDAO.getByJobApplicationFK("10060130", 1));
+	}
 
 	@Test
 	public void testGetCountByRecruitmentId() {

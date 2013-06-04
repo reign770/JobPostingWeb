@@ -22,6 +22,7 @@ public class JobApplications extends ActionSupport{
 	public static final int pageSize = 10;
 	//参数
 	private String studentId;
+	private long recruitmentId;
 	private int pageParam;
 	//返回参数
 	private List<JobApplicationVO> jobApplicationVOs;
@@ -42,6 +43,15 @@ public class JobApplications extends ActionSupport{
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
+	
+	public long getRecruitmentId() {
+		return recruitmentId;
+	}
+
+	public void setRecruitmentId(long recruitmentId) {
+		this.recruitmentId = recruitmentId;
+	}
+
 	public int getPageParam() {
 		return pageParam;
 	}
