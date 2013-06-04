@@ -57,7 +57,7 @@ public class CompanyPageAction extends BaseAction {
 		return "success";
 	}
 	
-	public String loadStudentVersion() {
+	public String loadOfS() {
 		String studentId=((Student)session.get("student")).getStudentId();
 		int enterpriseId=Integer.parseInt(request.getParameter("enterpriseId"));
 		Integer[] states={RecruitmentState.POSTING};
