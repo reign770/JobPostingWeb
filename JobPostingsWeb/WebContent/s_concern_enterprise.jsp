@@ -85,7 +85,10 @@ $(function () {
 	                      data-original-title="公司简介"
 	                      data-placement="bottom">
 	                      <div class="caption">
-	                          <a href="#"><h3>${enterpriseName }</h3></a>
+	                         <a href="../enterprise/s_CompanyPage_loadOfS.action?" 
+	                         onclick="window.parent.addTab('${enterpriseName}',
+	                         '../enterprise/s_CompanyPage_loadOfS.action?enterpriseId=${enterpriseId}')">
+	                         <h3>${enterpriseName }</h3></a>
 	                         <h5>企业性质：${enterpriseProperty }</h5>
 	                         <h5>公司规模：${enterpriseScale }</h5>
 	                         <h5>成立时间：<fmt:formatDate value="${foundDate}" type="date" pattern="yyyy"/>年</h5>

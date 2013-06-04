@@ -51,6 +51,8 @@ public class CompanyPageAction extends BaseAction {
 		return "success";
 	}
 	
+	
+	
 	public String loadRecruitments() {
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
 		Integer[] states={RecruitmentState.POSTING};

@@ -7,13 +7,13 @@ import javax.annotation.Resource;
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.json.annotations.JSON;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.jsf.FacesContextUtils;
 
 import com.codeblue.model.Student;
 import com.codeblue.service.student.EnterpriseService;
 import com.codeblue.util.EnterpriseAddition;
 import com.codeblue.util.PageBean;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.jndi.url.corbaname.corbanameURLContextFactory;
 
 @Controller("stu_EnterpriseAction")
 public class Stu_EnterpriseAction extends ActionSupport implements SessionAware{
