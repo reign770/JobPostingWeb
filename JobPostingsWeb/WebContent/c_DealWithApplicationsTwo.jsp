@@ -24,7 +24,7 @@ $(function () {
 	    $('#dg').datagrid({ 
 		view: detailview,  
         detailFormatter:function(index,row){ 
-		    return "<iframe width='100%' height='500px'  class='myIframe' frameborder='0' scrolling='auto'  src='/JobPostingsWeb/s_resume.html'></iframe>";
+		    return "<iframe width='100%' height='500px'  class='myIframe' frameborder='0' scrolling='auto'  src='/JobPostingsWeb/student/studentInfo_showStudentInfo.action?studentId="+row.studentId+"'></iframe>";
 			 
         },  
 		toolbar:'#tb',

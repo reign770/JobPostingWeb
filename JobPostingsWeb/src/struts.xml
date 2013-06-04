@@ -21,6 +21,9 @@
 			<result name="success">/c_Register_Success.jsp</result>
 			<result name="error">/c_Register_Error.jsp</result>
 		</action>
+		<action name="s_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
+			<result name="success">/s_{1}.jsp</result>
+		</action>
 		<action name="c_*_*" class="com.codeblue.action.web.enterprise.{1}Action" method="{2}">
 			<result name="success">/c_{1}.jsp</result>
 		</action>
