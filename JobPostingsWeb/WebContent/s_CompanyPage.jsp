@@ -84,6 +84,7 @@ $(function(){
 	var Mheight=$("#movecontent").height();
 	var myar=setInterval('move('+Mheight+')', 80);
 	
+	
     /* $("#friendLink").hover(function() {
     	console.log("hover!");
      	clearInterval(myar); 
@@ -102,6 +103,14 @@ $(function(){
       <span id="headicon"><img src="${enterprise.logo}" class="img-polaroid" style="height:200px"/></span>
       <span id="username"><h2>${enterprise.enterpriseName}  </h2></span>
       <button class="btn btn-info">加关注</button>
+      <span id="username"><h2>${enterprise.enterpriseName}  </h2></span>
+      <s:if test="isConcerned == true">
+      	<button class="btn btn-info">取消关注</button>
+      </s:if>
+      <s:else>
+      	<button class="btn btn-info">加关注</button>
+      </s:else>
+      
 	</div>
     
     <div id="comNav">
@@ -133,7 +142,7 @@ $(function(){
             		<dt>传真</dt>
     				<dd>：${enterprise.fax}</dd>
             		<dt>公司网址</dt>
-    				<dd>：${enterprise.webSite}</dd>
+    				<dd>：<a href="http://${enterprise.webSite}"></a>${enterprise.webSite}</dd>
     				<dt>企业法人</dt>
     				<dd>：${enterprise.enterpriseLegalPerson}</dd>
     				<dt>企业规模</dt>
@@ -186,26 +195,6 @@ $(function(){
         		 	</div>
          		</s:iterator>
          		
-			</div>
-   		</div>
-   		<div id="right" class="span4">
-    		<div id="friendLink" class="row-fluid">
-    				
-    				<div class="page-header"><h4>英才推荐</h4></div>
-				    <ul class="thumbnails" style="overflow: hidden;">
-				    	<div id="movecontent">
-				    	<s:iterator value="pageBean3.list">
-    						<li class="span5" style="margin-left: 5px;">
-    							<div class="thumbnail">
-   								 	<img src="${headImage }" alt="" >
-    							 	<div class="caption">
-    							 		<p style="word-break: break-all;">${name }</p>
-   								 	</div>
-    							</div>
-    						</li>
-    					</s:iterator>
-					  </div>
-    				</ul>
 			</div>
    		</div>
    </div>

@@ -17,7 +17,7 @@ $(function () {
     						<p style="word-break: break-all;">${name }</p>
     						<input type="hidden" value="${studentId}" />
    							<p>
-   								<a href="javascript:void(0)" class="btn btn-primary" onclick="window.parent.addTab('${name }'+'的简历','/JobPostingsWeb/s_resume.html')">查看简历</a>
+   								<a href="javascript:void(0)" class="btn btn-primary" onclick="window.parent.addTab('${name }'+'的简历','/JobPostingsWeb/student/studentInfo_showStudentInfo.action?studentId=${studentId}')">查看简历</a>
    							</p>
    							
     					</div>

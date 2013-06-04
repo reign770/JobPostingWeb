@@ -24,7 +24,7 @@ $(function () {
     					<img class="media-object img-polaroid" src="${headImage }" style="" >
                		</a>
     				<div class="media-body">
-   						<a href="#"><h4 class="media-heading">${name }</h4></a>
+   						<a onclick="window.parent.addTab('${name }'+'的简历','/JobPostingsWeb/student/studentInfo_showStudentInfo.action?studentId=${studentId}')"><h4 class="media-heading">${name }</h4></a>   
                    		<a href="#"><h6 class="media-heading">${sex }</h6></a>
     			
     					<strong>出生年月：</strong>	<fmt:formatDate value="${birthday}" type="date" dateStyle="long"/>

@@ -9,6 +9,7 @@ import com.codeblue.dao.EnterpriseDAO;
 import com.codeblue.model.Enterprise;
 import com.codeblue.model.Evaluation;
 import com.codeblue.model.Recruitment;
+import com.codeblue.model.Student;
 import com.codeblue.model.property.RecruitmentState;
 import com.codeblue.service.enterprise.EnterpriseService;
 import com.codeblue.service.enterprise.EvaluationService;
@@ -38,6 +39,11 @@ public class CompanyPageAction extends BaseAction {
 	@Resource(name="ent_studentService")
 	private StudentService studentService;
 	
+	/*为student服务*/
+	private Boolean isConcerned;
+	@Resource(name="enterpriseService")
+	private com.codeblue.service.student.EnterpriseService enterpriseServiceOfS;
+	
 	public String load() {
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
 		Integer[] states={RecruitmentState.POSTING};
@@ -51,7 +57,24 @@ public class CompanyPageAction extends BaseAction {
 		return "success";
 	}
 	
-	
+	public String loadOfS() {
+		String studentId=((Student)session.get("student")).getStudentId();
+		int enterpriseId=Integer.parseInt(request.getParameter("enterpriseId"));
+		Integer[] states={RecruitmentState.POSTING};
+		
+		//是否关注
+		isConcerned=enterpriseServiceOfS.isConcernEnterprise(studentId, enterpriseId);
+		
+		
+		enterprise=enterpriseService.queryEnterprise(enterpriseId);
+		pageBean1=recruitmentService.queryRecruitmentsOfCompany(enterpriseId,states , pageNum, pageSize);
+		recruitments=pageBean1.getList();
+		pageBean2=evaluationService.queryEvaluationsOfCompany(enterpriseId,pageNum, pageSize);
+		evaluations=pageBean2.getList();
+		industryId=1;
+		pageBean3=studentService.queryRecommandStudentsByJobIntention(industryId, pageNum, pageSize);
+		return "success";
+	}	
 	
 	public String loadRecruitments() {
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
@@ -144,6 +167,14 @@ public class CompanyPageAction extends BaseAction {
 
 	public void setPageBean3(PageBean pageBean3) {
 		this.pageBean3 = pageBean3;
+	}
+
+	public Boolean getIsConcerned() {
+		return isConcerned;
+	}
+
+	public void setIsConcerned(Boolean isConcerned) {
+		this.isConcerned = isConcerned;
 	}
 	
 
