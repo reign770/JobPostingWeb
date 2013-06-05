@@ -27,6 +27,7 @@ public class Stu_EnterpriseAction extends ActionSupport implements SessionAware{
 	private PageBean pageBean;
 	private EnterpriseAddition addition;
 	private EnterpriseService enterpriseService;
+	private String comment;
 	private int pageNumber;
 	private int pageSize;
 	public static final String ITEM = "item";
@@ -74,6 +75,12 @@ public class Stu_EnterpriseAction extends ActionSupport implements SessionAware{
 		message = "unconcern_success";
 		return "json_result";
 	}
+	public String comment(){
+		enterpriseService.commentEnterpise(getStudentIdBySession(), enterpriseId, comment);
+		message = "succeed";
+		return "json_result";
+	}
+	
 	//初始化条件
 	private void initAddition(){
 		if(addition != null)
@@ -144,6 +151,13 @@ public class Stu_EnterpriseAction extends ActionSupport implements SessionAware{
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	@JSON(serialize=false)
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 	
 	
