@@ -79,8 +79,8 @@ $(function () {
               	  <s:iterator value="pageBean.list" var="ent" status="sts">
 	                  <li id="${enterpriseId }" class="span4 item" style="margin-left:45px;">
 	                    <div class="thumbnail" >
-	                      <img  class="imgInfo" alt="300x200" data-src="holder.js/300x200" 
-	                      style="width: 300px; height: 200px;" src="${logo }" 
+	                      <img  class="imgInfo" alt="300x300" data-src="holder.js/300x200" 
+	                      style="width: 200px; height: 200px;" src="${logo }" 
 	                      data-content="${brief }" ref="popover" 
 	                      data-original-title="公司简介"
 	                      data-placement="bottom">
