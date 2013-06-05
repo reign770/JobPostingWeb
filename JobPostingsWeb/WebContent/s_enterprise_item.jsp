@@ -10,7 +10,7 @@ $('#pagination').pagination({
 	<div class="content well-small">
 	   		<div class="media">
 	          	<a href="#" class="pull-left">
-				<img class="media-object img-polaroid" src="${logo }" style="height: 50px;" >
+				<img class="media-object img-polaroid" src="${logo }" style="height: 75px;width: 75px;" >
 	         		</a>
 			<div class="media-body">
 				<a href="#"><h4 class="media-heading">${enterpriseName }</h4></a>

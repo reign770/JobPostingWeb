@@ -39,7 +39,7 @@ $(function () {
  	$('#pagination').pagination({
  		total:${pageBean.allRow},
  		pageSize:${pageBean.pageSize},
-		pageList: [1],
+		pageList: [10],
 		onSelectPage:
 			  function(pageNumber,pageSize){
 			  pageNum = pageNumber;
