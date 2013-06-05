@@ -23,25 +23,99 @@
 	function loadRecruitment(pS,pN){
 		$.ajax({
 			   type: "POST",
-			   url: "bc_c_CompanyPage_loadRecruitments_recruitment.action",
+			   url: "bc_c_CompanyPage_loadRecruitmentsOfS_recruitment.action",
 			   dataType:'html',
 			   data: {
 				   pageSize:pS,
-				   pageNum:pN
+				   pageNum:pN,
+				   enterpriseId:${enterprise.enterpriseId}
 			   },
 			   success: function(data){
-				 $('#wantedInfo #more label').show();
-				 $('#wantedInfo #more img').hide();   
-			     $("#infos").append(data);
+				 //$('#wantedInfo #more label').show();
+				 //$('#wantedInfo #more img').hide(); 
+				  $("#comments").html("");
+			     $("#comments").append(data);
 			     pageNum1++;
 			   },
 			   error:function(data){
-				    $('#wantedInfo #more label').show();
-					$('#wantedInfo #more img').hide();  
+				    //$('#wantedInfo #more label').show();
+					//$('#wantedInfo #more img').hide();  
 				   alert("加载失败，请重试！");
 			   }
 			});
 	}
+	
+	
+	
+	
+	
+	/*评论分页参数（从第二页开始）*/
+	var pageSize2=10;
+	var	pageNum2=2;
+	var totalOfComments=${pageBean2.allRow};
+	//评论加载
+	function loadEvaluations(pS,pN){
+		$.ajax({
+			   type: "POST",
+			   url: "bc_c_CompanyPage_loadEvaluationsOfS_evaluation.action",
+			   dataType:'html',
+			   data: {
+				   pageSize:pS,
+				   pageNum:pN,
+				   enterpriseId:${enterprise.enterpriseId}
+			   },
+			   success: function(data){
+				   	$("#comments").html("");
+				    $("#comments").append(data);
+				    pageNum2++;
+			   },
+			   error:function(data){
+				   alert("加载失败，请重试！");
+			   }
+			});
+	}
+	
+	
+	//点评企业
+	function addComment(){
+		$('#commentSubmit').text('提交评论中...');
+		$('#commentSubmit').attr("disabled","disabled");
+		$.ajax({
+			   type: "POST",
+			   url: "/JobPostingsWeb/student/enterprise_comment.action",
+			   dataType:'json',
+			   data: {
+				   enterpriseId:${enterprise.enterpriseId},
+				   comment:$('#comments_addcontent textarea').val()
+			   },
+			   success: function(data){
+				 //$('#wantedInfo #more label').show();
+				 //$('#wantedInfo #more img').hide(); 
+				 if($.trim(data.message)=="succeed"){
+					
+					 pageNum2=1;
+				     loadEvaluations(pageSize2,pageNum2);
+				    
+				 }else{
+					 alert("出错啦...")
+				 }
+				 $('#commentSubmit').text('    提交评论   ');
+				 $('#commentSubmit').removeAttr("disabled");
+				
+			   },
+			   error:function(data){
+				    //$('#wantedInfo #more label').show();
+					//$('#wantedInfo #more img').hide(); 
+					$('#commentSubmit').text('    提交评论   ');
+					$('#commentSubmit').removeAttr("disabled");
+				   alert("添加评论失败，请重试！");
+			   }
+			});
+	}
+	
+	
+	
+	
 	//英才推荐滚动
 	var Top=0;//定义一个向上移动的距离，这个数值和你图片或DIV的高度相等
 	var Bottom=0;
@@ -92,6 +166,12 @@ $(function(){
      	function() { 
      		myar = setInterval('move()', 80) ;
         }); *///当鼠标放上去的时候，滚动停止，鼠标离开的时候滚动开始
+        
+       $('#commentSubmit').click(function(){
+    	   addComment();
+       }); 
+        
+        
 });
 </script>
 </head>
@@ -179,21 +259,41 @@ $(function(){
 				</span>
 			</div>
 			<div id="forum">
-				<s:iterator value="evaluations">
-					<div class="commentRow">
-						<div class="row">	
-       						<div id="comments_user" class="span1">
-            					<a href="#">
-              						<img src="${student.headImage }" width="50" height="50"  class="img-polaroid"/>
-              						<p>${student.name }</p>
-             	 				</a>
-           				 	</div>
-           	 				<div id="comments_content" class="span5">
-              					<p>content<br /><fmt:formatDate value="${pubdate}" pattern="yyyy-MM-dd"/></p>
-            				</div>
-       		 			</div>
-        		 	</div>
-         		</s:iterator>
+				<div id="comments">
+					<s:iterator value="evaluations">
+						<div class="commentRow">
+							<div class="row">	
+	       						<div id="comments_user" class="span1">
+	            					<a href="#">
+	              						<img src="${student.headImage }" width="50" height="50"  class="img-polaroid"/>
+	              						<p>${student.name }</p>
+	             	 				</a>
+	           				 	</div>
+	           	 				<div id="comments_content" class="span5">
+	              					<p>${content }<br /><fmt:formatDate value="${pubdate}" pattern="yyyy-MM-dd"/></p>
+	            				</div>
+	       		 			</div>
+	        		 	</div>
+         			</s:iterator>
+				</div>
+				
+		         <div class="addcommentRow">
+					<div class="row">	
+		       			<div id="comments_user" class="span1">
+		            		<a href="#">
+		              			<img src="${student.headImage }" width="50" height="50"  class="img-polaroid"/>
+		              			<p>${student.name }</p>
+		             	 	</a>
+		           		 </div>
+		           	 	<div id="comments_addcontent" class="span5">
+		              		 <textarea rows="5" ></textarea>
+		            	</div> 
+		       	</div>
+             <div class="buttons row">	
+                <input  id="commentSubmit" type="button" class="btn btn-primary offset2" value="    提交评论   "/>
+             </div>
+         </div>
+         		
          		
 			</div>
    		</div>
