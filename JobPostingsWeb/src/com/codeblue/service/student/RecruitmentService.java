@@ -52,5 +52,12 @@ public interface RecruitmentService {
 	 * @return
 	 */
 	public PageBean getEnterpriseRecruitments(int enterpriseId,int pageNumber,int pageSize);
+	/**
+	 * 是已经申请该职位
+	 * @param studentId
+	 * @param enterpriseId
+	 * @return
+	 */
+	public Boolean isApplyRecruitment(String studentId,int recruitmentId);
 	
 }
