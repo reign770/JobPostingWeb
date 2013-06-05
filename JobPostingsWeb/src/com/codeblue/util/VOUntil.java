@@ -88,7 +88,8 @@ public class VOUntil {
 		recruitmentVO.setDegree(recruitment.getDegree());
 		recruitmentVO.setResponsibilities(recruitment.getResponsibilities());
 		recruitmentVO.setQualification(recruitment.getQualification());
-		recruitmentVO.setEnterpriseId(recruitment.getEnterprise().getEnterpriseId());
+		recruitmentVO.setEnterpriseId(String.valueOf(recruitment
+				.getEnterprise().getEnterpriseId()));
 		recruitmentVO.setEnterpriseLogo(recruitment.getEnterprise().getLogo());
 		return recruitmentVO;
 	}
@@ -106,14 +107,15 @@ public class VOUntil {
 		enterpriseVO.setEnterpriseScale(enterprise.getEnterpriseScale());
 		enterpriseVO.setAddress(enterprise.getAddress());
 		enterpriseVO.setRegisteredFund(enterprise.getRegisteredFund()+"万");
+		enterpriseVO.setEnterpriseProperty(enterprise.getEnterpriseProperty());
 		enterpriseVO.setWebSite(enterprise.getWebSite());
 		enterpriseVO.setBrief(enterprise.getBrief());
 		enterpriseVO.setFoundDate(formator.format(enterprise.getFoundDate()));
 		enterpriseVO.setEnterpriseLogo(enterprise.getLogo());
 		if(isConcerned) {
-			enterpriseVO.setFollowed("followed");
+			enterpriseVO.setFollowed("Yes");
 		}else {
-			enterpriseVO.setFollowed("cancel");
+			enterpriseVO.setFollowed("No");
 		}
 		return enterpriseVO;
 	}
@@ -147,7 +149,7 @@ public class VOUntil {
 		List<EnterpriseItemVO> list = new ArrayList<>();
 		for(Enterprise enterprise :enterprises){
 			EnterpriseItemVO enterpriseItemVO = new EnterpriseItemVO();
-			enterpriseItemVO.setEnterpriseId(enterprise.getEnterpriseId());
+			enterpriseItemVO.setEnterpriseId(String.valueOf(enterprise.getEnterpriseId()));
 			enterpriseItemVO.setEnterpirseName(enterprise.getEnterpriseName());
 			enterpriseItemVO.setEnterpriseLogo(enterprise.getLogo());
 			list.add(enterpriseItemVO);
@@ -164,7 +166,8 @@ public class VOUntil {
 		List<EvaluationVO> list = new ArrayList<>();
 		for(Evaluation evaluation : evaluations) {
 			EvaluationVO evaluationVO = new EvaluationVO();
-			evaluationVO.setEvaluationId(evaluation.getEvaluationId());
+			evaluationVO.setEvaluationId(String
+			.valueOf(evaluation.getEvaluationId()));
 			evaluationVO.setInfo(evaluation.getContent());
 			evaluationVO.setPubdate(formator_time.format(evaluation.getPubdate()));
 			evaluationVO.setStudentName(evaluation.getStudent().getName());
@@ -212,6 +215,7 @@ public class VOUntil {
 		List<JobInvitationVO> list = new ArrayList<JobInvitationVO>();
 		for(JobInvitation jobInvitation:jobInvitations){
 			JobInvitationVO jobInvitationVO = new JobInvitationVO();
+			jobInvitationVO.setJobInvitationId(String.valueOf(jobInvitation.getInvitationId()));
 			jobInvitationVO.setEnterpriseLogo(jobInvitation.getRecruitment()
 					.getEnterprise().getLogo());
 			jobInvitationVO.setEnterpriseName(jobInvitation.getRecruitment()
