@@ -18,7 +18,7 @@ public class LoginAction extends BaseAction{
 	private Enterprise enterprise;
 	
 	public String execute() {
-		if(enterprise==null){
+		/*if(enterprise==null){
 			return "login";
 		}
 		login.login(enterprise);
@@ -27,6 +27,12 @@ public class LoginAction extends BaseAction{
 			session.put("user", enterprise);
 			return "success";
 		}else{
+			return "login";
+		}
+		*/
+		if(session.get("user") != null){
+			return "success";
+		}else {
 			return "login";
 		}
 	}
