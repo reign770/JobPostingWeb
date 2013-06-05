@@ -191,6 +191,23 @@ $(function(){
        		 			</div>
         		 	</div>
          		</s:iterator>
+         		 <div class="addcommentRow">
+			<div class="row">	
+       			<div id="comments_user" class="span1">
+            		<a href="#">
+              			<img src="${student.headImage }" width="50" height="50"  class="img-polaroid"/>
+              			<p>${student.name }</p>
+             	 	</a>
+           		 </div>
+           	 	<div id="comments_addcontent" class="span9">
+              		 <textarea rows="5" ></textarea>
+            	</div> 
+       		 </div>
+             <div class="buttons row">	
+                <input type="button" class="btn btn-primary offset2" value="    提交评论   "/>
+             </div>
+         </div>
+         		
          		
 			</div>
    		</div>

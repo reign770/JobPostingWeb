@@ -63,7 +63,7 @@ public class CompanyPageAction extends BaseAction {
 		Integer[] states={RecruitmentState.POSTING};
 		
 		//是否关注
-		isConcerned=enterpriseServiceOfS.isConcernEnterprise(studentId, enterpriseId);
+		setIsConcerned(enterpriseServiceOfS.isConcernEnterprise(studentId, enterpriseId));
 		
 		
 		enterprise=enterpriseService.queryEnterprise(enterpriseId);
@@ -167,6 +167,14 @@ public class CompanyPageAction extends BaseAction {
 
 	public void setPageBean3(PageBean pageBean3) {
 		this.pageBean3 = pageBean3;
+	}
+
+	public Boolean getIsConcerned() {
+		return isConcerned;
+	}
+
+	public void setIsConcerned(Boolean isConcerned) {
+		this.isConcerned = isConcerned;
 	}
 	
 
