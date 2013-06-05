@@ -155,9 +155,7 @@
             <div id="resume" class=" additionalInfo">
                     <div class="page-header"><h2>个人简介</h2></div>
                         <div id="additionalInfoContent" class="row">
-                        	<textarea rows="8" class="offset1" name="resume.resume">
-                        	${resume.resume}
-                        	</textarea>
+                        	<textarea rows="8" class="offset1" name="resume.resume">${resume.resume}</textarea>
                         </div>
                    </div>
             </div>

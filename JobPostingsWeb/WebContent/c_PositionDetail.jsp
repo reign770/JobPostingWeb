@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,11 +12,63 @@
 <link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
 <script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
 <script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
+<script>
+$(function(){
+	$("#applyJob").click(function(){
+		$("#myModal").modal("show");
+	});
+	$("#apply").click(function(){
+		var id=${recruitment.recruitmentId};
+		var content=$("applycontent").val();
+		$.post("../student/jobApply_applyJob.action"
+				,{recruitmentId:id,content:content}
+				,function(dataObj){
+					if(dataObj.message == "apply_success"){
+						$("#myModal").modal("hide");
+					    $("#alert").modal("show");
+					    $("#applyJob").attr("disabled","disabled");
+					    $("#applyJob").text("已申请");
+					}
+				});
+	});
+	
+});
+</script>
 </head>
 
 <body>
 <div class="myLayout">
-	
+		<div class="modal hide fade in" id="myModal" style="display: none;">
+            <div class="modal-header">
+              <a data-dismiss="modal" class="close">×</a>
+              <h3>职位申请</h3>
+            </div>
+            <div class="modal-body">
+		    <div class="additionalInfo">
+		    	<div class="info-header"><h3>请输入申请信息</h3></div>
+				<div id="additionalInfoContent" class="span6">	
+		            <textarea id ="applycontent" rows="5" name="content"></textarea>
+		        </div>
+			</div>
+      	    </div>
+            <div class="modal-footer">
+              <a data-dismiss="modal" class="btn" href="#">取消</a>
+              <a class="btn btn-primary" href="#" id="apply">申请</a>
+            </div>
+    </div>
+     <div class="modal hide fade in" id="alert" style="display: none;">
+          <div class="modal-header">
+            <a data-dismiss="modal" class="close">×</a>
+            <h3>职位邀请</h3>
+          </div>
+          <div class="modal-body">
+            <br>
+            <div id="accept_result"><h2>已成功申请该职位邀请</h2></div>
+    	  </div>
+          <div class="modal-footer">
+            <a data-dismiss="modal" class="btn" href="#">确定</a>
+          </div>
+    </div> 
 	<div class="span10" id="positionInfo">
 		<div class="basicInfo">
     		<div class="page-header"><h2>基本信息</h2></div>
@@ -44,6 +98,12 @@
     				<dd>${recruitment.industry.jobType}</dd>
     				
     			</dl>
+     			<s:if test="!isApply"> 
+    				<button id="applyJob" class="btn btn-primary pull-right">申请职位</button>
+    			</s:if> 
+    			<s:else>
+    				<button id="applyJob" class="btn btn-primary pull-right" disabled="disabled">已申请职位</button>
+    			</s:else>
                 <!--  <button class="btn btn-danger pull-right" >停止招聘</button>-->
         	</div>	
 		</div>

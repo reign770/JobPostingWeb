@@ -121,8 +121,7 @@ $(function () {
 		    <div class="additionalInfo">
 		    	<div class="info-header"><h3>请输入申请信息</h3></div>
 				<div id="additionalInfoContent" class="row">	
-		            <textarea id ="applycontent" rows="5" class="offset1" name="content">
-		            </textarea>
+		            <textarea id ="applycontent" rows="5" class="offset1" name="content"></textarea>
 		        </div>
 			</div>
       	    </div>
