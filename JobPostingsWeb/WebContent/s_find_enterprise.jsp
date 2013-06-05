@@ -110,10 +110,12 @@ $(function (){
     		<div class="content well-small">
          		<div class="media">
                 	<a href="#" class="pull-left">
-    					<img class="media-object img-polaroid" src="${logo }" style="height: 50px;" >
+    					<img class="media-object img-polaroid" src="${logo }" style="height: 75px;width: 75px;" >
                		</a>
     				<div class="media-body">
-   						<a href="#"><h4 class="media-heading">${enterpriseName }</h4></a>
+   						<a href="#" onclick="window.parent.addTab('${enterpriseName}',
+	                         '../enterprise/s_CompanyPage_loadOfS.action?enterpriseId=${enterpriseId}')">
+	                     <h4 class="media-heading">${enterpriseName }</h4></a>
                    		 性质：${enterpriseName}&nbsp;&nbsp;&nbsp;所在地区：${address}<br />
                                             公司规模：${enterpriseScale}人&nbsp;&nbsp;职位：${recruitments.size()}个<br />
                                             评论：${evaluations.size()}条

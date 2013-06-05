@@ -74,7 +74,7 @@ public class CompanyPageAction extends BaseAction {
 		industryId=1;
 		pageBean3=studentService.queryRecommandStudentsByJobIntention(industryId, pageNum, pageSize);
 		return "success";
-	}
+	}	
 	
 	public String loadRecruitments() {
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
