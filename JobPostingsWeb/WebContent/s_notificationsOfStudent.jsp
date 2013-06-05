@@ -86,11 +86,14 @@ $(function () {
  			  <s:iterator value="pageBean.list" status="sts">
 	        	 <div class="content well-large">
 	         		<div class="media">
-	                	<a href="#" class="pull-left">
+	                	<a href="#" class="pull-left" onclick="window.parent.addTab('${enterprise.enterpriseName}',
+	                         '../enterprise/s_CompanyPage_loadOfS.action?enterpriseId=${enterprise.enterpriseId}')">
 	    					<img class="media-object img-polaroid" src="${enterprise.logo}" style="" >
 	                	</a>
-						<h6><a href="#">${enterprise.enterpriseName}</a>给你发来通知,请<a href="#">
-						及时接收</a>信息</h6>
+						<h6><a href="#" onclick="window.parent.addTab('${enterprise.enterpriseName}',
+	                         '../enterprise/s_CompanyPage_loadOfS.action?enterpriseId=${enterprise.enterpriseId}')">
+	                         ${enterprise.enterpriseName}</a>给你发来通知,请<a href="#">
+							 及时接收</a>信息</h6>
 	                    <div>
 	                       <button class="btn check">查看</button>
             	           <s:if test="state == 0">

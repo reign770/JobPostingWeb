@@ -33,8 +33,12 @@ $('#pagination').pagination({
 			  		<tr class="success">
 			  	</s:else>
 			  		<td>${sts.index+1}</td>
-			  		<td><a href="#">${apply.recruitment.postingName}</a></td>
-			  		<td><a href="#">${apply.recruitment.enterprise.enterpriseName }</a></td>
+			  		<td><a href="#" onclick="window.parent.addTab('${apply.recruitment.postingName}',
+						'/JobPostingsWeb/enterprise/c_PositionDetail_load?recruitmentId=${apply.recruitment.recruitmentId}')">
+					${apply.recruitment.postingName}</a></td>
+			  		<td><a href="#" onclick="window.parent.addTab('${apply.recruitment.enterprise.enterpriseName}',
+	                         '../enterprise/s_CompanyPage_loadOfS.action?enterpriseId=${apply.recruitment.enterprise.enterpriseId}')">
+	                ${apply.recruitment.enterprise.enterpriseName }</a></td>
 			  		<td>${apply.recruitment.workingPlace }</td>
 			  		<td>
 			  			<span class="badge badge-info">

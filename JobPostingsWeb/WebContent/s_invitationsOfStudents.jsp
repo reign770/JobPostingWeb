@@ -161,8 +161,12 @@ $(function () {
 	                	<a href="#" class="pull-left">
 	    					<img class="media-object img-polaroid" src="${recruitment.enterprise.logo}" style="" >
 	                	</a>
-						<h6><a class="enterpriseName" href="#">${recruitment.enterprise.enterpriseName}</a>邀请你投递<a class="postingName" 
-						href="#">${recruitment.postingName}</a>职位</h6>
+						<h6><a class="enterpriseName" href="#" onclick="window.parent.addTab('${recruitment.enterprise.enterpriseName}',
+	                         '../enterprise/s_CompanyPage_loadOfS.action?enterpriseId=${recruitment.enterprise.enterpriseId}')">
+						${recruitment.enterprise.enterpriseName}</a>邀请你投递
+						<a class="postingName" 
+						href="#" onclick="window.parent.addTab('${recruitment.postingName}',
+						'/JobPostingsWeb/enterprise/c_PositionDetail_load?recruitmentId=${recruitment.recruitmentId}')">${recruitment.postingName}</a>职位</h6>
 	                    <div>
 	                       <s:if test="state !=2">
 	                       <button class=" btn btn-info accept" href="#myModal" data-toggle="modal">接受</button>
