@@ -83,9 +83,25 @@ public class CompanyPageAction extends BaseAction {
 		recruitments=pageBean1.getList();
 		return "success";
 	}
+	
+	public String loadRecruitmentsOfS() {
+		int enterpriseId=Integer.parseInt(request.getParameter("enterpriseId"));
+		Integer[] states={RecruitmentState.POSTING};
+		pageBean1=recruitmentService.queryRecruitmentsOfCompany(enterpriseId,states , pageNum, pageSize);
+		recruitments=pageBean1.getList();
+		return "success";
+	}
 
 	public String loadEvaluations() {
 		int enterpriseId=((Enterprise)session.get("user")).getEnterpriseId();
+		Integer[] states={RecruitmentState.POSTING};
+		pageBean2=evaluationService.queryEvaluationsOfCompany(enterpriseId,pageNum, pageSize);
+		evaluations=pageBean2.getList();
+		return "success";
+	}
+	
+	public String loadEvaluationsOfS() {
+		int enterpriseId=Integer.parseInt(request.getParameter("enterpriseId"));
 		Integer[] states={RecruitmentState.POSTING};
 		pageBean2=evaluationService.queryEvaluationsOfCompany(enterpriseId,pageNum, pageSize);
 		evaluations=pageBean2.getList();
