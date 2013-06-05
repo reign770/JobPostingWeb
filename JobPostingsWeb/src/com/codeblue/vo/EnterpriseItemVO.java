@@ -1,13 +1,13 @@
 package com.codeblue.vo;
 
 public class EnterpriseItemVO {
-	private int enterpriseId;
+	private String enterpriseId;
 	private String enterpirseName;
 	private String enterpriseLogo;
-	public int getEnterpriseId() {
+	public String getEnterpriseId() {
 		return enterpriseId;
 	}
-	public void setEnterpriseId(int enterpriseId) {
+	public void setEnterpriseId(String enterpriseId) {
 		this.enterpriseId = enterpriseId;
 	}
 	public String getEnterpirseName() {

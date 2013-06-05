@@ -14,7 +14,7 @@ public class RecruitmentVO {
 	private String degree;
 	private String responsibilities;
 	private String qualification;
-	private int enterpriseId;
+	private String enterpriseId;
 	private String enterpriseLogo;
 	public String getPostingName() {
 		return postingName;
@@ -94,10 +94,10 @@ public class RecruitmentVO {
 	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
-	public int getEnterpriseId() {
+	public String getEnterpriseId() {
 		return enterpriseId;
 	}
-	public void setEnterpriseId(int enterpriseId) {
+	public void setEnterpriseId(String enterpriseId) {
 		this.enterpriseId = enterpriseId;
 	}
 	public String getEnterpriseLogo() {
