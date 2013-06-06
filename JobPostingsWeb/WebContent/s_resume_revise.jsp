@@ -142,7 +142,7 @@
                         <div class="additionalInfoContent" class="row" >
                         <s:iterator value='resume.experience' var="exp">
 	                        <div class="item">	
-	                        <input  class="span6" name="intrests" type="text" style="margin-bottom:0px;" 
+	                        <input  class="span6" name="resume.experience" type="text" style="margin-bottom:0px;" 
 	                        placeholder="个人经历" value="${exp}"/>
 	                        <input type='button' class="btn btn-danger" value="删除"/>
 	                        </div>
