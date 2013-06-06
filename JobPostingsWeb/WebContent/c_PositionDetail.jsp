@@ -98,12 +98,16 @@ $(function(){
     				<dd>${recruitment.industry.jobType}</dd>
     				
     			</dl>
-     			<s:if test="!isApply"> 
-    				<button id="applyJob" class="btn btn-primary pull-right">申请职位</button>
-    			</s:if> 
-    			<s:else>
-    				<button id="applyJob" class="btn btn-primary pull-right" disabled="disabled">已申请职位</button>
-    			</s:else>
+    			<c:if test="${sessionScope.student != null }">
+	    			<c:choose>
+					 <c:when test="${isApply == false }">    
+	    				<button id="applyJob" class="btn btn-primary pull-right">申请职位</button>
+					 </c:when>
+					 <c:otherwise>  
+	    				<button id="applyJob" class="btn btn-primary pull-right" disabled="disabled">已申请职位</button>
+					 </c:otherwise>
+					</c:choose>
+    			</c:if>
                 <!--  <button class="btn btn-danger pull-right" >停止招聘</button>-->
         	</div>	
 		</div>
