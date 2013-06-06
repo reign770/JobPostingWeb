@@ -109,7 +109,15 @@ $(function(){
 						$('#loginForm').find(':submit').val("    登录    ");
 						$('#loginForm').find(':submit').removeAttr("disabled");
 					}else if($.trim(data.loginmessage)=="disable"){
-						alert("账户失效");
+						alert("账户冻结");
+						$('#loginForm').find(':submit').val("    登录    ");
+						$('#loginForm').find(':submit').removeAttr("disabled");
+					}else if($.trim(data.loginmessage)=="auditing"){
+						alert("账户未审核");
+						$('#loginForm').find(':submit').val("    登录    ");
+						$('#loginForm').find(':submit').removeAttr("disabled");
+					}else if($.trim(data.loginmessage)=="unpass"){
+						alert("账户未审核通过");
 						$('#loginForm').find(':submit').val("    登录    ");
 						$('#loginForm').find(':submit').removeAttr("disabled");
 					}

@@ -53,8 +53,15 @@ public class LoginAction extends BaseAction{
 			jsonMap.put("loginmessage","noaccount");
 		}else if(msg==3){
 			jsonMap.put("loginmessage","wrongpassword");
-		}else{
+		}else if(msg==4){
+			//账户冻结
 			jsonMap.put("loginmessage","disable");
+		}else if(msg==5){
+			//账户未审核
+			jsonMap.put("loginmessage","auditing");
+		}else if(msg==6){
+			//账户未通过审核
+			jsonMap.put("loginmessage","unpass");
 		}
 		return "success";
 	}
