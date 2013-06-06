@@ -2,12 +2,17 @@ package com.codeblue.action.app;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+
 import com.codeblue.service.enterprise.EvaluationService;
 import com.codeblue.util.VOUntil;
 import com.codeblue.vo.EvaluationVO;
 import com.codeblue.vo.Status;
 import com.opensymphony.xwork2.ActionSupport;
 
+@Controller("app_evaluationAction")
 public class EvaluationAction extends ActionSupport{
 
 	/**
@@ -71,6 +76,7 @@ public class EvaluationAction extends ActionSupport{
 	public EvaluationService getEvaluationService() {
 		return evaluationService;
 	}
+	@Resource
 	public void setEvaluationService(EvaluationService evaluationService) {
 		this.evaluationService = evaluationService;
 	}

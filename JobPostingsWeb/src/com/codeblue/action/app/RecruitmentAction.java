@@ -47,9 +47,16 @@ public class RecruitmentAction extends ActionSupport{
 	public String searchRecruitments() {
 		QueryAddition queryAddition = new QueryAddition();
 		queryAddition.setIndustryId(industryId);
+		
 		queryAddition.setSalary(salary);
+		if(enterpriseProperty != null)
 		queryAddition.setEnterpriseProperty(enterpriseProperty);
+		if(keyword != null)
 		queryAddition.setQueryWord(keyword);
+		if(address != null)
+		queryAddition.setWorkingPlace(address);
+		System.err.println("workingPlace:"+address);
+		queryAddition.init();
 		recruitmentItemVOs = VOUntil.convertToRecruitmentItemVOs(
 				recruitmentService.queryRecruitment(queryAddition, pageParam, pageSize)
 				.getList());

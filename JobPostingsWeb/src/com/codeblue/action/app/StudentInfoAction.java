@@ -8,6 +8,8 @@ import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 
 import com.codeblue.model.Brief;
+import com.codeblue.model.Student;
+import com.codeblue.service.enterprise.StudentService;
 import com.codeblue.service.student.StudentInfoService;
 import com.codeblue.util.ResumeUntil;
 import com.codeblue.util.VOUntil;
@@ -35,6 +37,9 @@ public class StudentInfoAction extends ActionSupport{
 	private String[] experience;
 	private String[] interests;
 	private String resume;
+	private int industryId;
+	
+	private Student student;
 	
 	private StudentVO studentVO;//学生值对象
 	private Status status = new Status();//状态
@@ -58,15 +63,28 @@ public class StudentInfoAction extends ActionSupport{
 		
 		return "studentInfo";
 	}
+	public String previewResume(){
+		student = studentInfoService.getStudent(studentId);
+		return "resume";
+	}
+	
 	public String modifyBrief() {
+		System.err.println("interests:"+interests);
+		System.err.println("experience:"+experience);
+		System.err.println("majorCourse:"+majorCourse);
+		System.err.println("honors:"+honor);
+		System.err.println("resume:"+resume);
 		Resume resumeInfo = new Resume();
 		resumeInfo.setStudentId(studentId);
 		resumeInfo.setHonors(honor);
+		resumeInfo.setExperience(experience);
 		resumeInfo.setInterests(interests);
 		resumeInfo.setMajorCourse(majorCourse);
 		resumeInfo.setResume(resume);
 		Brief brief = ResumeUntil.changeToBrief(resumeInfo);
 		studentInfoService.modifyBrief(brief);
+		studentInfoService.modifyJobIntention(studentId, industryId);
+		status = new Status();
 		status.setStatus(SUCCEED);
 		return "result";
 	}
@@ -101,9 +119,7 @@ public class StudentInfoAction extends ActionSupport{
 		this.status = status;
 	}
 	
-	public StudentInfoService getStudentInfoService() {
-		return studentInfoService;
-	}
+
 	
 	public String getStudentId() {
 		return studentId;
@@ -170,10 +186,32 @@ public class StudentInfoAction extends ActionSupport{
 		this.newPassword = newPassword;
 	}
 
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	
+	public int getIndustryId() {
+		return industryId;
+	}
+
+	public void setIndustryId(int industryId) {
+		this.industryId = industryId;
+	}
+
+	public StudentInfoService getStudentInfoService() {
+		return studentInfoService;
+	}
+	
 	@Resource
 	public void setStudentInfoService(StudentInfoService studentInfoService) {
 		this.studentInfoService = studentInfoService;
 	}
+
+
 	
 	
 	
