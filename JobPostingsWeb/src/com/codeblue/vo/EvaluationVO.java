@@ -1,14 +1,14 @@
 package com.codeblue.vo;
 
 public class EvaluationVO {
-	private long evaluationId;//评论编号
+	private String evaluationId;//评论编号
 	private String studentName;//用户名称
 	private String info;//评论内容
 	private String pubdate;//发布时间
-	public long getEvaluationId() {
+	public String getEvaluationId() {
 		return evaluationId;
 	}
-	public void setEvaluationId(long evaluationId) {
+	public void setEvaluationId(String evaluationId) {
 		this.evaluationId = evaluationId;
 	}
 	public String getStudentName() {

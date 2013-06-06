@@ -170,7 +170,25 @@ $(function(){
        $('#commentSubmit').click(function(){
     	   addComment();
        }); 
-        
+    
+    $("#concern").click(function(event){
+    	var entId = ${enterprise.enterpriseId};
+    	if($(this).text()=="取消关注"){
+    		$.post("../student/enterprise_unconcern.action"
+    				,{enterpriseId:entId}
+    				,function(dataObj){
+    					if(dataObj.message == "unconcern_success")
+    					$("#concern").text("已关注");
+    				});
+    	}else{
+    		$.post("../student/enterprise_concern.action"
+    				,{enterpriseId:entId}
+    				,function(dataObj){
+    					if(dataObj.message == "concern_success")
+    					$("#concern").text("取消关注");
+    				});
+    	}
+    });
         
 });
 </script>
@@ -182,13 +200,12 @@ $(function(){
 	<div id="comBar">
       <span id="headicon"><img src="${enterprise.logo}" class="img-polaroid" style="height:200px"/></span>
       <span id="username"><h2>${enterprise.enterpriseName}  </h2></span>
-      <button class="btn btn-info">加关注</button>
       <span id="username"><h2>${enterprise.enterpriseName}  </h2></span>
       <s:if test="isConcerned == true">
-      	<button class="btn btn-info">取消关注</button>
+      	<button  id="concern" class="btn btn-info">取消关注</button>
       </s:if>
       <s:else>
-      	<button class="btn btn-info">加关注</button>
+      	<button id="concern" class="btn btn-info">关注</button>
       </s:else>
       
 	</div>

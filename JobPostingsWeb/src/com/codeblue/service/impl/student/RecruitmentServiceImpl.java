@@ -7,9 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.codeblue.dao.IndustryDAO;
+import com.codeblue.dao.JobApplicationDAO;
 import com.codeblue.dao.RecruitmentDAO;
 import com.codeblue.dao.StudentDAO;
 import com.codeblue.model.Industry;
+import com.codeblue.model.JobApplication;
 import com.codeblue.model.Recruitment;
 import com.codeblue.service.student.RecruitmentService;
 import com.codeblue.util.PageBean;
@@ -18,6 +20,7 @@ import com.codeblue.util.QueryAddition;
 public class RecruitmentServiceImpl implements RecruitmentService{
 	
 	private RecruitmentDAO recruitmentDAO;
+	private JobApplicationDAO jobApplicationDAO;
 	private IndustryDAO industryDAO;
 	private StudentDAO studentDAO;
 	
@@ -106,6 +109,19 @@ public class RecruitmentServiceImpl implements RecruitmentService{
 				pageBean.init();
 		return pageBean;
 	}
+	
+	@Override
+	public Boolean isApplyRecruitment(String studentId, int recruitmentId) {
+		//判断是否已经申请该职位
+		JobApplication j=jobApplicationDAO.getByJobApplicationFK(
+				studentId,recruitmentId);
+		if(j != null){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 	@Override
 	public List<Industry> getAllIndustries() {
@@ -135,6 +151,15 @@ public class RecruitmentServiceImpl implements RecruitmentService{
 	public void setIndustryDAO(IndustryDAO industryDAO) {
 		this.industryDAO = industryDAO;
 	}
+
+	public JobApplicationDAO getJobApplicationDAO() {
+		return jobApplicationDAO;
+	}
+	@Resource
+	public void setJobApplicationDAO(JobApplicationDAO jobApplicationDAO) {
+		this.jobApplicationDAO = jobApplicationDAO;
+	}
+	
 	
 	
 	

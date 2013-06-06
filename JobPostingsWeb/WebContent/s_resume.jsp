@@ -5,12 +5,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE HTML>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>学生简历</title>
-<link href="/JobPostingsWeb/css/s_resume.css" rel="stylesheet" media="screen"/>
-<link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/css/s_resume.css" rel="stylesheet" />
+<link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" /> 
+<link href="/JobPostingsWeb/css/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" >
 <script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
 <script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
 </head>
@@ -23,7 +25,7 @@
        		<dl class="dl-horizontal span8" style="font-size: 18px;">
     			<dt>姓名：</dt>
     			<dd>${student.name}</dd>
-    			<br/>
+    			<br />
             	<dt>性别：</dt>
     			<dd>${student.sex}</dd>
     			<br />
@@ -140,6 +142,5 @@
          </div> -->
          
 	 </div>
-</div>
 </body>
 </html>
