@@ -85,21 +85,22 @@ $(function(){
 		validateAction = 'student/login_validateInfo.action';
 		action = 'student/login_execute.action';
 		$('#loginForm').attr("action",action);
-		$('#register').hide();
+		$('#register').attr("disabled","disabled");
 	});
 	$('#enterprise').click(function(){
 		validateAction = 'enterprise/json_c_Login_login.action';
 		action = 'enterprise/c_login.action';
+		$('#register').removeAttr("disabled");
 		$('#loginForm').attr("action",action);
-		$('#register').show();
 	});
 	$('#admin').click(function(){
 		validateAction = 'admin/login_execute.action';
 		action = 'admin/login_execute.action';
 		$('#loginForm').attr("action",action);
+		$('#register').attr("disabled","disabled");
 		$('#register').show();
 	});
-	$('#register').hide();
+	$('#register').attr("disabled","disabled");
 	$("#alert").hide();
 	var validateAction = "student/login_validateInfo.action";
 	var postAction = "student/login_execute.action";
@@ -390,7 +391,6 @@ function loadContentThree(pS,pN){
 		<div class="modal-footer">
 		</div>
 	</div>
-
 
 </div>
 
