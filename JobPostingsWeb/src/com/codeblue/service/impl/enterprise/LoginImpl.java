@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.codeblue.dao.EnterpriseDAO;
 import com.codeblue.model.Enterprise;
+import com.codeblue.model.property.EnterpriseAccountState;
 import com.codeblue.model.property.StudentAccount;
 import com.codeblue.service.enterprise.Login;
 
@@ -24,8 +25,12 @@ public class LoginImpl implements Login {
 		Enterprise enterprise2=enterpriseDAO.getEnterpriseByAccount(enterprise.getEnterpriseAccount());
 		if(enterprise2==null){
 			msg=2;//用户名不存在
-		}else if (enterprise2.getState()==StudentAccount.GRADUATED) {
-			msg=4;//已毕业
+		}else if (enterprise2.getState()==EnterpriseAccountState.FREEZE) {
+			msg=4;//账户冻结
+		}else if (enterprise2.getState()==EnterpriseAccountState.AUDITING) {
+			msg=5;//账户未审核
+		}else if (enterprise2.getState()==EnterpriseAccountState.UNPASS) {
+			msg=6;//账户未审核通过
 		}else if(enterprise!=null&&enterprise.getPassword().equals(enterprise2.getPassword())){
 			//设置名字
 			enterprise.setEnterpriseName(enterprise2.getEnterpriseName());
