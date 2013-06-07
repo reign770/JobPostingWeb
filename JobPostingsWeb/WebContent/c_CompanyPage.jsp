@@ -101,7 +101,7 @@ $(function(){
 	<div id="comBar">
       <span id="headicon"><img src="${enterprise.logo}" class="img-polaroid" style="height:200px"/></span>
       <span id="username"><h2>${enterprise.enterpriseName}  </h2></span>
-      <button class="btn btn-info">加关注</button>
+      <!--<button class="btn btn-info">加关注</button>-->
 	</div>
     
     <div id="comNav">

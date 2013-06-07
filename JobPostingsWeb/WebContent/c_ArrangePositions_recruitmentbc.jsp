@@ -17,7 +17,7 @@ $(function () {
          				${postingName}
          			</h4>
          			<button class="btn btn-info pull-right" type="button" onclick="window.parent.addTab('${postingName}','/JobPostingsWeb/enterprise/c_PositionDetail_load?recruitmentId=${recruitmentId }')">查看详细信息</button>
-                	<button class="btn btn-danger pull-right" type="button" id="stopRecruiting" onclick="stopRecruitingClick(${recruitmentId})">停止招聘</button>
+                	<button class="btn btn-danger pull-right" type="button" id="stopRecruiting" onclick="stopRecruitingClick(${recruitmentId},this)">停止招聘</button>
          	
          			<br />
          		 	<strong>    职位名称：</strong>${postingName} 
