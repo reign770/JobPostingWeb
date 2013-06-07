@@ -69,10 +69,14 @@ public class StudentInfoAction extends ActionSupport{
 	}
 	
 	public String modifyBrief() {
-		System.err.println("interests:"+interests);
-		System.err.println("experience:"+experience);
-		System.err.println("majorCourse:"+majorCourse);
-		System.err.println("honors:"+honor);
+		System.err.println("interests:");
+		print(interests);
+		System.err.println("experience:");
+		print(experience);
+		System.err.println("majorCourse:");
+		print(majorCourse);
+		System.err.println("honors:");
+		print(honor);
 		System.err.println("resume:"+resume);
 		Resume resumeInfo = new Resume();
 		resumeInfo.setStudentId(studentId);
@@ -93,6 +97,11 @@ public class StudentInfoAction extends ActionSupport{
 		studentInfoService.modifyPassword(studentId, newPassword);
 		status.setStatus(SUCCEED);
 		return "result";
+	}
+	public void print(String[] strs){
+		if(strs!= null)
+			for(String s:strs)
+			System.err.println(s);
 	}
 	
 	public String getUsername() {

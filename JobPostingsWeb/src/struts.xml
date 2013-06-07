@@ -11,7 +11,7 @@
 	<!-- <constant name="struts.action.extension" value="action"></constant> -->
 	<package name="enterprise" namespace="/enterprise" extends="json-default">
 		<action name="c_login" class="com.codeblue.action.web.enterprise.LoginAction">
-		    <result name="login">/c_login.jsp</result>
+		    <result name="login">/login.jsp</result>
 			<result name="success">/c_PersonalPage.jsp</result>
 		</action>
 		<action name="c_Register" class="com.codeblue.action.web.enterprise.RegisterAction" method="register">
@@ -48,7 +48,7 @@
 				method="{1}">
 				<result name="validate" type="json"/>
 				<result name="success" >/s_PersonalPage.jsp</result>
-				<result name="login" type="redirect">/s_login.jsp</result>
+				<result name="login" type="redirect">/login.jsp</result>
 		</action>
 		<action name="studentInfo_*"
 		        class="com.codeblue.action.web.student.StudentInfoAction"
@@ -95,12 +95,18 @@
 	    		<result name="c_item">/s_concern_enterprise_item.jsp</result>
 	    		<result name="json_result" type="json"/>	    
 	    </action>
+	    <action name="jobApply_*" 
+	    		class="com.codeblue.action.web.student.JobApplicationAction"
+	    		method="{1}">
+	    		<result name="success" type="json"/>
+	    </action>
 	</package>
 	<!-- 移动平台通信 -->
 	<package name="app" extends="json-default" namespace="/app">
 		<action name="studentInfo_*"
 		        class="com.codeblue.action.app.StudentInfoAction"
 		        method="{1}">
+		        <result name="resume">/s_resume.jsp</result>
 		        <result name="result" type="json">
 		        	<param name="root">
 						status
@@ -139,6 +145,11 @@
 	   		   			status
 	   		   		</param>
 	   		   </result>
+	   		   <result name="enterprise" type="json">
+	   		   		<param name="root">
+	   		   			enterpriseVO
+	   		   		</param>
+	   		   </result>
 	   </action>
 	   <action name="jobInvitation_*"
 	   		   class="com.codeblue.action.app.JobInvitationAction"
@@ -154,6 +165,20 @@
 	   		   		</param>
 	   		   </result>
 	   </action>
+	   <action name="jobApplication_*" 
+	   		   class="com.codeblue.action.app.JobApplicationAction"
+	   		    method="{1}">
+	   		    <result name="items" type="json">
+	   		    	<param name="root">
+	   		    		jobApplicationVOs
+	   		    	</param>
+	   		    </result>
+	   		    <result name="result" type="json">
+	   		    	<param name="root">
+	   		    		status
+	   		    	</param>
+	   		    </result>
+	   </action>
 	   <action name="industry_*" 
 	   		   class="com.codeblue.action.app.IndustryAction"
 	   		   method="{1}">
@@ -162,6 +187,15 @@
 	   		   			industries
 	   		   		</param>
 	   		   </result>
+	   </action>
+	   <action name="evaluation_*" 
+	   			class="com.codeblue.action.app.EvaluationAction"
+	   			method="{1}">
+	   			<result name="items" type="json">
+	   				<param name="root">
+	   		   			evaluationVOs
+	   		   		</param>
+	   			</result>
 	   </action>
 	   <action name="notification_*"
 	   		   class="com.codeblue.action.app.NotificationAction"

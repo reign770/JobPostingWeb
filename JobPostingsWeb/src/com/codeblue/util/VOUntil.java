@@ -61,6 +61,8 @@ public class VOUntil {
 		studentVO.setHonor(student.getBrief().getHonor().split(","));
 		studentVO.setExperience(student.getBrief().getExperience().split(","));
 		studentVO.setResume(student.getBrief().getResume());
+		studentVO.setIndustryId(student.getJobIntention().getIndustryId());
+		studentVO.setJobType(student.getJobIntention().getJobType());
 		return studentVO;
 	}
 	

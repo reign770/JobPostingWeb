@@ -104,7 +104,7 @@
 	
  	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-   			<tx:method name="*" propagation="REQUIRED"/>
+   			<tx:method name="*" propagation="REQUIRED"/> <!-- 如果不把save update delete都配置上，这些操作会无效 -->
 		</tx:attributes>
 	</tx:advice> 
 

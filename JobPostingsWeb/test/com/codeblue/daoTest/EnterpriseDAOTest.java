@@ -53,7 +53,11 @@ public class EnterpriseDAOTest extends AbstractJUnit4SpringContextTests{
 			System.out.println(enterprise);
 		}
 	}
-	
+	@Test
+	public void testGetByEnterpriseId(){
+		Enterprise enterprise = enterpriseDAO.getByEnterpriseId(1);
+		System.out.println(enterprise);
+	}
 
 	@Test
 	public void testGetCountByStudentConcern() {

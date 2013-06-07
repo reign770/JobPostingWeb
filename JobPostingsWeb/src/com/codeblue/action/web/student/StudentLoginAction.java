@@ -34,6 +34,7 @@ public class StudentLoginAction extends ActionSupport implements SessionAware{
 			Student student = (Student)session.get("student");
 			unreadedNumber = messageService
 					.getUnreadedNotifications(student.getStudentId(), 1, 1).getAllRow();
+			account = student.getStudentId();
 			return Action.SUCCESS;
 		}
 		else {

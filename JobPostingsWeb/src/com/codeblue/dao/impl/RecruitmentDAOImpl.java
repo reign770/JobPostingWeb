@@ -28,7 +28,7 @@ public class RecruitmentDAOImpl implements RecruitmentDAO {
 	
 	@Override
 	public Recruitment getByRecruitmentId(int recruitmentId) {
-		return (Recruitment) hibernateTemplate.get(Recruitment.class, recruitmentId);
+		return (Recruitment)hibernateTemplate.get(Recruitment.class, recruitmentId);
 	}
 
 	@Override
