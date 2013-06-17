@@ -101,12 +101,75 @@
 	    		<result name="success" type="json"/>
 	    </action>
 	</package>
+	<!-- 管理员 -->
+	<package name="admin" namespace="/admin" extends="json-default">
+	
+		<action name="VerifyEnterprisePass" method="verifyEnterprisePass" class="com.codeblue.action.web.school.VerifyEnterpriseAction">
+			<result type="json" name="success">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="VerifyEnterpriseUnPass" method="verifyEnterpriseUnPass" class="com.codeblue.action.web.school.VerifyEnterpriseAction">
+			<result type="json" name="success">
+				<param name="root">result</param>
+			</result>
+		</action>
+	
+		<action name="PostNews" method="postNews" class="com.codeblue.action.web.school.PostNewsAction"  >
+			<result type="json" name="success">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="schoolLogin" method="login" class="com.codeblue.action.web.school.schoolLoginAction">
+			<result type="json" name="success">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="schoolLogin_execute" 
+				method="execute"
+				class="com.codeblue.action.web.school.schoolLoginAction">
+				<result name="success">
+					/schoolPersonalPage.jsp
+				</result>
+		</action>
+		
+		<action name="schoolModifyPasswd" method="changePasswd" class="com.codeblue.action.web.school.schoolModifyPasswdAction">
+		</action>
+		<action name="initEnterpriseInfo" method="initInfo" class="com.codeblue.action.web.school.initEnterpriseInfoAction">
+			<result name="success" type="json">
+				<param name="root">jsonMap</param>
+				<param name="excludeNullProperties">false</param>
+			</result>
+		</action>
+		<action name="initStudentInfo" method="initInfo" class="com.codeblue.action.web.school.initStudentInfoAction">
+			<result name="success" type="json">
+				<param name="root">jsonMap</param>
+				<param name="excludeNullProperties">false</param>
+			</result>
+		</action>
+		
+		<action name="initUngraduteStudentInfo" method="initInfo" class="com.codeblue.action.web.school.initUngraduteStudentInfoAction">
+			<result name="success" type="json">
+				<param name="root">jsonMap</param>
+				<param name="excludeNullProperties">false</param>
+			</result>
+		</action>
+		
+		<action name="ModifyStu" method="changeStu" class="com.codeblue.action.web.school.ModifyStuAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>	
 	<!-- 移动平台通信 -->
 	<package name="app" extends="json-default" namespace="/app">
 		<action name="studentInfo_*"
 		        class="com.codeblue.action.app.StudentInfoAction"
 		        method="{1}">
-		        <result name="resume">/s_resume.jsp</result>
+		        <result name="resume">/app_resume.jsp</result>
 		        <result name="result" type="json">
 		        	<param name="root">
 						status
