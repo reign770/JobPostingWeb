@@ -79,7 +79,7 @@
 	}
 $(function(){
 	$("#tabs").tabs();
-    addTab('index','../index.html')
+    addTab('消息通知','notification_execute.action?pageNumber=1&pageSize=10')
 		//菜单的点击
 		$(".nav-header").toggle(function(){
 		$(this).nextUntil('.nav-header').css("display","block");

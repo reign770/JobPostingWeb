@@ -22,46 +22,75 @@
 	<div class="basicInfo">
     	<div class="page-header"><h2>基本信息</h2></div>
 		<div id="basicInfoContent" class="row">	
-       		<dl class="dl-horizontal span8" style="font-size: 18px;">
-    			<dt>姓名：</dt>
-    			<dd>${student.name}</dd>
-    			<br />
-            	<dt>性别：</dt>
-    			<dd>${student.sex}</dd>
-    			<br />
-    			<dt>出生年月日：</dt>	
-    			<dd><fmt:formatDate value="${student.birthday}" 
-    			type="date" dateStyle="long"/>
-    			</dd>
-    			<br />
-    			<dt>民族：</dt>
-    			<dd>${student.nation}</dd>
-    			<br />
-    			<dt>学历：</dt>
-    			<dd>${student.degree}</dd>
-    			<br />
-    			<dt>电话：</dt>
-    			<dd>${student.telephone}</dd>
-    			<br />
-    			<dt>身份证号码：</dt>
-    			<dd>${student.idNum}</dd>
-    			<br />
-    			<dt>联系地址：</dt>
-    			<dd>${student.address}</dd>
-    			<br />    			
-    			<dt>毕业时间：</dt>
-    			<dd><fmt:formatDate value="${student.graduationDate}" 
-    			type="date" dateStyle="long"/>
-				</dd>
-    			<br />
-    			<dt>平均绩点：</dt>
-    			<dd>${student.gpa}</dd>
-    			<br />
-    			<dt>专业：</dt>
-    			<dd>${student.schoolClass.major.majorName}</dd>
-    			<br />
-    			<dt>毕业学校：</dt>
-    			<dd>${student.school}</dd>
+       		<dl class="dl-horizontal span10" style="font-size: 18px;">
+       			<div class="row-fluid">
+	       			<div class="span5">
+		    			<dt>姓名：</dt>
+		    			<dd>${student.name}</dd>
+	    			</div>
+	    			<div class="span5">
+		            	<dt >性别：</dt>
+		    			<dd>${student.sex}</dd>
+	    			</div>
+    			</div>
+    			<div class="row-fluid">
+    				<div class="span5">
+		    			<dt>出生年月日：</dt>	
+		    			<dd><fmt:formatDate value="${student.birthday}" 
+		    			type="date" dateStyle="long"/>
+		    			</dd>
+    				</div>
+    				<div class="span5">
+		    			<dt>民族：</dt>
+		    			<dd>${student.nation}</dd>    					
+    				</div>
+    			</div>
+    			<div class="row-fluid">
+    				<div class="span5">
+		    			<dt>学历：</dt>
+		    			<dd>${student.degree}</dd>
+    				</div>
+    				<div class="span5">
+    					<dt>毕业学校：</dt>
+    					<dd>${student.school}</dd>
+    				</div>
+    			</div>
+    			<div class="row-fluid">
+    				<div class="span5">
+		    			<dt>电话：</dt>
+		    			<dd>${student.telephone}</dd>
+	    			</div>
+	    			<div class="span5">
+		    			<dt>身份证号码：</dt>
+		    			<dd>${student.idNum}</dd>
+	    			</div>
+    			</div>
+    			<div class="row-fluid">
+    				<div class="span5">
+	    				<dt>联系地址：</dt>
+	    				<dd>${student.address}</dd>
+    				</div>
+    				<div class="span5">
+    					<dt>email：</dt>
+    					<dd>${student.email}</dd>
+    				</div>
+    			</div>
+    			<div class="row-fluid">
+    				<div class="span5">
+		    			<dt>平均绩点：</dt>
+		    			<dd>${student.gpa}</dd>
+	    			</div>
+	    			<div class="span6">
+		    			<dt>专业：</dt>
+		    			<dd>${student.schoolClass.major.majorName}</dd>
+	    			</div>
+    			</div>
+    			<div class="row-fluid">
+	    			<dt>毕业时间：</dt>
+	    			<dd><fmt:formatDate value="${student.graduationDate}" 
+	    			type="date" dateStyle="long"/>
+					</dd>
+				</div>
     		</dl>
             <div id="basicInfoHeadIcon" >
             	<img src="${student.headImage }" width="100" height="100"  class="img-polaroid"/>

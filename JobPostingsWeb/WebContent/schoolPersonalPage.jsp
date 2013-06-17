@@ -5,13 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>personalPage</title>
-<link href="css/personalPage.css" rel="stylesheet" media="screen"/>
-<link href="css/menu.css" rel="stylesheet" media="screen"/>
-<link href="js/jquery-easyui-1.3.3/themes/bootstrap/easyui.css" rel="stylesheet" media="screen"/>
-<link href="js/jquery-easyui-1.3.3/themes/icon.css" rel="stylesheet" media="screen"/>
-<link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<link href="/JobPostingsWeb/css/personalPage.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/css/menu.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/js/jquery-easyui-1.3.3/themes/bootstrap/easyui.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/js/jquery-easyui-1.3.3/themes/icon.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+<script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
+<script src="/JobPostingsWeb/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 </head>
 <body>
 <div class="myLayout">
@@ -24,13 +24,13 @@
 <!--             <span id="notification" class="badge badge-info">2</span> -->
         </div>
     	<ul class="nav nav-list layer1">
-           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('审核企业信息','a_verigyEnterprise.jsp')"><i class="icon-chevron-right"></i>审核企业信息</a></li>
-          	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('导入学生信息','a_import.html')"><i class="icon-chevron-right"></i>导入学生信息</a></li>
-           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('查看学生信息','a_queryStudent.jsp')"><i class="icon-chevron-right"></i>查看学生信息</a></li>
-           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('修改学生信息','a_modifyStudent.jsp')"><i class="icon-chevron-right"></i>修改学生信息</a></li>
-           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('发布就业新闻','a_postNews.jsp')"><i class="icon-chevron-right"></i>发布就业新闻</a></li>
-          	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('统计数据','a_dataCalculatingAndOutput.jsp')"><i class="icon-chevron-right"></i>统计数据</a></li>
-          	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('修改密码','a_modifyPasswd.html')"><i class="icon-chevron-right"></i>修改密码</a></li>
+           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('审核企业信息','../a_verigyEnterprise.jsp')"><i class="icon-chevron-right"></i>审核企业信息</a></li>
+          	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('导入学生信息','../a_import.html')"><i class="icon-chevron-right"></i>导入学生信息</a></li>
+           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('查看学生信息','../a_queryStudent.jsp')"><i class="icon-chevron-right"></i>查看学生信息</a></li>
+           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('修改学生信息','../a_modifyStudent.jsp')"><i class="icon-chevron-right"></i>修改学生信息</a></li>
+           	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('发布就业新闻','../a_postNews.jsp')"><i class="icon-chevron-right"></i>发布就业新闻</a></li>
+          	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('统计数据','../a_dataCalculatingAndOutput.jsp')"><i class="icon-chevron-right"></i>统计数据</a></li>
+          	<li class="ohno"><a href="javascript:void(0)" onclick="addTab('修改密码','../a_modifyPasswd.html')"><i class="icon-chevron-right"></i>修改密码</a></li>
 		</ul>
     </div>
     <div class="contents">
