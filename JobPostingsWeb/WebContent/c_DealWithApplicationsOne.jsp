@@ -23,7 +23,7 @@ $(function () {
 </script>
 </head>
 
-<body style="background:#ECEFF1;">
+<body >
 <div class="myLayout">
 	
     

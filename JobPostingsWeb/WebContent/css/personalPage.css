@@ -1,5 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
+body{
+	background:url("/JobPostingsWeb/img/back.jpg");
+}
 a{
 	cursor:pointer;}
 .myLayout:before{
@@ -18,8 +21,10 @@ a{
     top: 0;
 	left: 0;
 	overflow:hidden;
-	background:#ECEFF1;
+	/*background:#ECEFF1;*/
 	left:10%;
+	box-shadow: 0 1px 26px rgba(0, 0, 0, 0.6);
+	background: transparent;
     }
 .navs{
 	position: relative;
@@ -71,7 +76,7 @@ a{
 	}
 /*内容窗口*/
 .myIframe{
-    background:#ECEFF1;
+    background:transparent;
 	padding-left:1%;
 	width:99%;
 	}

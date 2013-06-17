@@ -174,7 +174,7 @@ function inviteClick(){
 		<div class="basicInfo">
     		<div class="page-header"><h2>基本信息</h2></div>
 			<div id="basicInfoContent" class="row">	
-       			<dl class="dl-horizontal span8">
+       			<dl class="dl-horizontal span4" style="margin-left: -10%;">
     				<dt>职位名称：</dt>
     				<dd><input type="text" name="recruitment.postingName" /></dd>
     				<dt>工作城市：</dt>
@@ -185,6 +185,22 @@ function inviteClick(){
     				<dd><input type="text" name="recruitment.salary" /></dd>
             		<dt>工作经验：</dt>
     				<dd><input type="text" name="recruitment.workExperience" /></dd>
+    				<dt>截止日期：</dt>
+    				<dd>
+    				<div class="input-append date form_datetime">
+						<input size="16" type="text"  readonly name="recruitment.deadline">
+    					<span class="add-on"><i class="icon-th"></i></span>
+					</div>
+    				</dd>
+    				
+    			</dl>
+    			<dl class="dl-horizontal span4">
+    				<dt>年龄要求：</dt>
+    				<dd><input type="text" name="recruitment.age" /></dd>
+    				<dt>外语要求：</dt>
+    				<dd><input type="text" name="recruitment.foreignLanguage" /></dd>
+    				<dt>学历要求：</dt>
+    				<dd><input type="text" name="recruitment.degree" /></dd>
     				<dt>性别要求：</dt>
     				<dd>
     					<select id="sex" name="recruitment.sex">
@@ -192,19 +208,6 @@ function inviteClick(){
     						<option value="男">男</option>
     						<option value="女">女</option>
     					</select>
-    				</dd>
-    				<dt>年龄要求：</dt>
-    				<dd><input type="text" name="recruitment.age" /></dd>
-    				<dt>外语要求：</dt>
-    				<dd><input type="text" name="recruitment.foreignLanguage" /></dd>
-    				<dt>学历要求：</dt>
-    				<dd><input type="text" name="recruitment.degree" /></dd>
-    				<dt>截止日期：</dt>
-    				<dd>
-    				<div class="input-append date form_datetime">
-						<input size="16" type="text"  readonly name="recruitment.deadline">
-    					<span class="add-on"><i class="icon-th"></i></span>
-					</div>
     				</dd>
     				<dt>所属行业：</dt>
     				<dd><select id="industries" name="recruitment.industry.industryId">

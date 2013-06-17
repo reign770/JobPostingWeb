@@ -50,7 +50,7 @@ function stopRecruitingClick(rID,btn){
 </script>
 </head>
 
-<body style="background:#ECEFF1;">
+<body style="background:#f5f5f5;">
 <div class="myLayout">
 	
     
