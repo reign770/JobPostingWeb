@@ -12,7 +12,7 @@ import com.codeblue.vo.EvaluationVO;
 import com.codeblue.vo.Status;
 import com.opensymphony.xwork2.ActionSupport;
 
-@Controller("app_evaluationAction")
+@Controller
 public class EvaluationAction extends ActionSupport{
 
 	/**
