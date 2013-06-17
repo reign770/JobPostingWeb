@@ -115,8 +115,8 @@ $(function(){
      </div>
    </div>
    <div id="comContent" class="well">
-   		<div id="left" class="span7">
-			<div id="comIntro">
+   		<div id="left" class="span9">
+			<div id="comIntro" class="span4">
 				<dl class="dl-horizontal">
     				<dt>创建时间</dt>
     				<dd>：<fmt:formatDate value="${enterprise.foundDate}" pattern="yyyy-MM-dd"/> </dd>
@@ -145,7 +145,31 @@ $(function(){
     			</dl>
 				
 			</div>
-			<div id="wantedInfo">
+			
+			<div id="right" class="span4">
+    		<div id="friendLink" class="row-fluid">
+    				
+    				<div class="page-header"><h4>英才推荐</h4></div>
+				    <ul class="thumbnails" style="overflow: hidden;">
+				    	<div id="movecontent">
+				    	<s:iterator value="pageBean3.list">
+    						<li class="span5" style="margin-left: 5px;">
+    							<div class="thumbnail">
+   								 	<img src="${headImage }" alt="" >
+    							 	<div class="caption">
+    							 		<p style="word-break: break-all;">${name }</p>
+   								 	</div>
+    							</div>
+    						</li>
+    					</s:iterator>
+					  </div>
+    				</ul>
+			</div>
+   		</div>
+			
+			
+			
+			<div id="wantedInfo" class="span8">
 				<div id="infos">
 				  <s:iterator value="recruitments" status="sts">
 					<div class="wantedInfocontent well-small">
@@ -169,7 +193,7 @@ $(function(){
 					<img src="/JobPostingsWeb/img/loading.gif" alt="" style="display:none;" />
 				</span>
 			</div>
-			<div id="forum">
+			<div id="forum" class="span8">
 				<s:iterator value="evaluations">
 					<div class="commentRow">
 						<div class="row">	
@@ -188,26 +212,7 @@ $(function(){
          		
 			</div>
    		</div>
-   		<div id="right" class="span4">
-    		<div id="friendLink" class="row-fluid">
-    				
-    				<div class="page-header"><h4>英才推荐</h4></div>
-				    <ul class="thumbnails" style="overflow: hidden;">
-				    	<div id="movecontent">
-				    	<s:iterator value="pageBean3.list">
-    						<li class="span5" style="margin-left: 5px;">
-    							<div class="thumbnail">
-   								 	<img src="${headImage }" alt="" >
-    							 	<div class="caption">
-    							 		<p style="word-break: break-all;">${name }</p>
-   								 	</div>
-    							</div>
-    						</li>
-    					</s:iterator>
-					  </div>
-    				</ul>
-			</div>
-   		</div>
+   		
    </div>
    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>

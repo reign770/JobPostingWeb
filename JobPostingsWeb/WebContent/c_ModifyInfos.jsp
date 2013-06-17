@@ -88,7 +88,7 @@ $(function(){
         	</div>	
     		<div class="page-header"><h2>基本信息</h2></div>
 			<div id="basicInfoContent" class="row">	
-       			<dl class="dl-horizontal span8">
+       			<dl class="dl-horizontal span6">
                 	<dt>企业名称</dt>
     				<dd>：<input type="text" name="enterprise.enterpriseName" value="${enterprise.enterpriseName}"/></dd>
     				<dt>创建时间</dt>

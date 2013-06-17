@@ -69,7 +69,7 @@ $(function(){
             <a data-dismiss="modal" class="btn" href="#">确定</a>
           </div>
     </div> 
-	<div class="span10" id="positionInfo">
+	<div class="span9" id="positionInfo">
 		<div class="basicInfo">
     		<div class="page-header"><h2>基本信息</h2></div>
 			<div id="basicInfoContent" class="row">	
@@ -131,7 +131,7 @@ $(function(){
         
     </div>
     
-    <div class="span10" id="publisher">
+    <div class="span9" id="publisher">
     	<div class="page-header"><h4>职位发布人</h4></div>
     	<span id="headicon" class="pull-left"><img src="${recruitment.enterprise.logo}" class="img-polaroid" style="height:100px"/></span>
       	<span id="username"><a href="#"><h4>${recruitment.enterprise.enterpriseName}</h4></a></span>
