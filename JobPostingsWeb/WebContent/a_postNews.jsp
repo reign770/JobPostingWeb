@@ -6,17 +6,17 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>发布新闻</title>
-    <link href="./js/editor/bootstrap-combined.css" rel="stylesheet">
-    <link href="./js/editor/bootstrap-responsive.css" rel="stylesheet">
-	<link href="./js/editor/font-awesome.css" rel="stylesheet">
-	<script src="./js/editor/all.js" id="facebook-jssdk"></script>
-	<script src="./js/editor/analytics.js" async=""></script>
-	<script src="./js/editor/jquery_002.js"></script>
-		<script src="./js/editor/jquery.js"></script>
-    <script src="./js/editor/bootstrap.js"></script>
+    <link href="/JobPostingsWeb/js/editor/bootstrap-combined.css" rel="stylesheet">
+    <link href="/JobPostingsWeb/js/editor/bootstrap-responsive.css" rel="stylesheet">
+	<link href="/JobPostingsWeb/js/editor/font-awesome.css" rel="stylesheet">
+	<script src="/JobPostingsWeb/js/editor/all.js" id="facebook-jssdk"></script>
+	<script src="/JobPostingsWeb/js/editor/analytics.js" async=""></script>
+	<script src="/JobPostingsWeb/js/editor/jquery_002.js"></script>
+		<script src="/JobPostingsWeb/js/editor/jquery.js"></script>
+    <script src="/JobPostingsWeb/js/editor/bootstrap.js"></script>
 <!--     <script src="./js/editor/prettify.js"></script> -->
-		<link href="./js/editor/index.css" rel="stylesheet">
-    <script src="./js/editor/bootstrap-wysiwyg.js"></script>
+		<link href="/JobPostingsWeb/js/editor/index.css" rel="stylesheet">
+    <script src="/JobPostingsWeb/js/editor/bootstrap-wysiwyg.js"></script>
     <script>
     
     function loginValidationCallBack(responseText){

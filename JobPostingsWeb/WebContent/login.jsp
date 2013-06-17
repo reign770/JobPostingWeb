@@ -94,8 +94,8 @@ $(function(){
 		$('#loginForm').attr("action",action);
 	});
 	$('#admin').click(function(){
-		validateAction = 'admin/login_execute.action';
-		action = 'admin/login_execute.action';
+		validateAction = 'admin/schoolLogin.action';
+		action = 'admin/schoolLogin_execute';
 		$('#loginForm').attr("action",action);
 		$('#register').attr("disabled","disabled");
 		$('#register').show();
@@ -178,6 +178,7 @@ $(function(){
 					$("#msg").text("该账号已经停用!")
 				}
 				else{
+					$("#loginmsg").text("验证正确");
 					$("#msg").text("恭喜你登录成功!");
 					$("#alert").show();
 					$("#loginForm").submit();
@@ -294,7 +295,7 @@ function loadContentThree(pS,pN){
                 <input id="password" type="password" class="password" name="enterprise.password" placeholder="密码">
                 <div id="alert" class="alert alert alert-error">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>登录错误!</strong><div id="msg"></div>
+					<strong id="loginmsg">登录错误!</strong><div id="msg"></div>
 			    </div>
 			    
                  <div class="formAction">

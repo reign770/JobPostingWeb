@@ -96,14 +96,15 @@ $(function(){
     				<dd><fmt:formatDate value="${recruitment.deadline}" pattern="yyyy-MM-dd"/></dd>
     				<dt>所属行业：</dt>
     				<dd>${recruitment.industry.jobType}</dd>
-    				
     			</dl>
+    			
     			<c:if test="${sessionScope.student != null }">
 	    			<c:choose>
-					 <c:when test="${isApply == false }">    
+					 <c:when test="${apply == false}">    
 	    				<button id="applyJob" class="btn btn-primary pull-right">申请职位</button>
 					 </c:when>
-					 <c:otherwise>  
+					 <c:otherwise> 
+					 	
 	    				<button id="applyJob" class="btn btn-primary pull-right" disabled="disabled">已申请职位</button>
 					 </c:otherwise>
 					</c:choose>

@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>查看学生信息</title>
-<link href="css/a_dataCalculatingAndOutput.css" rel="stylesheet" media="screen"/>
-<link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
-<link href="js/jquery-easyui-1.3.3/themes/bootstrap/easyui.css" rel="stylesheet" media="screen"/>
-<link href="js/jquery-easyui-1.3.3/themes/icon.css" rel="stylesheet" media="screen"/>
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="css/bootstrap/js/bootstrap.js"></script>
-<script src="js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="js/jquery-easyui-1.3.3/datagrid-detailview.js"></script>
+<link href="/JobPostingsWeb/css/a_dataCalculatingAndOutput.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/js/jquery-easyui-1.3.3/themes/bootstrap/easyui.css" rel="stylesheet" media="screen"/>
+<link href="/JobPostingsWeb/js/jquery-easyui-1.3.3/themes/icon.css" rel="stylesheet" media="screen"/>
+<script src="/JobPostingsWeb/js/jquery-1.8.3.min.js"></script>
+<script src="/JobPostingsWeb/css/bootstrap/js/bootstrap.js"></script>
+<script src="/JobPostingsWeb/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/JobPostingsWeb/js/jquery-easyui-1.3.3/datagrid-detailview.js"></script>
 <script type="application/javascript">
 
 $(function () {
@@ -89,7 +89,7 @@ $(function () {
     	<table id="dg"  
      		pageSize="15"
      		pageList="[2,15]"
-     		url="initStudentInfo">
+     		url="admin/initStudentInfo">
         	<tbody>  
     		</tbody>  
        </table> 
