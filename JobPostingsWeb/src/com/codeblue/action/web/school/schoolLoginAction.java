@@ -19,6 +19,11 @@ public class schoolLoginAction extends ActionSupport implements SessionAware{
 	private String username;
 	private String password;
 	
+	
+	@Override
+	public String execute() throws Exception {
+		return "success";
+	}
 	public String getResult() {
 		return result;
 	}

@@ -28,7 +28,7 @@ public class initStudentInfoAction extends ActionSupport{
 		Integer[] states=StudentAccount.ALL;
 		pageBean=administratorService.queryAllStudent(states, page, rows);
 		jsonMap.clear();
-		//jsonMap=administratorService.convertStudentInfoToMap(pagebean);
+		jsonMap=administratorService.convertStudentInfoToMap(pageBean);
 		return "success";
 	}
 	
