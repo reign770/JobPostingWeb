@@ -2,14 +2,24 @@
 /* CSS Document */
 a{
 	cursor:pointer;}
+.myLayout:before{
+	background: none repeat scroll 0 0 #1E1E1E;
+    content: "";
+    height: 32px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 .myLayout{
 	position: absolute;
 	height: 100%;
-	width: 100%;
+	width: 80%;
     top: 0;
 	left: 0;
 	overflow:hidden;
 	background:#ECEFF1;
+	left:10%;
     }
 .navs{
 	position: relative;
@@ -81,7 +91,7 @@ a{
     position:absolute;
 	}
 #barPart #notification{
-	left: 190px;
+	left: 150px;
     margin-top: -7px;
     position: absolute;
     top: 45%;

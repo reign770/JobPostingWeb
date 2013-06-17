@@ -23,8 +23,8 @@ body{
     box-shadow: 1px 1px 2px rgba(175, 177, 178, 0.35);
     margin-top: 50px;
     padding: 20px;
-	max-width:80%;
-	margin-left:5%;
+	max-width:90%;
+	/*margin-left:5%;*/
 	}
 #buttons{
 	padding-top:50px;
